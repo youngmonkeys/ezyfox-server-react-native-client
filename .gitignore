@@ -1,0 +1,14 @@
+node_modules/
+package-lock.json
+yarn.lock
+.vscode/
+android/.idea
+android/freechat-react-native.iml
+android/build
+android/local.properties
+android/gradlew.bat
+android/gradlew
+android/gradle/
+android/app/build
+android/app/proguard-rules.pro
+android/app/app.iml

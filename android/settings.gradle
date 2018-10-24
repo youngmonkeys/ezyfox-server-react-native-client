@@ -1,0 +1,4 @@
+rootProject.name = 'freechat-react-native'
+
+include ':app'
+include ':socket'
