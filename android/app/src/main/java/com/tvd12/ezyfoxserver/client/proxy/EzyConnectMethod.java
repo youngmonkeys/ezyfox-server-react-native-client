@@ -10,9 +10,7 @@ import com.tvd12.ezyfoxserver.client.EzyMethodNames;
 public class EzyConnectMethod extends EzyMethodProxy {
 
     @Override
-    protected void validate() {
-        if(!params.hasKey("clientName"))
-            throw new IllegalArgumentException("unknown client");
+    public void validate() {
         if(!params.hasKey("host"))
             throw new IllegalArgumentException("must specific host");
         if(!params.hasKey("port"))
@@ -20,13 +18,12 @@ public class EzyConnectMethod extends EzyMethodProxy {
     }
 
     @Override
-    protected Object invoke() {
+    public Object invoke() {
         String host = params.getString("host");
         int port = params.getInt("port");
-        String clientName = params.getString("clientName");
-        EzyClient client = clients.getClient(clientName);
+        EzyClient client = getClient();
         client.connect(host, port);
-        return client;
+        return Boolean.TRUE;
     }
 
     @Override
