@@ -25,4 +25,12 @@ public abstract class EzyMethodProxy {
     public void setParams(ReadableMap params) {
         this.params = params;
     }
+
+    protected EzyClient getClient() {
+        if(!params.hasKey("clientName"))
+            throw new IllegalArgumentException("must specific client name");
+        String clientName = params.getString("clientName");
+        EzyClient client = getClient(clientName);
+        return client;
+    }
 }
