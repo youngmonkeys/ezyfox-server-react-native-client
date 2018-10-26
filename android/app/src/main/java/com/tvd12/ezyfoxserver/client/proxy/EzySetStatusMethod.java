@@ -1,5 +1,6 @@
 package com.tvd12.ezyfoxserver.client.proxy;
 
+import com.facebook.react.bridge.ReadableMap;
 import com.tvd12.ezyfoxserver.client.EzyClient;
 import com.tvd12.ezyfoxserver.client.EzyMethodNames;
 import com.tvd12.ezyfoxserver.client.constant.EzyConnectionStatus;
@@ -10,12 +11,8 @@ import com.tvd12.ezyfoxserver.client.constant.EzyConnectionStatus;
 
 public class EzySetStatusMethod extends EzyMethodProxy {
     @Override
-    public void validate() {
-    }
-
-    @Override
-    public Object invoke() {
-        EzyClient client = getClient();
+    public Object invoke(ReadableMap params) {
+        EzyClient client = getClient(params);
         String statusName = params.getString("status");
         client.setStatus(EzyConnectionStatus.valueOf(statusName));
         return Boolean.TRUE;

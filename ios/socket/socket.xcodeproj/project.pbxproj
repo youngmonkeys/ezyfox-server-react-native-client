@@ -284,6 +284,7 @@
 		E93D35AD218335CF0001E1B0 /* EzySocketReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93D3494218335CB0001E1B0 /* EzySocketReader.cpp */; };
 		E93D35AE218335CF0001E1B0 /* EzyPingSchedule.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3495218335CB0001E1B0 /* EzyPingSchedule.h */; };
 		E93D35AF218335CF0001E1B0 /* EzySocketWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93D3496218335CB0001E1B0 /* EzySocketWriter.cpp */; };
+		E9A458EC21836FD100FDFDE8 /* EzyConnectionStatus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A458EB21836FD100FDFDE8 /* EzyConnectionStatus.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -301,7 +302,7 @@
 		E93D3375218335CA0001E1B0 /* EzyAppDataHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EzyAppDataHandler.cpp; sourceTree = "<group>"; };
 		E93D3376218335CA0001E1B0 /* EzyDataHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EzyDataHandler.cpp; sourceTree = "<group>"; };
 		E93D3377218335CA0001E1B0 /* EzyClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzyClient.h; sourceTree = "<group>"; };
-		E93D3378218335CA0001E1B0 /* EzyClients.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzyClients.h; sourceTree = "<group>"; };
+		E93D3378218335CA0001E1B0 /* EzyClients.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = EzyClients.h; sourceTree = "<group>"; };
 		E93D337A218335CA0001E1B0 /* EzyLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EzyLogger.cpp; sourceTree = "<group>"; };
 		E93D337B218335CA0001E1B0 /* EzyLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzyLogger.h; sourceTree = "<group>"; };
 		E93D337D218335CA0001E1B0 /* EzyMaps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzyMaps.h; sourceTree = "<group>"; };
@@ -565,6 +566,7 @@
 		E93D3494218335CB0001E1B0 /* EzySocketReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EzySocketReader.cpp; sourceTree = "<group>"; };
 		E93D3495218335CB0001E1B0 /* EzyPingSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzyPingSchedule.h; sourceTree = "<group>"; };
 		E93D3496218335CB0001E1B0 /* EzySocketWriter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EzySocketWriter.cpp; sourceTree = "<group>"; };
+		E9A458EB21836FD100FDFDE8 /* EzyConnectionStatus.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EzyConnectionStatus.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -597,21 +599,21 @@
 		E93D3369218335CA0001E1B0 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				E93D336A218335CA0001E1B0 /* handler */,
 				E93D3377218335CA0001E1B0 /* EzyClient.h */,
+				E93D33A0218335CA0001E1B0 /* EzyClient.cpp */,
 				E93D3378218335CA0001E1B0 /* EzyClients.h */,
+				E93D3433218335CB0001E1B0 /* EzyClients.cpp */,
+				E93D343E218335CB0001E1B0 /* EzyMacro.h */,
+				E93D3434218335CB0001E1B0 /* EzyHeaders.h */,
+				E93D336A218335CA0001E1B0 /* handler */,
 				E93D3379218335CA0001E1B0 /* logger */,
 				E93D337C218335CA0001E1B0 /* util */,
 				E93D337E218335CA0001E1B0 /* config */,
 				E93D3381218335CA0001E1B0 /* security */,
 				E93D3384218335CA0001E1B0 /* entity */,
 				E93D3399218335CA0001E1B0 /* codec */,
-				E93D33A0218335CA0001E1B0 /* EzyClient.cpp */,
 				E93D33A1218335CA0001E1B0 /* cryptopp */,
-				E93D3433218335CB0001E1B0 /* EzyClients.cpp */,
-				E93D3434218335CB0001E1B0 /* EzyHeaders.h */,
 				E93D3435218335CB0001E1B0 /* manager */,
-				E93D343E218335CB0001E1B0 /* EzyMacro.h */,
 				E93D343F218335CB0001E1B0 /* constant */,
 				E93D3447218335CB0001E1B0 /* rapidjson */,
 				E93D346E218335CB0001E1B0 /* gc */,
@@ -888,11 +890,12 @@
 			isa = PBXGroup;
 			children = (
 				E93D3440218335CB0001E1B0 /* EzyConnectionStatus.h */,
-				E93D3441218335CB0001E1B0 /* EzyCommand.cpp */,
-				E93D3442218335CB0001E1B0 /* EzyConnectionFailedReason.h */,
-				E93D3443218335CB0001E1B0 /* EzyDisconnectReason.h */,
+				E9A458EB21836FD100FDFDE8 /* EzyConnectionStatus.cpp */,
 				E93D3444218335CB0001E1B0 /* EzyCommand.h */,
+				E93D3441218335CB0001E1B0 /* EzyCommand.cpp */,
+				E93D3443218335CB0001E1B0 /* EzyDisconnectReason.h */,
 				E93D3445218335CB0001E1B0 /* EzyDisconnectReason.cpp */,
+				E93D3442218335CB0001E1B0 /* EzyConnectionFailedReason.h */,
 				E93D3446218335CB0001E1B0 /* EzyConnectionFailedReason.cpp */,
 			);
 			path = constant;
@@ -1357,6 +1360,7 @@
 				E93D34AF218335CC0001E1B0 /* EzyZone.cpp in Sources */,
 				E93D34C6218335CC0001E1B0 /* EzyClient.cpp in Sources */,
 				E93D34BE218335CC0001E1B0 /* EzyPlugin.cpp in Sources */,
+				E9A458EC21836FD100FDFDE8 /* EzyConnectionStatus.cpp in Sources */,
 				E93D34B3218335CC0001E1B0 /* EzyObject.cpp in Sources */,
 				E93D358F218335CE0001E1B0 /* EzyReleasePool.cpp in Sources */,
 				E93D35AF218335CF0001E1B0 /* EzySocketWriter.cpp in Sources */,

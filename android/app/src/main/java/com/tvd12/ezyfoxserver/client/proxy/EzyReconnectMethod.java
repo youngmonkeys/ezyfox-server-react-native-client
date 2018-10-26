@@ -1,5 +1,6 @@
 package com.tvd12.ezyfoxserver.client.proxy;
 
+import com.facebook.react.bridge.ReadableMap;
 import com.tvd12.ezyfoxserver.client.EzyClient;
 import com.tvd12.ezyfoxserver.client.EzyMethodNames;
 
@@ -9,12 +10,8 @@ import com.tvd12.ezyfoxserver.client.EzyMethodNames;
 
 public class EzyReconnectMethod extends EzyMethodProxy {
     @Override
-    public void validate() {
-    }
-
-    @Override
-    public Object invoke() {
-        EzyClient client = getClient();
+    public Object invoke(ReadableMap params) {
+        EzyClient client = getClient(params);
         boolean answer = client.reconnect();
         return answer;
     }

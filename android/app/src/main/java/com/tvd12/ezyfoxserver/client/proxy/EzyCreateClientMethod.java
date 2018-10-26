@@ -8,7 +8,6 @@ import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.tvd12.ezyfoxserver.client.EzyClient;
 import com.tvd12.ezyfoxserver.client.EzyMethodNames;
-import com.tvd12.ezyfoxserver.client.EzyTcpClient;
 import com.tvd12.ezyfoxserver.client.command.EzySetup;
 import com.tvd12.ezyfoxserver.client.config.EzyClientConfig;
 import com.tvd12.ezyfoxserver.client.config.EzyReconnectConfig;
@@ -24,7 +23,7 @@ import com.tvd12.ezyfoxserver.client.serializer.EzyNativeSerializers;
  * Created by tavandung12 on 10/24/18.
  */
 
-public class EzyCreateClientMethod extends  EzyMethodProxy {
+public class EzyCreateClientMethod extends EzyMethodProxy {
 
     private final ReactContext reactContext;
 
@@ -33,7 +32,7 @@ public class EzyCreateClientMethod extends  EzyMethodProxy {
     }
 
     @Override
-    public void validate() {
+    public void validate(ReadableMap params) {
         if(params == null)
             throw new NullPointerException("the config is null, can't create an client");
         if(!params.hasKey("zoneName"))
@@ -41,18 +40,18 @@ public class EzyCreateClientMethod extends  EzyMethodProxy {
     }
 
     @Override
-    public Object invoke() {
-        EzyClientConfig config = newConfig();
+    public Object invoke(ReadableMap params) {
+        EzyClientConfig config = newConfig(params);
         EzyClient client = getClient(config.getClientName());
         if(client == null)
-            client = new EzyTcpClient(config);
+            client = clients.newClient(config);
         clients.addClient(client);
         setupClient(client);
         ReadableMap configMap = EzyNativeSerializers.serialize(config);
         return configMap;
     }
 
-    private EzyClientConfig newConfig() {
+    private EzyClientConfig newConfig(ReadableMap params) {
         EzyClientConfig.Builder configBuilder = EzyClientConfig.builder();
         if(params.hasKey("clientName"))
             configBuilder.clientName(params.getString("clientName"));

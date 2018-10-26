@@ -1,5 +1,6 @@
 package com.tvd12.ezyfoxserver.client.proxy;
 
+import com.facebook.react.bridge.ReadableMap;
 import com.tvd12.ezyfoxserver.client.EzyClient;
 import com.tvd12.ezyfoxserver.client.EzyMethodNames;
 
@@ -10,7 +11,7 @@ import com.tvd12.ezyfoxserver.client.EzyMethodNames;
 public class EzyConnectMethod extends EzyMethodProxy {
 
     @Override
-    public void validate() {
+    public void validate(ReadableMap params) {
         if(!params.hasKey("host"))
             throw new IllegalArgumentException("must specific host");
         if(!params.hasKey("port"))
@@ -18,10 +19,10 @@ public class EzyConnectMethod extends EzyMethodProxy {
     }
 
     @Override
-    public Object invoke() {
+    public Object invoke(ReadableMap params) {
         String host = params.getString("host");
         int port = params.getInt("port");
-        EzyClient client = getClient();
+        EzyClient client = getClient(params);
         client.connect(host, port);
         return Boolean.TRUE;
     }

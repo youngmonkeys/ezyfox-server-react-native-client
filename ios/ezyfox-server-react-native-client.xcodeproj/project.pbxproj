@@ -11,9 +11,12 @@
 		E93B737D21822C1F005D3930 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E93B737C21822C1F005D3930 /* Podfile */; };
 		E963D589218337FA00045CA0 /* libsocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E93D35B52183368F0001E1B0 /* libsocket.a */; };
 		E98F3DC72182C187004F331B /* EzyClientProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = E98F3DC62182C187004F331B /* EzyClientProxy.m */; };
-		E98F3DCB2182C3CC004F331B /* EzyMethodProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = E98F3DCA2182C3CC004F331B /* EzyMethodProxy.m */; };
-		E9C3E39B21822B2A00EF0EE8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C3E39A21822B2A00EF0EE8 /* AppDelegate.m */; };
-		E9C3E39E21822B2A00EF0EE8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C3E39D21822B2A00EF0EE8 /* ViewController.m */; };
+		E98F3DCB2182C3CC004F331B /* EzyMethodProxy.mm in Sources */ = {isa = PBXBuildFile; fileRef = E98F3DCA2182C3CC004F331B /* EzyMethodProxy.mm */; };
+		E9A458F02183782500FDFDE8 /* EzyEventSerializer.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9A458EF2183782500FDFDE8 /* EzyEventSerializer.mm */; };
+		E9A458F32183841400FDFDE8 /* EzyNativeSerializers.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9A458F22183841400FDFDE8 /* EzyNativeSerializers.mm */; };
+		E9A458F72183852400FDFDE8 /* EzyNativeStrings.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9A458F62183852400FDFDE8 /* EzyNativeStrings.mm */; };
+		E9C3E39B21822B2A00EF0EE8 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9C3E39A21822B2A00EF0EE8 /* AppDelegate.mm */; };
+		E9C3E39E21822B2A00EF0EE8 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9C3E39D21822B2A00EF0EE8 /* ViewController.mm */; };
 		E9C3E3A121822B2A00EF0EE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9C3E39F21822B2A00EF0EE8 /* Main.storyboard */; };
 		E9C3E3A321822B2D00EF0EE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9C3E3A221822B2D00EF0EE8 /* Assets.xcassets */; };
 		E9C3E3A621822B2D00EF0EE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9C3E3A421822B2D00EF0EE8 /* LaunchScreen.storyboard */; };
@@ -59,12 +62,20 @@
 		E98F3DC52182C187004F331B /* EzyClientProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EzyClientProxy.h; sourceTree = "<group>"; };
 		E98F3DC62182C187004F331B /* EzyClientProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EzyClientProxy.m; sourceTree = "<group>"; };
 		E98F3DC92182C3CC004F331B /* EzyMethodProxy.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = EzyMethodProxy.h; sourceTree = "<group>"; };
-		E98F3DCA2182C3CC004F331B /* EzyMethodProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EzyMethodProxy.m; sourceTree = "<group>"; };
+		E98F3DCA2182C3CC004F331B /* EzyMethodProxy.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = EzyMethodProxy.mm; sourceTree = "<group>"; };
+		E9A458E921835E7F00FDFDE8 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		E9A458EA2183640000FDFDE8 /* EzyMethodNames.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; path = EzyMethodNames.h; sourceTree = "<group>"; };
+		E9A458EE2183782500FDFDE8 /* EzyEventSerializer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = EzyEventSerializer.h; sourceTree = "<group>"; };
+		E9A458EF2183782500FDFDE8 /* EzyEventSerializer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EzyEventSerializer.mm; sourceTree = "<group>"; };
+		E9A458F12183841400FDFDE8 /* EzyNativeSerializers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EzyNativeSerializers.h; sourceTree = "<group>"; };
+		E9A458F22183841400FDFDE8 /* EzyNativeSerializers.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EzyNativeSerializers.mm; sourceTree = "<group>"; };
+		E9A458F52183852400FDFDE8 /* EzyNativeStrings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EzyNativeStrings.h; sourceTree = "<group>"; };
+		E9A458F62183852400FDFDE8 /* EzyNativeStrings.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EzyNativeStrings.mm; sourceTree = "<group>"; };
 		E9C3E39621822B2A00EF0EE8 /* ezyfox-server-react-native-client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ezyfox-server-react-native-client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C3E39921822B2A00EF0EE8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		E9C3E39A21822B2A00EF0EE8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E9C3E39A21822B2A00EF0EE8 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		E9C3E39C21822B2A00EF0EE8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E9C3E39D21822B2A00EF0EE8 /* ViewController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = ViewController.m; sourceTree = "<group>"; };
+		E9C3E39D21822B2A00EF0EE8 /* ViewController.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		E9C3E3A021822B2A00EF0EE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E9C3E3A221822B2D00EF0EE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9C3E3A521822B2D00EF0EE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -114,9 +125,29 @@
 			isa = PBXGroup;
 			children = (
 				E98F3DC92182C3CC004F331B /* EzyMethodProxy.h */,
-				E98F3DCA2182C3CC004F331B /* EzyMethodProxy.m */,
+				E98F3DCA2182C3CC004F331B /* EzyMethodProxy.mm */,
 			);
 			path = proxy;
+			sourceTree = "<group>";
+		};
+		E9A458ED218377E000FDFDE8 /* serializer */ = {
+			isa = PBXGroup;
+			children = (
+				E9A458EE2183782500FDFDE8 /* EzyEventSerializer.h */,
+				E9A458EF2183782500FDFDE8 /* EzyEventSerializer.mm */,
+				E9A458F12183841400FDFDE8 /* EzyNativeSerializers.h */,
+				E9A458F22183841400FDFDE8 /* EzyNativeSerializers.mm */,
+			);
+			path = serializer;
+			sourceTree = "<group>";
+		};
+		E9A458F4218384D800FDFDE8 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				E9A458F52183852400FDFDE8 /* EzyNativeStrings.h */,
+				E9A458F62183852400FDFDE8 /* EzyNativeStrings.mm */,
+			);
+			path = util;
 			sourceTree = "<group>";
 		};
 		E9C3E38D21822B2A00EF0EE8 = {
@@ -142,18 +173,22 @@
 		E9C3E39821822B2A00EF0EE8 /* ezyfox-server-react-native-client */ = {
 			isa = PBXGroup;
 			children = (
+				E9A458F4218384D800FDFDE8 /* util */,
+				E9A458ED218377E000FDFDE8 /* serializer */,
 				E98F3DC82182C39B004F331B /* proxy */,
+				E9A458EA2183640000FDFDE8 /* EzyMethodNames.h */,
+				E98F3DC52182C187004F331B /* EzyClientProxy.h */,
+				E98F3DC62182C187004F331B /* EzyClientProxy.m */,
 				E9C3E39921822B2A00EF0EE8 /* AppDelegate.h */,
-				E9C3E39A21822B2A00EF0EE8 /* AppDelegate.m */,
+				E9C3E39A21822B2A00EF0EE8 /* AppDelegate.mm */,
 				E9C3E39C21822B2A00EF0EE8 /* ViewController.h */,
-				E9C3E39D21822B2A00EF0EE8 /* ViewController.m */,
+				E9C3E39D21822B2A00EF0EE8 /* ViewController.mm */,
 				E9C3E39F21822B2A00EF0EE8 /* Main.storyboard */,
 				E9C3E3A221822B2D00EF0EE8 /* Assets.xcassets */,
 				E9C3E3A421822B2D00EF0EE8 /* LaunchScreen.storyboard */,
 				E9C3E3A721822B2D00EF0EE8 /* Info.plist */,
 				E9C3E3A821822B2D00EF0EE8 /* main.m */,
-				E98F3DC52182C187004F331B /* EzyClientProxy.h */,
-				E98F3DC62182C187004F331B /* EzyClientProxy.m */,
+				E9A458E921835E7F00FDFDE8 /* Prefix.pch */,
 			);
 			path = "ezyfox-server-react-native-client";
 			sourceTree = "<group>";
@@ -269,10 +304,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9C3E39E21822B2A00EF0EE8 /* ViewController.m in Sources */,
-				E98F3DCB2182C3CC004F331B /* EzyMethodProxy.m in Sources */,
+				E9C3E39E21822B2A00EF0EE8 /* ViewController.mm in Sources */,
+				E9A458F32183841400FDFDE8 /* EzyNativeSerializers.mm in Sources */,
+				E9A458F02183782500FDFDE8 /* EzyEventSerializer.mm in Sources */,
+				E98F3DCB2182C3CC004F331B /* EzyMethodProxy.mm in Sources */,
 				E9C3E3A921822B2D00EF0EE8 /* main.m in Sources */,
-				E9C3E39B21822B2A00EF0EE8 /* AppDelegate.m in Sources */,
+				E9C3E39B21822B2A00EF0EE8 /* AppDelegate.mm in Sources */,
+				E9A458F72183852400FDFDE8 /* EzyNativeStrings.mm in Sources */,
 				E98F3DC72182C187004F331B /* EzyClientProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,12 +348,12 @@
 		E9C3E3C021822B2D00EF0EE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -387,12 +425,12 @@
 		E9C3E3C121822B2D00EF0EE8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;

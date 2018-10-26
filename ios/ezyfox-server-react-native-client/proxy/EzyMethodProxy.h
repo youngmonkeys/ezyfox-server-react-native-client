@@ -11,7 +11,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EzyMethodProxy : NSObject
+-(void)validate: (NSDictionary*) params;
+-(NSObject*)invoke: (NSDictionary*) params;
+-(NSString*)getName;
+@end
 
+@interface EzyCreateClientMethod : EzyMethodProxy
+@property(strong, nonatomic) NSNotification* mNotification;
+-(instancetype)initWithComponents: (NSNotification*)notification;
 @end
 
 NS_ASSUME_NONNULL_END
