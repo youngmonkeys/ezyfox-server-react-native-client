@@ -8,11 +8,13 @@
 
 #import <React/RCTBridgeModule.h>
 #import <React/RCTEventEmitter.h>
-#import "proxy/EzyMethodProxy.h"
+
+@class EzyMethodProxy;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EzyClientProxy : RCTEventEmitter <RCTBridgeModule>
+@property (strong, nonatomic) NSDictionary<NSString*, EzyMethodProxy*>* methods;
 @end
 
 NS_ASSUME_NONNULL_END

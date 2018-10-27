@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#include <React/RCTRootView.h>
+#include "EzyHeaders.h"
+
+EZY_USING_NAMESPACE;
 
 @interface AppDelegate ()
 
@@ -16,8 +20,39 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    EzyClients::getInstance();
+    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.bundle?platform=ios"];
+    RCTRootView *rootView =
+    [[RCTRootView alloc] initWithBundleURL: jsCodeLocation
+                                moduleName: @"freechat-react-native"
+                         initialProperties: @{}
+                             launchOptions: nil];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    UIViewController *rootViewController = [[UIViewController alloc] init];
+    rootViewController.view = rootView;
+    self.window.rootViewController = rootViewController;
+    [self.window makeKeyAndVisible];
+    
+    NSThread* thread = [[NSThread alloc] initWithTarget:self
+                                               selector:@selector(loopProcessEvents)
+                                                 object:nil];
+    [thread start];
     return YES;
+}
+
+- (void) loopProcessEvents {
+    while (true) {
+        [[NSThread currentThread] setName:@"ezyfox-process-event"];
+        dispatch_sync(dispatch_get_main_queue(), ^(void) {
+            EzyClients* clients = EzyClients::getInstance();
+            std::vector<EzyClient*> clientList = clients->getClients();
+            for(int i = 0 ; i < clientList.size() ; i++) {
+                EzyClient* client = clientList[i];
+                client->processEvents();
+            }
+        });
+        [NSThread sleepForTimeInterval:0.003];
+    }
 }
 
 

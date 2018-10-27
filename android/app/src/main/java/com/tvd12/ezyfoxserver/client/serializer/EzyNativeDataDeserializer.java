@@ -40,6 +40,21 @@ public class EzyNativeDataDeserializer {
         return array;
     }
 
+    public EzyObject fromReadableMap(ReadableMap value) {
+        EzyObjectBuilder objectBuilder = EzyEntityFactory.newObjectBuilder();
+        if(value != null) {
+            ReadableMapKeySetIterator iterator = value.keySetIterator();
+            while (iterator.hasNextKey()) {
+                String key = iterator.nextKey();
+                Dynamic temp = value.getDynamic(key);
+                Object val = deserialize(temp);
+                objectBuilder.append(key, val);
+            }
+        }
+        EzyObject object = objectBuilder.build();
+        return object;
+    }
+
     private Object deserialize(Dynamic value) {
         if(value == null)
             return null;
@@ -89,30 +104,14 @@ public class EzyNativeDataDeserializer {
 
             @Override
             public Object apply(Dynamic dynamic) {
-                EzyArrayBuilder arrayBuilder = EzyEntityFactory.newArrayBuilder();
-                ReadableArray readableArray = dynamic.asArray();
-                for(int i = 0 ; i < readableArray.size() ; i++) {
-                    Dynamic tmp = readableArray.getDynamic(i);
-                    Object value = deserialize(tmp);
-                    arrayBuilder.append(value);
-                }
-                EzyArray array = arrayBuilder.build();
+                EzyArray array = fromReadableArray(dynamic.asArray());
                 return array;
             }
         });
         map.put(ReadableType.Map, new EzyFunction<Dynamic, Object>() {
             @Override
             public Object apply(Dynamic dynamic) {
-                EzyObjectBuilder objectBuilder = EzyEntityFactory.newObjectBuilder();
-                ReadableMap readableMap = dynamic.asMap();
-                ReadableMapKeySetIterator iterator = readableMap.keySetIterator();
-                while (iterator.hasNextKey()) {
-                    String key = iterator.nextKey();
-                    Dynamic temp = readableMap.getDynamic(key);
-                    Object value = deserialize(temp);
-                    objectBuilder.append(key, value);
-                }
-                EzyObject object = objectBuilder.build();
+                EzyObject object = fromReadableMap(dynamic.asMap());
                 return object;
             }
         });

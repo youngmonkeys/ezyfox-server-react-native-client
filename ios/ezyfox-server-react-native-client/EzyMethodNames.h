@@ -6,9 +6,10 @@
 //  Copyright © 2018 Young Monkeys. All rights reserved.
 //
 
-NSString *const METHOD_INIT = @"init";
-NSString *const METHOD_CONNECT = @"connect";
-NSString *const METHOD_SEND = @"send";
-NSString *const METHOD_RECONNECT = @"reconnect";
-NSString *const METHOD_SET_STATUS = @"setStatus";
-NSString *const METHOD_START_PING_SCHEDULE = @"startPingSchedule";
+FOUNDATION_EXPORT NSString *const METHOD_INIT;
+FOUNDATION_EXPORT NSString *const METHOD_CONNECT;
+FOUNDATION_EXPORT NSString *const METHOD_SEND;
+FOUNDATION_EXPORT NSString *const METHOD_RECONNECT;
+FOUNDATION_EXPORT NSString *const METHOD_SET_STATUS;
+FOUNDATION_EXPORT NSString *const METHOD_START_PING_SCHEDULE;
+FOUNDATION_EXPORT NSString *const METHOD_PROCESS_EVENTS;

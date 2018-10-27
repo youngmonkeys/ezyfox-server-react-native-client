@@ -20,6 +20,8 @@ EZY_USING_NAMESPACE::command;
 EZY_USING_NAMESPACE::constant;
 EZY_USING_NAMESPACE::event;
 EZY_USING_NAMESPACE::handler;
+EZY_USING_NAMESPACE::entity;
+EZY_USING_NAMESPACE::socket;
 
 static std::map<EzyEventType, std::string> sNativeEventTypeNames = {
     {ConnectionSuccess, "CONNECTION_SUCCESS"},
@@ -46,6 +48,34 @@ static std::map<EzyCommand, std::string> sNativeCommandNames = {
     {PluginRequestById, "PLUGIN_REQUEST_BY_ID"}
 };
 
+static std::map<std::string, EzyCommand> sNativeCommandIds = {
+    {"ERROR", Error},
+    {"HANDSHAKE", Handshake},
+    {"PING", Ping},
+    {"PONG", Pong},
+    {"DISCONNECT", Disconnect},
+    {"LOGIN", Login},
+    {"LOGIN_ERROR", LoginError},
+    {"APP_ACCESS", AppAccess},
+    {"APP_REQUEST", AppRequest},
+    {"APP_EXIT", AppExit},
+    {"APP_ACCESS_ERROR", AppAccessError},
+    {"PLUGIN_INFO", PluginInfo},
+    {"PLUGIN_REQUEST_BY_NAME", PluginRequestByName},
+    {"PLUGIN_REQUEST_BY_ID", PluginRequestById}
+};
+
+static std::map<std::string, EzyConnectionStatus> sNativeConnectionStatusIds = {
+    {"NULL", Null},
+    {"CONNECTING", Connecting},
+    {"CONNECTED", Connected},
+    {"DISCONNECTED", Disconnected},
+    {"FAILURE", Failure},
+    {"RECONNECTING", Reconnecting}
+};
+
+//======================================================
+
 EzyClients* clients = EzyClients::getInstance();
 
 EzyClient* getClient(std::string name) {
@@ -67,7 +97,7 @@ EzyClient* getClient(NSDictionary* params) {
 }
 
 EzyClientConfig* newConfig(NSDictionary* params) {
-    EzyClientConfig* config = new EzyClientConfig();
+    EzyClientConfig* config = EzyClientConfig::create();
     NSString* clientName = [params valueForKey:@"clientName"];
     NSString* zoneName = [params valueForKey:@"zoneName"];
     NSDictionary* reconnect = [params valueForKey:@"reconnect"];
@@ -90,71 +120,74 @@ EzyClientConfig* newConfig(NSDictionary* params) {
     return config;
 }
 
+//======================================================
+
 class EzyNativeEventHandler :  public EzyEventHandler {
 private:
     EzyClient* mClient;
-    NSNotification* mNotification;
+    RCTEventEmitter* mEventEmitter;
 public:
-    EzyNativeEventHandler(EzyClient* client, NSNotification* notification) {
+    EzyNativeEventHandler(EzyClient* client, RCTEventEmitter* eventEmitter) {
         this->mClient = client;
-        this->mNotification = notification;
+        this->mEventEmitter = eventEmitter;
     }
     ~EzyNativeEventHandler() {
         this->mClient = 0;
-        this->mNotification = 0;
+        this->mEventEmitter = 0;
     }
 public:
     void handle(EzyEvent* event) {
         std::string eventTypeName = sNativeEventTypeNames[event->getType()];
-        NSDictionary* params = [NSDictionary init];
+        NSDictionary* params = [NSMutableDictionary dictionary];
         NSDictionary* eventData = [EzyNativeSerializers serializeEvent:event];
         [params setValue:[EzyNativeStrings newNSString:mClient->getName().c_str()] forKey:@"clientName"];
         [params setValue:[EzyNativeStrings newNSString:eventTypeName.c_str()] forKey:@"eventType"];
         [params setValue:eventData forKey:@"data"];
-        reactContext
-        .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-        .emit("ezy.event", params);
+        [mEventEmitter sendEventWithName:@"ezy.event" body:params];
     }
 };
 
 class EzyNativeDataHandler : public EzyDataHandler {
+private:
+    EzyClient* mClient;
+    RCTEventEmitter* mEventEmitter;
+    EzyCommand mCommand;
+public:
+    EzyNativeDataHandler(EzyClient* client, RCTEventEmitter* eventEmitter, EzyCommand command) {
+        this->mClient = client;
+        this->mEventEmitter = eventEmitter;
+        this->mCommand = command;
+    }
+    ~EzyNativeDataHandler() {
+        this->mClient = 0;
+        this->mEventEmitter = 0;
+    }
 public:
     void handle(entity::EzyArray* data) {
-        String commandName = command.getName();
-        WritableMap params = Arguments.createMap();
-        WritableArray commandData = EzyNativeSerializers.toWritableArray(data);
-        params.putString("clientName", client.getName());
-        params.putString("command", commandName);
-        params.putArray("data", commandData);
-        reactContext
-        .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-        .emit("ezy.data", params);
+        std::string commandName = sNativeCommandNames[mCommand];
+        NSDictionary* params = [NSMutableDictionary dictionary];
+        NSArray* commandData = [EzyNativeSerializers toWritableArray:data];
+        [params setValue:[EzyNativeStrings newNSString:mClient->getName().c_str()] forKey:@"clientName"];
+        [params setValue:[EzyNativeStrings newNSString:commandName.c_str()] forKey:@"command"];
+        [params setValue:commandData forKey:@"data"];
+        [mEventEmitter sendEventWithName:@"ezy.data" body:params];
     }
 };
 
-void setupClient(EzyClient* client) {
-    EzySetup* setup = client->setup();
-    for(int = 1 ; i <= NUMBER_OF_EVENTS ; i++) {
-        EzyEventType eventType = (EzyEventType)i;
-        setup->addEventHandler(eventType, new EzyNativeEventHandler());
-    }
-    for(int i = 0 ; i < NUMBER_OF_COMMANDS ; i++) {
-        EzyCommand command = sCommands[i];
-        setup->addDataHandler(command, new EzyNativeDataHandler());
-    }
-}
+//======================================================
 
 @implementation EzyMethodProxy
 -(void)validate:(NSDictionary *)params {}
--(NSObject*)invoke: (NSDictionary*) params {return NULL;}
--(NSString*)getName {return NULL;}
+-(NSObject*)invoke: (NSDictionary*) params {return nil;}
+-(NSString*)getName {return nil;}
 @end
 
+//======================================================
 @implementation EzyCreateClientMethod
-- (instancetype)initWithComponents:(NSNotification *)notification {
+- (instancetype)initWithComponents:(RCTEventEmitter*)eventEmitter {
     self = [super init];
     if(self) {
-        mNotification = notification;
+        _eventEmitter = eventEmitter;
     }
     return self;
 }
@@ -169,12 +202,24 @@ void setupClient(EzyClient* client) {
 -(NSObject*)invoke:(NSDictionary *)params {
     EzyClientConfig* config = newConfig(params);
     EzyClient* client = getClient(config->getClientName());
-    if(client)
+    if(!client) {
         client = clients->newClient(config);
-    clients.addClient(client);
-    setupClient(client);
-    ReadableMap configMap = EzyNativeSerializers.serialize(config);
+        [self setupClient:client];
+    }
+    NSDictionary* configMap = [EzyNativeSerializers serializeClientConfig:config];
     return configMap;
+}
+
+-(void) setupClient:(EzyClient*)client {
+    EzySetup* setup = client->setup();
+    for(int i = 1 ; i <= NUMBER_OF_EVENTS ; i++) {
+        EzyEventType eventType = (EzyEventType)i;
+        setup->addEventHandler(eventType, new EzyNativeEventHandler(client, _eventEmitter));
+    }
+    for(int i = 0 ; i < NUMBER_OF_COMMANDS ; i++) {
+        EzyCommand command = (EzyCommand)sCommands[i];
+        setup->addDataHandler(command, new EzyNativeDataHandler(client, _eventEmitter, command));
+    }
 }
 
 - (NSString *)getName {
@@ -182,3 +227,114 @@ void setupClient(EzyClient* client) {
 }
 @end
 
+//======================================================
+@implementation EzyConnectMethod
+
+-(void)validate:(NSDictionary *)params {
+    if(![params valueForKey:@"host"])
+        [NSException raise:NSInvalidArgumentException format:@"must specific host"];
+    if(![params valueForKey:@"port"])
+        [NSException raise:NSInvalidArgumentException format:@"must specific port"];
+}
+
+- (NSObject *)invoke:(NSDictionary *)params {
+    NSString* host = [params valueForKey:@"host"];
+    NSNumber* port = [params valueForKey:@"port"];
+    EzyClient* client = getClient(params);
+    client->connect([host UTF8String], [port intValue]);
+    return [NSNumber numberWithBool:TRUE];
+}
+
+- (NSString *)getName {
+    return METHOD_CONNECT;
+}
+
+@end
+
+//======================================================
+@implementation EzyReconnectMethod
+
+- (NSObject *)invoke:(NSDictionary *)params {
+    EzyClient* client = getClient(params);
+    bool answer = client->reconnect();
+    return [NSNumber numberWithBool:answer];
+}
+
+- (NSString *)getName {
+    return METHOD_RECONNECT;
+}
+@end
+
+//======================================================
+@implementation EzySendMethod
+
+- (NSObject *)invoke:(NSDictionary *)params {
+    NSDictionary* request = [params objectForKey:@"request"];
+    if(!request) {
+        @throw [NSException exceptionWithName:@"NSInvalidArgumentException"
+                                       reason:@"must specific request to send to server"
+                                     userInfo:nil];
+    }
+    EzyClient* client = getClient(params);
+    NSString* cmd = [request objectForKey:@"command"];
+    NSArray* data = [request objectForKey:@"data"];
+    EzyArray* array = (EzyArray*)[EzyNativeSerializers fromReadableArray:data];
+    EzyCommand command = sNativeCommandIds[[cmd UTF8String]];
+    client->send(command, array);
+    return [NSNumber numberWithBool:TRUE];
+}
+
+- (NSString *)getName {
+    return METHOD_SEND;
+}
+@end
+
+//======================================================
+@implementation EzySetStatusMethod
+
+- (NSObject *)invoke:(NSDictionary *)params {
+    EzyClient* client = getClient(params);
+    NSString* statusName = [params valueForKey:@"status"];
+    EzyConnectionStatus status = sNativeConnectionStatusIds[[statusName UTF8String]];
+    client->setStatus(status);
+    return [NSNumber numberWithBool:TRUE];
+}
+
+- (NSString *)getName {
+    return METHOD_SET_STATUS;
+}
+@end
+
+//======================================================
+@implementation EzyStartPingScheduleMethod
+
+- (NSObject *)invoke:(NSDictionary *)params {
+    EzyClient* client = getClient(params);
+    EzyPingSchedule* pingSchedule = client->getPingSchedule();
+    pingSchedule->start();
+    return [NSNumber numberWithBool:TRUE];
+}
+
+- (NSString *)getName {
+    return METHOD_START_PING_SCHEDULE;
+}
+@end
+
+//======================================================
+@implementation EzyProcessEventsMethod
+
+-(NSObject *)invoke:(NSDictionary *)params {
+    EzyClients* clients = EzyClients::getInstance();
+    std::vector<EzyClient*> clientList = clients->getClients();
+    for(int i = 0 ; i < clientList.size() ; i++) {
+        EzyClient* client = clientList[i];
+        client->processEvents();
+    }
+    return [NSNumber numberWithBool:TRUE];
+}
+
+- (NSString *)getName {
+    return METHOD_PROCESS_EVENTS;
+}
+
+@end

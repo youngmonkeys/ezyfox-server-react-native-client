@@ -1,8 +1,8 @@
 //
-//  EzyEventSerializer.h
+//  EzyClientConfigSerializer.h
 //  ezyfox-server-react-native-client
 //
-//  Created by Dung Ta Van on 10/26/18.
+//  Created by Dung Ta Van on 10/27/18.
 //  Copyright © 2018 Young Monkeys. All rights reserved.
 //
 
@@ -10,10 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EzyEventSerializer : NSObject
-
--(NSDictionary*)serialize: (void*)value;
-
+@interface EzyClientConfigSerializer : NSObject
+-(NSDictionary*)serialize:(void*)value;
 @end
 
 NS_ASSUME_NONNULL_END

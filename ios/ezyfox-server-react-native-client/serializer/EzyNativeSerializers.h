@@ -11,9 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EzyNativeSerializers : NSObject
-
-+(NSDictionary*)serializeEvent: (void*)event;
-
++(NSDictionary*)serializeEvent:(void*)event;
++(NSDictionary*)serializeClientConfig:(void*)clientConfig;
++(NSArray*)toWritableArray:(void*)arrayValue;
++(void*)fromReadableArray:(NSArray*)value;
 @end
 
 NS_ASSUME_NONNULL_END

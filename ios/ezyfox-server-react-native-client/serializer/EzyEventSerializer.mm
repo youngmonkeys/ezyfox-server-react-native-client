@@ -34,29 +34,28 @@ static std::map<int, std::string> sNativeDisconnectReasonNames = {
 
 @implementation EzyEventSerializer
 
--(NSDictionary *)serialize:(void *)event {
-    EzyEvent* evt = (EzyEvent*)event;
-    switch (evt->getType()) {
+-(NSDictionary *)serialize:(void *)value {
+    EzyEvent* event = (EzyEvent*)value;
+    switch (event->getType()) {
         case ConnectionSuccess:
-            return [NSDictionary init];
+            return [NSMutableDictionary dictionary];
         case ConnectionFailure:
-            return [self serializeConnectionFailureEvent:evt];
+            return [self serializeConnectionFailureEvent:event];
         case Disconnection:
-            return [self serializeConnectionFailureEvent:evt];
+            return [self serializeConnectionFailureEvent:event];
         case LostPing:
-            return [self serializeLostPingEvent:evt];
+            return [self serializeLostPingEvent:event];
         case TryConnect:
-            return [self serializeTryConnectEvent:evt];
+            return [self serializeTryConnectEvent:event];
         default:
             break;
     }
-    [NSException raise:NSInvalidArgumentException format:@"has no serializer with event"];
-    return NULL;
+    @throw [NSException exceptionWithName:@"NSInvalidArgumentException" reason:@"has no serializer with event" userInfo:nil];
 }
 
 -(NSDictionary*)serializeConnectionFailureEvent: (EzyEvent*)event {
     EzyConnectionFailureEvent* mevent = (EzyConnectionFailureEvent*)event;
-    NSDictionary* dict = [NSDictionary init];
+    NSDictionary* dict = [NSMutableDictionary dictionary];
     std::string reasonName = sNativeConnectionFailedReasonNames[mevent->getReason()];
     NSString* tmp = [NSString stringWithCString:reasonName.c_str() encoding:[NSString defaultCStringEncoding]];
     [dict setValue:tmp forKey:@"reason"];
@@ -65,7 +64,7 @@ static std::map<int, std::string> sNativeDisconnectReasonNames = {
 
 -(NSDictionary*)serializeDisconnectionEvent: (EzyEvent*)event {
     EzyDisconnectionEvent* mevent = (EzyDisconnectionEvent*)event;
-    NSDictionary* dict = [NSDictionary init];
+    NSDictionary* dict = [NSMutableDictionary dictionary];
     std::string reasonName = sNativeDisconnectReasonNames[mevent->getReason()];
     NSString* tmp = [NSString stringWithCString:reasonName.c_str() encoding:[NSString defaultCStringEncoding]];
     [dict setValue:tmp forKey:@"reason"];
@@ -74,7 +73,7 @@ static std::map<int, std::string> sNativeDisconnectReasonNames = {
 
 -(NSDictionary*)serializeLostPingEvent: (EzyEvent*)event {
     EzyLostPingEvent* mevent = (EzyLostPingEvent*)event;
-    NSDictionary* dict = [NSDictionary init];
+    NSDictionary* dict = [NSMutableDictionary dictionary];
     int count = mevent->getCount();
     [dict setValue:[NSNumber numberWithInt:count] forKey:@"reason"];
     return dict;
@@ -82,7 +81,7 @@ static std::map<int, std::string> sNativeDisconnectReasonNames = {
 
 -(NSDictionary*)serializeTryConnectEvent: (EzyEvent*)event {
     EzyTryConnectEvent* mevent = (EzyTryConnectEvent*)event;
-    NSDictionary* dict = [NSDictionary init];
+    NSDictionary* dict = [NSMutableDictionary dictionary];
     int count = mevent->getCount();
     [dict setValue:[NSNumber numberWithInt:count] forKey:@"reason"];
     return dict;
