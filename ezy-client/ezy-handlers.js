@@ -167,13 +167,22 @@ class EzyLoginSuccessHandler {
         var user = new Entity.EzyUser(userId, username);
         this.client.me = user;
         this.client.zone = zone;
-        this.handleResponseAppDatas(joinedAppArray);
+        var allowReconnect = this.allowReconnection();
+        var appCount = joinedAppArray.length;
+        var shouldReconnect = allowReconnect && appCount > 0;
         this.handleResponseData(responseData);
-        if(joinedAppArray.length <= 0)
-            this.handleLoginSuccess(responseData);
-        else
+        if(shouldReconnect) {
+            this.handleResponseAppDatas(joinedAppArray);
             this.handleReconnectSuccess(responseData);
+        }
+        else {
+            this.handleLoginSuccess(responseData);  
+        }
         console.log("user: " + user.name + " logged in successfully");
+    }
+
+    allowReconnection() {
+        return false;
     }
     
     handleResponseData(data) {

@@ -17,7 +17,7 @@ EZY_USING_NAMESPACE::entity;
 
 -(NSArray*)toWritableArray:(void*)arrayValue {
     EzyArray* value = (EzyArray*)arrayValue;
-    NSMutableArray* answer = [[NSMutableArray alloc]init];
+    NSMutableArray* answer = [NSMutableArray array];
     if(value) {
         for (int i = 0; i < value->size(); i++) {
             EzyValue* item = value->getItem(i);
@@ -42,11 +42,14 @@ EZY_USING_NAMESPACE::entity;
 
 -(void)serialize:(NSMutableArray*)output value:(void*)value {
     if(value) {
-        [output addObject:[NSNull null]];
+        NSObject* svalue = [self serializeValue:(EzyValue*)value];
+        if(svalue)
+            [output addObject:svalue];
+        else
+            [output addObject:[NSNull null]];
     }
     else {
-        NSObject* svalue = [self serializeValue:(EzyValue*)value];
-        [output addObject:svalue];
+        [output addObject:[NSNull null]];
     }
 }
 
@@ -63,13 +66,13 @@ EZY_USING_NAMESPACE::entity;
         case TypeBool:
             return [NSNumber numberWithBool:((EzyPrimitive*)value)->getBool()];
         case TypeFloat:
-            return [NSNumber numberWithBool:((EzyPrimitive*)value)->getFloat()];
+            return [NSNumber numberWithFloat:((EzyPrimitive*)value)->getFloat()];
         case TypeDouble:
-            return [NSNumber numberWithBool:((EzyPrimitive*)value)->getDouble()];
+            return [NSNumber numberWithDouble:((EzyPrimitive*)value)->getDouble()];
         case TypeInt:
-            return [NSNumber numberWithBool:((EzyPrimitive*)value)->getInt()];
+            return [NSNumber numberWithLong:((EzyPrimitive*)value)->getInt()];
         case TypeUInt:
-            return [NSNumber numberWithBool:((EzyPrimitive*)value)->getUInt()];
+            return [NSNumber numberWithUnsignedLong:((EzyPrimitive*)value)->getUInt()];
         case TypeString:
             return [NSString stringWithUTF8String:((EzyString*)value)->getString().c_str()];
         case TypeDict:

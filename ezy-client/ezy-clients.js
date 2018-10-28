@@ -1,5 +1,5 @@
 import EzyClient from './ezy-client'
-import { DeviceEventEmitter, NativeEventEmitter, NativeModules } from 'react-native';
+import { DeviceEventEmitter, NativeEventEmitter, Platform, NativeModules } from 'react-native';
 
 const { EzyClientProxy } = NativeModules;
 
@@ -45,32 +45,35 @@ class EzyClients {
     }
 
     processEvents() {
-        DeviceEventEmitter.addListener('ezy.event', params => {
-            var client = this.getClient(params.clientName);
-            var eventType = params.eventType;
-            var data = params.data;
-            client.handleEvent(eventType, data);
-        });
-        DeviceEventEmitter.addListener('ezy.data', params => {
-            var client = this.getClient(params.clientName);
-            var command = params.command;
-            var data = params.data;
-            client.handleData(command, data);
-        });
-
-        const clientEmitter = new NativeEventEmitter(EzyClientProxy);
-        clientEmitter.addListener('ezy.event', params => {
-            var client = this.getClient(params.clientName);
-            var eventType = params.eventType;
-            var data = params.data;
-            client.handleEvent(eventType, data);
-        });
-        clientEmitter.addListener('ezy.data', params => {
-            var client = this.getClient(params.clientName);
-            var command = params.command;
-            var data = params.data;
-            client.handleData(command, data);
-        });
+        if(Platform.OS == 'ios') {
+            const clientEmitter = new NativeEventEmitter(EzyClientProxy);
+            clientEmitter.addListener('ezy.event', params => {
+                var client = this.getClient(params.clientName);
+                var eventType = params.eventType;
+                var data = params.data;
+                client.handleEvent(eventType, data);
+            });
+            clientEmitter.addListener('ezy.data', params => {
+                var client = this.getClient(params.clientName);
+                var command = params.command;
+                var data = params.data;
+                client.handleData(command, data);
+            });
+        }
+        else {
+            DeviceEventEmitter.addListener('ezy.event', params => {
+                var client = this.getClient(params.clientName);
+                var eventType = params.eventType;
+                var data = params.data;
+                client.handleEvent(eventType, data);
+            });
+            DeviceEventEmitter.addListener('ezy.data', params => {
+                var client = this.getClient(params.clientName);
+                var command = params.command;
+                var data = params.data;
+                client.handleData(command, data);
+            });
+        }
     }    
 }
 

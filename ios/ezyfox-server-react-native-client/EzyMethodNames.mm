@@ -15,4 +15,3 @@ NSString *const METHOD_SEND = @"send";
 NSString *const METHOD_RECONNECT = @"reconnect";
 NSString *const METHOD_SET_STATUS = @"setStatus";
 NSString *const METHOD_START_PING_SCHEDULE = @"startPingSchedule";
-NSString *const METHOD_PROCESS_EVENTS = @"processEvents";

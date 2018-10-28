@@ -29,7 +29,6 @@
     [self addMethod:[[EzyReconnectMethod alloc]init]];
     [self addMethod:[[EzySetStatusMethod alloc]init]];
     [self addMethod:[[EzyStartPingScheduleMethod alloc]init]];
-    [self addMethod:[[EzyProcessEventsMethod alloc]init]];
 }
 
 -(void)addMethod:(EzyMethodProxy*)method {
@@ -42,6 +41,10 @@
 
 + (BOOL)requiresMainQueueSetup {
     return TRUE;
+}
+
+- (dispatch_queue_t)methodQueue {
+    return dispatch_get_main_queue();
 }
 
 RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location)

@@ -21,7 +21,6 @@
 		E9A459042184453300FDFDE8 /* EzyNativeDataDeserializer.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9A459032184453300FDFDE8 /* EzyNativeDataDeserializer.mm */; };
 		E9A459062184622100FDFDE8 /* EzyMethodNames.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9A459052184622100FDFDE8 /* EzyMethodNames.mm */; };
 		E9C3E39B21822B2A00EF0EE8 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9C3E39A21822B2A00EF0EE8 /* AppDelegate.mm */; };
-		E9C3E39E21822B2A00EF0EE8 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9C3E39D21822B2A00EF0EE8 /* ViewController.mm */; };
 		E9C3E3A121822B2A00EF0EE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9C3E39F21822B2A00EF0EE8 /* Main.storyboard */; };
 		E9C3E3A321822B2D00EF0EE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9C3E3A221822B2D00EF0EE8 /* Assets.xcassets */; };
 		E9C3E3A621822B2D00EF0EE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9C3E3A421822B2D00EF0EE8 /* LaunchScreen.storyboard */; };
@@ -62,6 +61,7 @@
 		4D7A0EEDB740E514B9E6979E /* libPods-ezyfox-server-react-native-client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ezyfox-server-react-native-client.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		98907C94386AF7E1C2D8370A /* Pods-ezyfox-server-react-native-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ezyfox-server-react-native-client.release.xcconfig"; path = "Pods/Target Support Files/Pods-ezyfox-server-react-native-client/Pods-ezyfox-server-react-native-client.release.xcconfig"; sourceTree = "<group>"; };
 		BB4B42E4A06CD1C5F5024E8F /* Pods-ezyfox-server-react-native-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ezyfox-server-react-native-client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ezyfox-server-react-native-client/Pods-ezyfox-server-react-native-client.debug.xcconfig"; sourceTree = "<group>"; };
+		E91196BD21860F2D00EEA0CE /* AppConfigDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfigDefine.h; sourceTree = "<group>"; };
 		E93B737C21822C1F005D3930 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		E93D35B02183368F0001E1B0 /* socket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = socket.xcodeproj; path = socket/socket.xcodeproj; sourceTree = "<group>"; };
 		E98F3DC52182C187004F331B /* EzyClientProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EzyClientProxy.h; sourceTree = "<group>"; };
@@ -88,8 +88,6 @@
 		E9C3E39621822B2A00EF0EE8 /* ezyfox-server-react-native-client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ezyfox-server-react-native-client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C3E39921822B2A00EF0EE8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E9C3E39A21822B2A00EF0EE8 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
-		E9C3E39C21822B2A00EF0EE8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E9C3E39D21822B2A00EF0EE8 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		E9C3E3A021822B2A00EF0EE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E9C3E3A221822B2D00EF0EE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9C3E3A521822B2D00EF0EE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -212,8 +210,7 @@
 				E98F3DC62182C187004F331B /* EzyClientProxy.m */,
 				E9C3E39921822B2A00EF0EE8 /* AppDelegate.h */,
 				E9C3E39A21822B2A00EF0EE8 /* AppDelegate.mm */,
-				E9C3E39C21822B2A00EF0EE8 /* ViewController.h */,
-				E9C3E39D21822B2A00EF0EE8 /* ViewController.mm */,
+				E91196BD21860F2D00EEA0CE /* AppConfigDefine.h */,
 				E9C3E39F21822B2A00EF0EE8 /* Main.storyboard */,
 				E9C3E3A221822B2D00EF0EE8 /* Assets.xcassets */,
 				E9C3E3A421822B2D00EF0EE8 /* LaunchScreen.storyboard */,
@@ -335,7 +332,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9C3E39E21822B2A00EF0EE8 /* ViewController.mm in Sources */,
 				E9A458FE2184257B00FDFDE8 /* EzyClientConfigSerializer.mm in Sources */,
 				E9A458F32183841400FDFDE8 /* EzyNativeSerializers.mm in Sources */,
 				E9A459012184284700FDFDE8 /* EzyNativeDataSerializer.mm in Sources */,
@@ -424,6 +420,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
+					"EZY_DEBUG=1",
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -535,6 +532,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"DEBUG=1",
+					"EZY_DEBUG=1",
+				);
 				INFOPLIST_FILE = "ezyfox-server-react-native-client/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

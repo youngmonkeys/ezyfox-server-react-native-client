@@ -13,6 +13,7 @@
 #import "../EzyMethodNames.h"
 #import "../util/EzyNativeStrings.h"
 #import "../serializer/EzyNativeSerializers.h"
+#import "../AppConfigDefine.h"
 
 EZY_USING_NAMESPACE;
 EZY_USING_NAMESPACE::config;
@@ -318,23 +319,4 @@ public:
 - (NSString *)getName {
     return METHOD_START_PING_SCHEDULE;
 }
-@end
-
-//======================================================
-@implementation EzyProcessEventsMethod
-
--(NSObject *)invoke:(NSDictionary *)params {
-    EzyClients* clients = EzyClients::getInstance();
-    std::vector<EzyClient*> clientList = clients->getClients();
-    for(int i = 0 ; i < clientList.size() ; i++) {
-        EzyClient* client = clientList[i];
-        client->processEvents();
-    }
-    return [NSNumber numberWithBool:TRUE];
-}
-
-- (NSString *)getName {
-    return METHOD_PROCESS_EVENTS;
-}
-
 @end

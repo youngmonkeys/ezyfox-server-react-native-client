@@ -13,7 +13,7 @@ EZY_USING_NAMESPACE::entity;
 
 @implementation EzyNativeDataDeserializer
 - (void *)fromReadableArray:(NSArray *)value {
-    EzyArray* array = EzyArray::create();
+    EzyArray* array = new EzyArray();
     if(value) {
         for(id item in value)
             [self deserializeToArray:array value:item];
@@ -22,7 +22,7 @@ EZY_USING_NAMESPACE::entity;
 }
 
 - (void *) fromReadableMap: (NSDictionary*)value {
-    EzyObject* object = EzyObject::create();
+    EzyObject* object = new EzyObject();
     if(value) {
         for(id key in value) {
             NSObject* val = [value valueForKey:key];
@@ -32,11 +32,10 @@ EZY_USING_NAMESPACE::entity;
     return object;
 }
 
-- (void *)deserializeToArray:(EzyArray*)output value:(NSObject*)value {
+- (void)deserializeToArray:(EzyArray*)output value:(NSObject*)value {
     if([value isKindOfClass:[NSNumber class]]) {
         EzyPrimitive* item = [self deserializeToPrimitive:value];
         output->addItem(item);
-        item->release();
     }
     else if([value isKindOfClass:[NSString class]]) {
         NSString* string = (NSString*)value;
@@ -52,17 +51,18 @@ EZY_USING_NAMESPACE::entity;
         EzyObject* fobject = (EzyObject*)[self fromReadableMap:dict];
         output->addObject(fobject);
     }
-    @throw [NSException exceptionWithName:@"NSInvalidArgumentException"
-                                   reason: [NSString stringWithFormat:@"has no deserializer for value: %@", value]
-                                 userInfo:nil];
+    else {
+        @throw [NSException exceptionWithName:@"NSInvalidArgumentException"
+                                       reason: [NSString stringWithFormat:@"has no deserializer for value: %@", value]
+                                     userInfo:nil];
+    }
 }
 
-- (void *)deserializeToObject:(EzyObject*)output key:(NSString*)key value:(NSObject*)value {
+- (void)deserializeToObject:(EzyObject*)output key:(NSString*)key value:(NSObject*)value {
     std::string k = [key UTF8String];
     if([value isKindOfClass:[NSNumber class]]) {
         EzyPrimitive* item = [self deserializeToPrimitive:value];
         output->addItem(k, item);
-        item->release();
     }
     else if([value isKindOfClass:[NSString class]]) {
         NSString* string = (NSString*)value;
@@ -78,19 +78,39 @@ EZY_USING_NAMESPACE::entity;
         EzyObject* fobject = (EzyObject*)[self fromReadableMap:dict];
         output->setObject(k, fobject);
     }
-    @throw [NSException exceptionWithName:@"NSInvalidArgumentException"
-                                   reason: [NSString stringWithFormat:@"has no deserializer for key: %@, value: %@", key, value]
-                                 userInfo:nil];
+    else {
+        @throw [NSException exceptionWithName:@"NSInvalidArgumentException"
+                                       reason: [NSString stringWithFormat:@"has no deserializer for key: %@, value: %@", key, value]
+                                     userInfo:nil];
+    }
 }
 
 -(EzyPrimitive*)deserializeToPrimitive:(NSObject*)value {
     NSNumber* number = (NSNumber*)value;
     EzyPrimitive* item = new EzyPrimitive();
-    item->setBool([number boolValue]);
-    item->setInt([number intValue]);
-    item->setUInt([number unsignedIntValue]);
-    item->setFloat([number floatValue]);
-    item->setDouble([number doubleValue]);
+    NSString* className = NSStringFromClass([number class]);
+    if([@"__NSCFBoolean" isEqualToString:className]) {
+        item->setBool([number boolValue]);
+    }
+    else {
+        int64_t int64Value = [number longLongValue];
+        double doubleValue = [number doubleValue];
+        if(int64Value != doubleValue) {
+            float floatValue = [number floatValue];
+            if(floatValue == doubleValue)
+                item->setFloat(floatValue);
+            else
+                item->setDouble(doubleValue);
+        }
+        else {
+            uint64_t uint64Value = [number unsignedLongLongValue];
+            if(uint64Value != int64Value)
+                item->setInt(int64Value);
+            else
+                item->setUInt(uint64Value);
+            
+        }
+    }
     return item;
 };
 @end

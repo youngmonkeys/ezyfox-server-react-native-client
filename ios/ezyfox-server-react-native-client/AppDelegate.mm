@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "AppConfigDefine.h"
 #include <React/RCTRootView.h>
+#include <vector>
 #include "EzyHeaders.h"
 
 EZY_USING_NAMESPACE;
@@ -16,8 +18,9 @@ EZY_USING_NAMESPACE;
 
 @end
 
-@implementation AppDelegate
+std::vector<EzyClient*> clientVector;
 
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     EzyClients::getInstance();
@@ -41,13 +44,13 @@ EZY_USING_NAMESPACE;
 }
 
 - (void) loopProcessEvents {
+    EzyClients* clients = EzyClients::getInstance();
     while (true) {
         [[NSThread currentThread] setName:@"ezyfox-process-event"];
         dispatch_sync(dispatch_get_main_queue(), ^(void) {
-            EzyClients* clients = EzyClients::getInstance();
-            std::vector<EzyClient*> clientList = clients->getClients();
-            for(int i = 0 ; i < clientList.size() ; i++) {
-                EzyClient* client = clientList[i];
+            clients->getClients(clientVector);
+            for(int i = 0 ; i < clientVector.size() ; i++) {
+                EzyClient* client = clientVector[i];
                 client->processEvents();
             }
         });
