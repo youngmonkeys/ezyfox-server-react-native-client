@@ -14,14 +14,14 @@ import com.tvd12.ezyfoxserver.client.serializer.EzyNativeSerializers;
 
 public class EzySendMethod extends EzyMethodProxy {
     @Override
-    public void validate() {
+    public void validate(ReadableMap params) {
         if(!params.hasKey("request"))
             throw new IllegalArgumentException("must specific request to send to server");
     }
 
     @Override
-    public Object invoke() {
-        EzyClient client = getClient();
+    public Object invoke(ReadableMap params) {
+        EzyClient client = getClient(params);
         ReadableMap request = params.getMap("request");
         String cmd = request.getString("command");
         ReadableArray data = request.getArray("data");

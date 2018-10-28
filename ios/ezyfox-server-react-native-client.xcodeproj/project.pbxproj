@@ -1,0 +1,595 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CA192C31243FEB398987CFFF /* libPods-ezyfox-server-react-native-client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7A0EEDB740E514B9E6979E /* libPods-ezyfox-server-react-native-client.a */; };
+		E93B737D21822C1F005D3930 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E93B737C21822C1F005D3930 /* Podfile */; };
+		E963D589218337FA00045CA0 /* libsocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E93D35B52183368F0001E1B0 /* libsocket.a */; };
+		E98F3DC72182C187004F331B /* EzyClientProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = E98F3DC62182C187004F331B /* EzyClientProxy.m */; };
+		E98F3DCB2182C3CC004F331B /* EzyMethodProxy.mm in Sources */ = {isa = PBXBuildFile; fileRef = E98F3DCA2182C3CC004F331B /* EzyMethodProxy.mm */; };
+		E9A458F02183782500FDFDE8 /* EzyEventSerializer.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9A458EF2183782500FDFDE8 /* EzyEventSerializer.mm */; };
+		E9A458F32183841400FDFDE8 /* EzyNativeSerializers.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9A458F22183841400FDFDE8 /* EzyNativeSerializers.mm */; };
+		E9A458F72183852400FDFDE8 /* EzyNativeStrings.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9A458F62183852400FDFDE8 /* EzyNativeStrings.mm */; };
+		E9A458FB218410B000FDFDE8 /* EzyMethodCallException.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9A458FA218410B000FDFDE8 /* EzyMethodCallException.mm */; };
+		E9A458FE2184257B00FDFDE8 /* EzyClientConfigSerializer.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9A458FD2184257B00FDFDE8 /* EzyClientConfigSerializer.mm */; };
+		E9A459012184284700FDFDE8 /* EzyNativeDataSerializer.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9A459002184284700FDFDE8 /* EzyNativeDataSerializer.mm */; };
+		E9A459042184453300FDFDE8 /* EzyNativeDataDeserializer.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9A459032184453300FDFDE8 /* EzyNativeDataDeserializer.mm */; };
+		E9A459062184622100FDFDE8 /* EzyMethodNames.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9A459052184622100FDFDE8 /* EzyMethodNames.mm */; };
+		E9C3E39B21822B2A00EF0EE8 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9C3E39A21822B2A00EF0EE8 /* AppDelegate.mm */; };
+		E9C3E3A121822B2A00EF0EE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9C3E39F21822B2A00EF0EE8 /* Main.storyboard */; };
+		E9C3E3A321822B2D00EF0EE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9C3E3A221822B2D00EF0EE8 /* Assets.xcassets */; };
+		E9C3E3A621822B2D00EF0EE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9C3E3A421822B2D00EF0EE8 /* LaunchScreen.storyboard */; };
+		E9C3E3A921822B2D00EF0EE8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C3E3A821822B2D00EF0EE8 /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E93D35B42183368F0001E1B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E93D35B02183368F0001E1B0 /* socket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E93D322D218335490001E1B0;
+			remoteInfo = socket;
+		};
+		E93D35B9218337A90001E1B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E93D35B02183368F0001E1B0 /* socket.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E93D322C218335490001E1B0;
+			remoteInfo = socket;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E93D3223218333520001E1B0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4D7A0EEDB740E514B9E6979E /* libPods-ezyfox-server-react-native-client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ezyfox-server-react-native-client.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		98907C94386AF7E1C2D8370A /* Pods-ezyfox-server-react-native-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ezyfox-server-react-native-client.release.xcconfig"; path = "Pods/Target Support Files/Pods-ezyfox-server-react-native-client/Pods-ezyfox-server-react-native-client.release.xcconfig"; sourceTree = "<group>"; };
+		BB4B42E4A06CD1C5F5024E8F /* Pods-ezyfox-server-react-native-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ezyfox-server-react-native-client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ezyfox-server-react-native-client/Pods-ezyfox-server-react-native-client.debug.xcconfig"; sourceTree = "<group>"; };
+		E91196BD21860F2D00EEA0CE /* AppConfigDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfigDefine.h; sourceTree = "<group>"; };
+		E93B737C21822C1F005D3930 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		E93D35B02183368F0001E1B0 /* socket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = socket.xcodeproj; path = socket/socket.xcodeproj; sourceTree = "<group>"; };
+		E98F3DC52182C187004F331B /* EzyClientProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EzyClientProxy.h; sourceTree = "<group>"; };
+		E98F3DC62182C187004F331B /* EzyClientProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EzyClientProxy.m; sourceTree = "<group>"; };
+		E98F3DC92182C3CC004F331B /* EzyMethodProxy.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = EzyMethodProxy.h; sourceTree = "<group>"; };
+		E98F3DCA2182C3CC004F331B /* EzyMethodProxy.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = EzyMethodProxy.mm; sourceTree = "<group>"; };
+		E9A458E921835E7F00FDFDE8 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		E9A458EA2183640000FDFDE8 /* EzyMethodNames.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; path = EzyMethodNames.h; sourceTree = "<group>"; };
+		E9A458EE2183782500FDFDE8 /* EzyEventSerializer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = EzyEventSerializer.h; sourceTree = "<group>"; };
+		E9A458EF2183782500FDFDE8 /* EzyEventSerializer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EzyEventSerializer.mm; sourceTree = "<group>"; };
+		E9A458F12183841400FDFDE8 /* EzyNativeSerializers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EzyNativeSerializers.h; sourceTree = "<group>"; };
+		E9A458F22183841400FDFDE8 /* EzyNativeSerializers.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EzyNativeSerializers.mm; sourceTree = "<group>"; };
+		E9A458F52183852400FDFDE8 /* EzyNativeStrings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EzyNativeStrings.h; sourceTree = "<group>"; };
+		E9A458F62183852400FDFDE8 /* EzyNativeStrings.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EzyNativeStrings.mm; sourceTree = "<group>"; };
+		E9A458F9218410B000FDFDE8 /* EzyMethodCallException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EzyMethodCallException.h; sourceTree = "<group>"; };
+		E9A458FA218410B000FDFDE8 /* EzyMethodCallException.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EzyMethodCallException.mm; sourceTree = "<group>"; };
+		E9A458FC2184257B00FDFDE8 /* EzyClientConfigSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EzyClientConfigSerializer.h; sourceTree = "<group>"; };
+		E9A458FD2184257B00FDFDE8 /* EzyClientConfigSerializer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EzyClientConfigSerializer.mm; sourceTree = "<group>"; };
+		E9A458FF2184284700FDFDE8 /* EzyNativeDataSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EzyNativeDataSerializer.h; sourceTree = "<group>"; };
+		E9A459002184284700FDFDE8 /* EzyNativeDataSerializer.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = EzyNativeDataSerializer.mm; sourceTree = "<group>"; };
+		E9A459022184453300FDFDE8 /* EzyNativeDataDeserializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EzyNativeDataDeserializer.h; sourceTree = "<group>"; };
+		E9A459032184453300FDFDE8 /* EzyNativeDataDeserializer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EzyNativeDataDeserializer.mm; sourceTree = "<group>"; };
+		E9A459052184622100FDFDE8 /* EzyMethodNames.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EzyMethodNames.mm; sourceTree = "<group>"; };
+		E9C3E39621822B2A00EF0EE8 /* ezyfox-server-react-native-client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ezyfox-server-react-native-client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9C3E39921822B2A00EF0EE8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E9C3E39A21822B2A00EF0EE8 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		E9C3E3A021822B2A00EF0EE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E9C3E3A221822B2D00EF0EE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E9C3E3A521822B2D00EF0EE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E9C3E3A721822B2D00EF0EE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9C3E3A821822B2D00EF0EE8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E9C3E39321822B2A00EF0EE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA192C31243FEB398987CFFF /* libPods-ezyfox-server-react-native-client.a in Frameworks */,
+				E963D589218337FA00045CA0 /* libsocket.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16C82692FEE4F123F5D12CC6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BB4B42E4A06CD1C5F5024E8F /* Pods-ezyfox-server-react-native-client.debug.xcconfig */,
+				98907C94386AF7E1C2D8370A /* Pods-ezyfox-server-react-native-client.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		78B36ABE84300192D2793F14 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D7A0EEDB740E514B9E6979E /* libPods-ezyfox-server-react-native-client.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E93D35B12183368F0001E1B0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E93D35B52183368F0001E1B0 /* libsocket.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E98F3DC82182C39B004F331B /* proxy */ = {
+			isa = PBXGroup;
+			children = (
+				E98F3DC92182C3CC004F331B /* EzyMethodProxy.h */,
+				E98F3DCA2182C3CC004F331B /* EzyMethodProxy.mm */,
+			);
+			path = proxy;
+			sourceTree = "<group>";
+		};
+		E9A458ED218377E000FDFDE8 /* serializer */ = {
+			isa = PBXGroup;
+			children = (
+				E9A458EE2183782500FDFDE8 /* EzyEventSerializer.h */,
+				E9A458EF2183782500FDFDE8 /* EzyEventSerializer.mm */,
+				E9A458FC2184257B00FDFDE8 /* EzyClientConfigSerializer.h */,
+				E9A458FD2184257B00FDFDE8 /* EzyClientConfigSerializer.mm */,
+				E9A458FF2184284700FDFDE8 /* EzyNativeDataSerializer.h */,
+				E9A459002184284700FDFDE8 /* EzyNativeDataSerializer.mm */,
+				E9A459022184453300FDFDE8 /* EzyNativeDataDeserializer.h */,
+				E9A459032184453300FDFDE8 /* EzyNativeDataDeserializer.mm */,
+				E9A458F12183841400FDFDE8 /* EzyNativeSerializers.h */,
+				E9A458F22183841400FDFDE8 /* EzyNativeSerializers.mm */,
+			);
+			path = serializer;
+			sourceTree = "<group>";
+		};
+		E9A458F4218384D800FDFDE8 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				E9A458F52183852400FDFDE8 /* EzyNativeStrings.h */,
+				E9A458F62183852400FDFDE8 /* EzyNativeStrings.mm */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		E9A458F82184108B00FDFDE8 /* exception */ = {
+			isa = PBXGroup;
+			children = (
+				E9A458F9218410B000FDFDE8 /* EzyMethodCallException.h */,
+				E9A458FA218410B000FDFDE8 /* EzyMethodCallException.mm */,
+			);
+			path = exception;
+			sourceTree = "<group>";
+		};
+		E9C3E38D21822B2A00EF0EE8 = {
+			isa = PBXGroup;
+			children = (
+				E93D35B02183368F0001E1B0 /* socket.xcodeproj */,
+				E9C3E39821822B2A00EF0EE8 /* ezyfox-server-react-native-client */,
+				E9C3E39721822B2A00EF0EE8 /* Products */,
+				E93B737C21822C1F005D3930 /* Podfile */,
+				16C82692FEE4F123F5D12CC6 /* Pods */,
+				78B36ABE84300192D2793F14 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E9C3E39721822B2A00EF0EE8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E9C3E39621822B2A00EF0EE8 /* ezyfox-server-react-native-client.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E9C3E39821822B2A00EF0EE8 /* ezyfox-server-react-native-client */ = {
+			isa = PBXGroup;
+			children = (
+				E9A458F82184108B00FDFDE8 /* exception */,
+				E9A458F4218384D800FDFDE8 /* util */,
+				E9A458ED218377E000FDFDE8 /* serializer */,
+				E98F3DC82182C39B004F331B /* proxy */,
+				E9A458EA2183640000FDFDE8 /* EzyMethodNames.h */,
+				E9A459052184622100FDFDE8 /* EzyMethodNames.mm */,
+				E98F3DC52182C187004F331B /* EzyClientProxy.h */,
+				E98F3DC62182C187004F331B /* EzyClientProxy.m */,
+				E9C3E39921822B2A00EF0EE8 /* AppDelegate.h */,
+				E9C3E39A21822B2A00EF0EE8 /* AppDelegate.mm */,
+				E91196BD21860F2D00EEA0CE /* AppConfigDefine.h */,
+				E9C3E39F21822B2A00EF0EE8 /* Main.storyboard */,
+				E9C3E3A221822B2D00EF0EE8 /* Assets.xcassets */,
+				E9C3E3A421822B2D00EF0EE8 /* LaunchScreen.storyboard */,
+				E9C3E3A721822B2D00EF0EE8 /* Info.plist */,
+				E9C3E3A821822B2D00EF0EE8 /* main.m */,
+				E9A458E921835E7F00FDFDE8 /* Prefix.pch */,
+			);
+			path = "ezyfox-server-react-native-client";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E9C3E39521822B2A00EF0EE8 /* ezyfox-server-react-native-client */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9C3E3C221822B2D00EF0EE8 /* Build configuration list for PBXNativeTarget "ezyfox-server-react-native-client" */;
+			buildPhases = (
+				B22251B25DC5C01BE2B2A627 /* [CP] Check Pods Manifest.lock */,
+				E9C3E39221822B2A00EF0EE8 /* Sources */,
+				E9C3E39321822B2A00EF0EE8 /* Frameworks */,
+				E9C3E39421822B2A00EF0EE8 /* Resources */,
+				E93D3223218333520001E1B0 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E93D35BA218337A90001E1B0 /* PBXTargetDependency */,
+			);
+			name = "ezyfox-server-react-native-client";
+			productName = "ezyfox-server-react-native-client";
+			productReference = E9C3E39621822B2A00EF0EE8 /* ezyfox-server-react-native-client.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E9C3E38E21822B2A00EF0EE8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Young Monkeys";
+				TargetAttributes = {
+					E9C3E39521822B2A00EF0EE8 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = E9C3E39121822B2A00EF0EE8 /* Build configuration list for PBXProject "ezyfox-server-react-native-client" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E9C3E38D21822B2A00EF0EE8;
+			productRefGroup = E9C3E39721822B2A00EF0EE8 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E93D35B12183368F0001E1B0 /* Products */;
+					ProjectRef = E93D35B02183368F0001E1B0 /* socket.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				E9C3E39521822B2A00EF0EE8 /* ezyfox-server-react-native-client */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E93D35B52183368F0001E1B0 /* libsocket.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libsocket.a;
+			remoteRef = E93D35B42183368F0001E1B0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E9C3E39421822B2A00EF0EE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9C3E3A621822B2D00EF0EE8 /* LaunchScreen.storyboard in Resources */,
+				E9C3E3A321822B2D00EF0EE8 /* Assets.xcassets in Resources */,
+				E93B737D21822C1F005D3930 /* Podfile in Resources */,
+				E9C3E3A121822B2A00EF0EE8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B22251B25DC5C01BE2B2A627 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ezyfox-server-react-native-client-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E9C3E39221822B2A00EF0EE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9A458FE2184257B00FDFDE8 /* EzyClientConfigSerializer.mm in Sources */,
+				E9A458F32183841400FDFDE8 /* EzyNativeSerializers.mm in Sources */,
+				E9A459012184284700FDFDE8 /* EzyNativeDataSerializer.mm in Sources */,
+				E9A459062184622100FDFDE8 /* EzyMethodNames.mm in Sources */,
+				E9A458F02183782500FDFDE8 /* EzyEventSerializer.mm in Sources */,
+				E9A458FB218410B000FDFDE8 /* EzyMethodCallException.mm in Sources */,
+				E9A459042184453300FDFDE8 /* EzyNativeDataDeserializer.mm in Sources */,
+				E98F3DCB2182C3CC004F331B /* EzyMethodProxy.mm in Sources */,
+				E9C3E3A921822B2D00EF0EE8 /* main.m in Sources */,
+				E9C3E39B21822B2A00EF0EE8 /* AppDelegate.mm in Sources */,
+				E9A458F72183852400FDFDE8 /* EzyNativeStrings.mm in Sources */,
+				E98F3DC72182C187004F331B /* EzyClientProxy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E93D35BA218337A90001E1B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = socket;
+			targetProxy = E93D35B9218337A90001E1B0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E9C3E39F21822B2A00EF0EE8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9C3E3A021822B2A00EF0EE8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E9C3E3A421822B2D00EF0EE8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9C3E3A521822B2D00EF0EE8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E9C3E3C021822B2D00EF0EE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"EZY_DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/socket/src",
+					"$(SRCROOT)/socket/src/base",
+					"$(SRCROOT)/socket/src/codec",
+					"$(SRCROOT)/socket/src/command",
+					"$(SRCROOT)/socket/src/config",
+					"$(SRCROOT)/socket/src/constant",
+					"$(SRCROOT)/socket/src/entity",
+					"$(SRCROOT)/socket/src/event",
+					"$(SRCROOT)/socket/src/gc",
+					"$(SRCROOT)/socket/src/handler",
+					"$(SRCROOT)/socket/src/logger",
+					"$(SRCROOT)/socket/src/manager",
+					"$(SRCROOT)/socket/src/request",
+					"$(SRCROOT)/socket/src/socket",
+					"$(SRCROOT)/socket/src/util",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		E9C3E3C121822B2D00EF0EE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/socket/src",
+					"$(SRCROOT)/socket/src/base",
+					"$(SRCROOT)/socket/src/codec",
+					"$(SRCROOT)/socket/src/command",
+					"$(SRCROOT)/socket/src/config",
+					"$(SRCROOT)/socket/src/constant",
+					"$(SRCROOT)/socket/src/entity",
+					"$(SRCROOT)/socket/src/event",
+					"$(SRCROOT)/socket/src/gc",
+					"$(SRCROOT)/socket/src/handler",
+					"$(SRCROOT)/socket/src/logger",
+					"$(SRCROOT)/socket/src/manager",
+					"$(SRCROOT)/socket/src/request",
+					"$(SRCROOT)/socket/src/socket",
+					"$(SRCROOT)/socket/src/util",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E9C3E3C321822B2D00EF0EE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB4B42E4A06CD1C5F5024E8F /* Pods-ezyfox-server-react-native-client.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"DEBUG=1",
+					"EZY_DEBUG=1",
+				);
+				INFOPLIST_FILE = "ezyfox-server-react-native-client/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tvd12.ezyfox-server-react-native-client";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		E9C3E3C421822B2D00EF0EE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98907C94386AF7E1C2D8370A /* Pods-ezyfox-server-react-native-client.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "ezyfox-server-react-native-client/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tvd12.ezyfox-server-react-native-client";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E9C3E39121822B2A00EF0EE8 /* Build configuration list for PBXProject "ezyfox-server-react-native-client" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9C3E3C021822B2D00EF0EE8 /* Debug */,
+				E9C3E3C121822B2D00EF0EE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9C3E3C221822B2D00EF0EE8 /* Build configuration list for PBXNativeTarget "ezyfox-server-react-native-client" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9C3E3C321822B2D00EF0EE8 /* Debug */,
+				E9C3E3C421822B2D00EF0EE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E9C3E38E21822B2A00EF0EE8 /* Project object */;
+}

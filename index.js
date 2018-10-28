@@ -8,15 +8,17 @@ class App extends React.Component {
     this.host = "192.168.51.103";
     // this.host = "192.168.1.9";
     this.clients = Ezy.Clients.getInstance();
-  }
-
-  componentWillMount() {
     this.clients.processEvents();
   }
 
   componentDidMount() {
     this.clients.newDefaultClient({zoneName: "freechat"}, client => {
-      console.log("new client config: " + JSON.stringify(client.config));
+      this.setupClient(client);
+      client.connect(this.host, 3005);
+    });
+  }
+
+  setupClient(client) {
       var setup = client.setup;
       var handshakeHandler = new Ezy.HandshakeHandler();
       handshakeHandler.getLoginRequest = () => {
@@ -33,8 +35,6 @@ class App extends React.Component {
       setup.addDataHandler(Ezy.Command.HANDSHAKE, handshakeHandler);
       setup.addDataHandler(Ezy.Command.LOGIN, loginSuccessHandler);
       setup.addDataHandler(Ezy.Command.APP_ACCESS, accessAppHandler);
-      client.connect(this.host, 3005);
-    });
   }
 render() {
   return (

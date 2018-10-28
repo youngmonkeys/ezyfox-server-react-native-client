@@ -12,3 +12,10 @@ android/gradle/
 android/app/build
 android/app/proguard-rules.pro
 android/app/app.iml
+ios/Podfile.lock
+ios/Pods/
+ios/build/
+ios/socket/.gitignore
+ios/socket/CODING_CONVENSION.md
+ios/socket/src/
+

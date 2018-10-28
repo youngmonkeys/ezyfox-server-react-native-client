@@ -58,8 +58,8 @@ public class EzyClientModule extends ReactContextBaseJavaModule {
         if(func == null)
             throw new IllegalArgumentException("has no method: " + method);
         try {
-            func.setParams(params);
-            Object result = func.invoke();
+            func.validate(params);
+            Object result = func.invoke(params);
             if(success != null)
                 success.invoke(result);
         }
