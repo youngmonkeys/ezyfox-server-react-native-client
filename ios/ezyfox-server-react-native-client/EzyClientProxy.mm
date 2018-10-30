@@ -11,7 +11,9 @@
 #import "proxy/EzyMethodProxy.h"
 #import "exception/EzyMethodCallException.h"
 
-@implementation EzyClientProxy
+@implementation EzyClientProxy {
+    NSDictionary<NSString*, EzyMethodProxy*>* _methods;
+}
 
 -(instancetype)init {
     self = [super init];

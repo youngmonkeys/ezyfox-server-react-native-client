@@ -14,7 +14,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EzyClientProxy : RCTEventEmitter <RCTBridgeModule>
-@property (strong, nonatomic) NSDictionary<NSString*, EzyMethodProxy*>* methods;
 @end
 
 NS_ASSUME_NONNULL_END
