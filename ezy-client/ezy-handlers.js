@@ -141,7 +141,6 @@ class EzyHandshakeHandler {
 	handleLogin() {
 		var loginRequest = this.getLoginRequest();
         this.client.sendRequest(Const.EzyCommand.LOGIN, loginRequest);
-        console.log("handle login");
     }
     
     getLoginRequest() {
@@ -250,12 +249,10 @@ class EzyEventHandlers {
     constructor(client) {
         this.handlers = {};
         this.client = client;
-        this.pingSchedule = client.pingSchedule;
     }
 
     addHandler(eventType, handler) {
         handler.client = this.client;
-        handler.pingSchedule = this.pingSchedule;
         this.handlers[eventType] = handler;
     }
 
