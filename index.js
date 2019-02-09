@@ -5,8 +5,8 @@ import Ezy from './ezy-client';
 class App extends React.Component {
   constructor(args) {
     super(args);
-    this.host = "192.168.51.103";
-    // this.host = "192.168.1.9";
+    // this.host = "192.168.51.103";
+    this.host = "192.168.1.13";
     this.clients = Ezy.Clients.getInstance();
     this.clients.processEvents();
   }

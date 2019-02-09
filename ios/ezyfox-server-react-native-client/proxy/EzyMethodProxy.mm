@@ -13,7 +13,6 @@
 #import "../EzyMethodNames.h"
 #import "../util/EzyNativeStrings.h"
 #import "../serializer/EzyNativeSerializers.h"
-#import "../AppConfigDefine.h"
 
 EZY_USING_NAMESPACE;
 EZY_USING_NAMESPACE::config;
