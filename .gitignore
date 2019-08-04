@@ -18,4 +18,11 @@ ios/build/
 ios/socket/.gitignore
 ios/socket/CODING_CONVENSION.md
 ios/socket/src/
-
+.project
+.settings/
+*.project
+*/.settings/
+.classpath
+*.classpath
+ios/socket/
+*/.project
