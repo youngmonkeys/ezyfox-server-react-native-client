@@ -11,6 +11,7 @@
 
 NSString *const METHOD_INIT = @"init";
 NSString *const METHOD_CONNECT = @"connect";
+NSString *const METHOD_DISCONNECT = @"disconnect";
 NSString *const METHOD_SEND = @"send";
 NSString *const METHOD_RECONNECT = @"reconnect";
 NSString *const METHOD_SET_STATUS = @"setStatus";

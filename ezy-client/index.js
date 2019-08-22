@@ -13,6 +13,7 @@ const Ezy =  {
     DisconnectionHandler : Handler.EzyDisconnectionHandler,
     HandshakeHandler : Handler.EzyHandshakeHandler,
     LoginSuccessHandler : Handler.EzyLoginSuccessHandler,
+    LoginErrorHandler : Handler.EzyLoginErrorHandler,
     AppAccessHandler : Handler.EzyAppAccessHandler,
     AppResponseHandler : Handler.EzyAppResponseHandler
 };

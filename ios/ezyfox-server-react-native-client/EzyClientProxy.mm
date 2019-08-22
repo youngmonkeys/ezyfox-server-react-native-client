@@ -27,8 +27,9 @@
 -(void)initMethods {
     [self addMethod:[[EzyCreateClientMethod alloc]initWithComponents:self]];
     [self addMethod:[[EzyConnectMethod alloc]init]];
-    [self addMethod:[[EzySendMethod alloc]init]];
     [self addMethod:[[EzyReconnectMethod alloc]init]];
+    [self addMethod:[[EzyDisconnectMethod alloc]init]];
+    [self addMethod:[[EzySendMethod alloc]init]];
     [self addMethod:[[EzySetStatusMethod alloc]init]];
     [self addMethod:[[EzyStartPingScheduleMethod alloc]init]];
 }

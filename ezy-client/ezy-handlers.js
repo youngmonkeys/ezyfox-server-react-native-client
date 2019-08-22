@@ -10,6 +10,7 @@ class EzyConnectionSuccessHandler {
     }
 
     handle() {
+        this.client.setStatus(Const.EzyConnectionStatus.CONNECTED);
         this.sendHandshakeRequest();
         this.postHandle();
     }
@@ -58,20 +59,16 @@ class EzyConnectionFailureHandler {
         var reconnectConfig = config.reconnect;
         var should = this.shouldReconnect(event);
         var must = reconnectConfig.enable && should;
+        this.client.setStatus(Const.EzyConnectionStatus.FAILURE);
         if(must) {
             this.client.reconnect(success => {
                 if(!success)
-                    this.processWhenNoReconnect(event);
+                    this.control(event);
             });
         }
         else {
-            this.processWhenNoReconnect(event);
+            this.control(event);
         }
-    }
-
-    processWhenNoReconnect(event) {
-        this.client.setStatus(Const.EzyConnectionStatus.FAILURE);
-        this.control(event);
     }
 
     shouldReconnect(event) {
@@ -92,20 +89,16 @@ class EzyDisconnectionHandler {
         var reconnectConfig = config.reconnect;
         var should = this.shouldReconnect(event);
         var must = reconnectConfig.enable && should;
+        this.client.setStatus(Const.EzyConnectionStatus.DISCONNECTED);
         if(must) {
             this.client.reconnect(success => {
                 if(!success)
-                    this.processWhenNoReconnect(event);
+                    this.control(event);
             });
         }
         else {
-            this.processWhenNoReconnect(event);
+            this.control(event);
         }
-    }
-
-    processWhenNoReconnect(event) {
-        this.client.setStatus(Const.EzyConnectionStatus.DISCONNECTED);
-        this.control(event);
     }
 
     preHandle(event) {
@@ -171,6 +164,16 @@ class EzyLoginSuccessHandler {
     }
 
     handleLoginSuccess(joinedApps, responseData) {
+    }
+}
+
+class EzyLoginErrorHandler {
+    handle(data) {
+        this.client.disconnect(401);
+        this.handleLoginError(data);
+    }
+
+    handleLoginError(data) {
     }
 }
 
@@ -296,6 +299,7 @@ export default {
     EzyPongHandler,
     EzyHandshakeHandler,
     EzyLoginSuccessHandler,
+    EzyLoginErrorHandler,
     EzyAppAccessHandler,
     EzyAppResponseHandler,
     EzyEventHandlers, 

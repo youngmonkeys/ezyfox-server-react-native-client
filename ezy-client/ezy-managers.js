@@ -60,6 +60,7 @@ class EzyHandlerManager {
         handlers.addHandler(Const.EzyCommand.PONG, new Handler.EzyPongHandler());
         handlers.addHandler(Const.EzyCommand.HANDSHAKE, new Handler.EzyHandshakeHandler());
         handlers.addHandler(Const.EzyCommand.LOGIN, new Handler.EzyLoginSuccessHandler());
+        handlers.addHandler(Const.EzyCommand.LOGIN_ERROR, new Handler.EzyLoginErrorHandler());
         handlers.addHandler(Const.EzyCommand.APP_ACCESS, new Handler.EzyAppAccessHandler());
         handlers.addHandler(Const.EzyCommand.APP_REQUEST, new Handler.EzyAppResponseHandler());
         return handlers;

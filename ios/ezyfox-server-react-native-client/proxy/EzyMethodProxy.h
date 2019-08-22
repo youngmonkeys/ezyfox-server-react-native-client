@@ -28,6 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface EzyReconnectMethod : EzyMethodProxy
 @end
 
+@interface EzyDisconnectMethod : EzyMethodProxy
+@end
+
 @interface EzySendMethod : EzyMethodProxy
 @end
 

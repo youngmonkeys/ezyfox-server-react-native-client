@@ -7,6 +7,7 @@
     "android-linux": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && react-native run-android"
   },
   "dependencies": {
+    "mvc-es6": "^1.0.0",
     "react": "^16.6.0",
     "react-native": "^0.57.3",
     "react-timer-mixin": "^0.13.4"

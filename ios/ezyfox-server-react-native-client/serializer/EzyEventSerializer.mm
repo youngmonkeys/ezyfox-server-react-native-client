@@ -56,7 +56,11 @@ static std::map<int, std::string> sNativeDisconnectReasonNames = {
 -(NSDictionary*)serializeConnectionFailureEvent: (EzyEvent*)event {
     EzyConnectionFailureEvent* mevent = (EzyConnectionFailureEvent*)event;
     NSDictionary* dict = [NSMutableDictionary dictionary];
-    std::string reasonName = sNativeConnectionFailedReasonNames[mevent->getReason()];
+    int reason = mevent->getReason();
+    std::string reasonName = std::to_string(reason);
+    std::map<int, std::string>::iterator it = sNativeConnectionFailedReasonNames.find(reason);
+    if(it != sNativeConnectionFailedReasonNames.end())
+        reasonName = it->second;
     NSString* tmp = [NSString stringWithCString:reasonName.c_str() encoding:[NSString defaultCStringEncoding]];
     [dict setValue:tmp forKey:@"reason"];
     return dict;
@@ -65,7 +69,11 @@ static std::map<int, std::string> sNativeDisconnectReasonNames = {
 -(NSDictionary*)serializeDisconnectionEvent: (EzyEvent*)event {
     EzyDisconnectionEvent* mevent = (EzyDisconnectionEvent*)event;
     NSDictionary* dict = [NSMutableDictionary dictionary];
-    std::string reasonName = sNativeDisconnectReasonNames[mevent->getReason()];
+    int reason = mevent->getReason();
+    std::string reasonName = std::to_string(reason);
+    std::map<int, std::string>::iterator it = sNativeDisconnectReasonNames.find(reason);
+    if(it != sNativeDisconnectReasonNames.end())
+        reasonName = it->second;
     NSString* tmp = [NSString stringWithCString:reasonName.c_str() encoding:[NSString defaultCStringEncoding]];
     [dict setValue:tmp forKey:@"reason"];
     return dict;

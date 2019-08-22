@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CA192C31243FEB398987CFFF /* libPods-ezyfox-server-react-native-client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7A0EEDB740E514B9E6979E /* libPods-ezyfox-server-react-native-client.a */; };
 		E93B737D21822C1F005D3930 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E93B737C21822C1F005D3930 /* Podfile */; };
 		E963D589218337FA00045CA0 /* libsocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E93D35B52183368F0001E1B0 /* libsocket.a */; };
 		E98F3DC72182C187004F331B /* EzyClientProxy.mm in Sources */ = {isa = PBXBuildFile; fileRef = E98F3DC62182C187004F331B /* EzyClientProxy.mm */; };
@@ -25,6 +24,7 @@
 		E9C3E3A321822B2D00EF0EE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9C3E3A221822B2D00EF0EE8 /* Assets.xcassets */; };
 		E9C3E3A621822B2D00EF0EE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9C3E3A421822B2D00EF0EE8 /* LaunchScreen.storyboard */; };
 		E9C3E3A921822B2D00EF0EE8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C3E3A821822B2D00EF0EE8 /* main.m */; };
+		FF56CE99BE656270A5E0E60C /* libPods-ezyfox-server-react-native-client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7A0EEDB740E514B9E6979E /* libPods-ezyfox-server-react-native-client.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +64,11 @@
 		E91196BD21860F2D00EEA0CE /* AppConfigDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfigDefine.h; sourceTree = "<group>"; };
 		E93B737C21822C1F005D3930 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		E93D35B02183368F0001E1B0 /* socket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = socket.xcodeproj; path = socket/socket.xcodeproj; sourceTree = "<group>"; };
+		E97EDB2322F741EC00202705 /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E97EDB2522F7421100202705 /* libDoubleConversion.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libDoubleConversion.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E97EDB2722F7421100202705 /* libFolly.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFolly.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E97EDB2922F7421100202705 /* libglog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libglog.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E97EDB2B22F7421100202705 /* libyoga.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libyoga.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E98F3DC52182C187004F331B /* EzyClientProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EzyClientProxy.h; sourceTree = "<group>"; };
 		E98F3DC62182C187004F331B /* EzyClientProxy.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EzyClientProxy.mm; sourceTree = "<group>"; };
 		E98F3DC92182C3CC004F331B /* EzyMethodProxy.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = EzyMethodProxy.h; sourceTree = "<group>"; };
@@ -100,8 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA192C31243FEB398987CFFF /* libPods-ezyfox-server-react-native-client.a in Frameworks */,
 				E963D589218337FA00045CA0 /* libsocket.a in Frameworks */,
+				FF56CE99BE656270A5E0E60C /* libPods-ezyfox-server-react-native-client.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +125,11 @@
 		78B36ABE84300192D2793F14 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E97EDB2522F7421100202705 /* libDoubleConversion.a */,
+				E97EDB2722F7421100202705 /* libFolly.a */,
+				E97EDB2922F7421100202705 /* libglog.a */,
+				E97EDB2B22F7421100202705 /* libyoga.a */,
+				E97EDB2322F741EC00202705 /* libReact.a */,
 				4D7A0EEDB740E514B9E6979E /* libPods-ezyfox-server-react-native-client.a */,
 			);
 			name = Frameworks;

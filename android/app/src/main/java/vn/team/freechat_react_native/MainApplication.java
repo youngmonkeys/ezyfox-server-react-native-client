@@ -4,6 +4,7 @@ import android.app.Application;
 import android.util.Log;
 
 import com.facebook.react.ReactApplication;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -29,7 +30,8 @@ public class MainApplication extends Application implements ReactApplication {
         protected List<ReactPackage> getPackages() {
             Log.w("hello-world", "hello-world");
             List<ReactPackage> packages = new ArrayList<>();
-            packages.add(new MainReactPackage());
+            packages.add(new MainReactPackage(),
+            new RNGestureHandlerPackage());
             packages.add(new EzyClientPackage());
             return packages;
         }

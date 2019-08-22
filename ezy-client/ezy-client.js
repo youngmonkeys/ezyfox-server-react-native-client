@@ -24,6 +24,11 @@ class EzyClient {
         Proxy.run2("reconnect", {clientName: this.name}, callback);
     }
 
+    disconnect(reason) {
+        var r = reason ? reason : 0;
+        Proxy.run("disconnect", {clientName : this.name, reason : r});
+    }
+
     sendRequest(cmd, data) {
         Proxy.run("send", {clientName: this.name, request: {command: cmd, data: data}});
     }

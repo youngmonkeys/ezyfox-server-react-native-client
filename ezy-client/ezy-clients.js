@@ -21,14 +21,16 @@ class EzyClients {
             this.addClient(client);
             if(this.defaultClientName == "")
                 this.defaultClientName = client.name;
-            callback(client);
+            if(callback)
+                callback(client);
         });
     }
 
     newDefaultClient(config, callback) {
         this.newClient(config, client => {
             this.defaultClientName = client.name;
-            callback(client);
+            if(callback)
+                callback(client);
         });
     }
 

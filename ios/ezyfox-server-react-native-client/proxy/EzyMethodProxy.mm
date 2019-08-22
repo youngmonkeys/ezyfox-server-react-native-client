@@ -44,8 +44,7 @@ static std::map<EzyCommand, std::string> sNativeCommandNames = {
     {AppExit, "APP_EXIT"},
     {AppAccessError, "APP_ACCESS_ERROR"},
     {PluginInfo, "PLUGIN_INFO"},
-    {PluginRequestByName, "PLUGIN_REQUEST_BY_NAME"},
-    {PluginRequestById, "PLUGIN_REQUEST_BY_ID"}
+    {PluginRequest, "PLUGIN_REQUEST"}
 };
 
 static std::map<std::string, EzyCommand> sNativeCommandIds = {
@@ -61,8 +60,7 @@ static std::map<std::string, EzyCommand> sNativeCommandIds = {
     {"APP_EXIT", AppExit},
     {"APP_ACCESS_ERROR", AppAccessError},
     {"PLUGIN_INFO", PluginInfo},
-    {"PLUGIN_REQUEST_BY_NAME", PluginRequestByName},
-    {"PLUGIN_REQUEST_BY_ID", PluginRequestById}
+    {"PLUGIN_REQUEST", PluginRequest}
 };
 
 static std::map<std::string, EzyConnectionStatus> sNativeConnectionStatusIds = {
@@ -262,6 +260,23 @@ public:
 
 - (NSString *)getName {
     return METHOD_RECONNECT;
+}
+@end
+
+//======================================================
+@implementation EzyDisconnectMethod
+
+- (NSObject *)invoke:(NSDictionary *)params {
+    EzyClient* client = getClient(params);
+    int reason = 0;
+    if([params valueForKey:@"reason"])
+        reason = [[params valueForKey:@"reason"] intValue];
+    client->disconnect(reason);
+    return [NSNumber numberWithBool:TRUE];
+}
+
+- (NSString *)getName {
+    return METHOD_DISCONNECT;
 }
 @end
 

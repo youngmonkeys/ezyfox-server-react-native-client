@@ -1,48 +1,58 @@
 import React from 'react';
 import {AppRegistry, StyleSheet, Text, View} from 'react-native';
+import Mvc from 'mvc-es6'
 import Ezy from './ezy-client';
+import LoginView from './views/LoginView'
+import MessageView from './views/MessageView'
 
 class App extends React.Component {
   constructor(args) {
     super(args);
-    // this.host = "192.168.51.103";
-    this.host = "192.168.1.13";
     this.clients = Ezy.Clients.getInstance();
     this.clients.processEvents();
+    this.state = {currentView : "login"}
   }
 
   componentDidMount() {
     this.clients.newDefaultClient({zoneName: "freechat"}, client => {
       this.setupClient(client);
-      client.connect(this.host, 3005);
     });
   }
 
   setupClient(client) {
-      var setup = client.setup;
-      var handshakeHandler = new Ezy.HandshakeHandler();
+      let mvc = Mvc.getInstance();
+      let models = mvc.models;
+      let setup = client.setup;
+      let handshakeHandler = new Ezy.HandshakeHandler();
       handshakeHandler.getLoginRequest = () => {
-        return ["freechat", "dungtv", "123456", []];
+        let conn = models.connection;
+        return ["freechat", conn.username, conn.password, []];
       };
-      var loginSuccessHandler = new Ezy.LoginSuccessHandler();
+      let loginSuccessHandler = new Ezy.LoginSuccessHandler();
       loginSuccessHandler.handleLoginSuccess = data => {
         client.sendRequest(Ezy.Command.APP_ACCESS, ["freechat", []]);
       };
-      var accessAppHandler = new Ezy.AppAccessHandler();
+      let accessAppHandler = new Ezy.AppAccessHandler();
       accessAppHandler.postHandle = (app, data) => {
+        this.setState({currentView : "message"});
         app.sendRequest("5", {skip: 0, limit: 50});
       };
       setup.addDataHandler(Ezy.Command.HANDSHAKE, handshakeHandler);
       setup.addDataHandler(Ezy.Command.LOGIN, loginSuccessHandler);
       setup.addDataHandler(Ezy.Command.APP_ACCESS, accessAppHandler);
   }
-render() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.hello}>Hello, World</Text>
-    </View>
-  );
-}
+  
+  render() {
+    let {currentView} = this.state;
+    var displayView = <LoginView />;
+    if(currentView == 'message')
+      displayView = <MessageView />
+    return (
+      <View style={styles.container}>
+        {displayView}
+      </View>
+    );
+  }
 }
 var styles = StyleSheet.create({
   container: {
