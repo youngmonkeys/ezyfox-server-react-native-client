@@ -23,6 +23,13 @@ class App extends React.Component {
       let mvc = Mvc.getInstance();
       let models = mvc.models;
       let setup = client.setup;
+      let disconnectionHandler = new Ezy.DisconnectionHandler();
+      disconnectionHandler.shouldReconnect = event => {
+          let reason = event.reason;
+          if(reason == '401')
+            return false;
+          return true;
+      };
       let handshakeHandler = new Ezy.HandshakeHandler();
       handshakeHandler.getLoginRequest = () => {
         let conn = models.connection;
@@ -37,6 +44,7 @@ class App extends React.Component {
         this.setState({currentView : "message"});
         app.sendRequest("5", {skip: 0, limit: 50});
       };
+      setup.addEventHandler(Ezy.EventType.DISCONNECTION, disconnectionHandler);
       setup.addDataHandler(Ezy.Command.HANDSHAKE, handshakeHandler);
       setup.addDataHandler(Ezy.Command.LOGIN, loginSuccessHandler);
       setup.addDataHandler(Ezy.Command.APP_ACCESS, accessAppHandler);

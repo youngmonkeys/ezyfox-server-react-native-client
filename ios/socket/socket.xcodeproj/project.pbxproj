@@ -13,6 +13,7 @@
 		E901F27E230DB07600C98CC5 /* EzyPluginDataHandlers.h in Headers */ = {isa = PBXBuildFile; fileRef = E901F27A230DB07600C98CC5 /* EzyPluginDataHandlers.h */; };
 		E901F27F230DB07600C98CC5 /* EzyPluginDataHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E901F27B230DB07600C98CC5 /* EzyPluginDataHandler.cpp */; };
 		E901F280230DB07600C98CC5 /* EzyPluginDataHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E901F27C230DB07600C98CC5 /* EzyPluginDataHandler.h */; };
+		E901F28223102F3700C98CC5 /* EzyValueStack.h in Headers */ = {isa = PBXBuildFile; fileRef = E901F28123102F3600C98CC5 /* EzyValueStack.h */; };
 		E93D3497218335CB0001E1B0 /* EzyEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D336B218335CA0001E1B0 /* EzyEventHandler.h */; };
 		E93D3498218335CB0001E1B0 /* EzyEventHandlers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93D336C218335CA0001E1B0 /* EzyEventHandlers.cpp */; };
 		E93D3499218335CB0001E1B0 /* EzyDataHandlers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93D336D218335CA0001E1B0 /* EzyDataHandlers.cpp */; };
@@ -32,7 +33,6 @@
 		E93D34A7218335CB0001E1B0 /* EzyMaps.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D337D218335CA0001E1B0 /* EzyMaps.h */; };
 		E93D34A8218335CB0001E1B0 /* EzyClientConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D337F218335CA0001E1B0 /* EzyClientConfig.h */; };
 		E93D34A9218335CB0001E1B0 /* EzyClientConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93D3380218335CA0001E1B0 /* EzyClientConfig.cpp */; };
-		E93D34AA218335CC0001E1B0 /* EzySocketKeyPair.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3382218335CA0001E1B0 /* EzySocketKeyPair.h */; };
 		E93D34AC218335CC0001E1B0 /* EzyApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93D3385218335CA0001E1B0 /* EzyApp.cpp */; };
 		E93D34AD218335CC0001E1B0 /* EzyString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93D3386218335CA0001E1B0 /* EzyString.cpp */; };
 		E93D34AE218335CC0001E1B0 /* EzyUser.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3387218335CA0001E1B0 /* EzyUser.h */; };
@@ -60,151 +60,6 @@
 		E93D34C4218335CC0001E1B0 /* EzyDataDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D339E218335CA0001E1B0 /* EzyDataDecoder.h */; };
 		E93D34C5218335CC0001E1B0 /* EzyDataEncoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93D339F218335CA0001E1B0 /* EzyDataEncoder.cpp */; };
 		E93D34C6218335CC0001E1B0 /* EzyClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93D33A0218335CA0001E1B0 /* EzyClient.cpp */; };
-		E93D34C7218335CC0001E1B0 /* md2.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33A2218335CA0001E1B0 /* md2.h */; };
-		E93D34C8218335CC0001E1B0 /* trap.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33A3218335CA0001E1B0 /* trap.h */; };
-		E93D34C9218335CC0001E1B0 /* gzip.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33A4218335CA0001E1B0 /* gzip.h */; };
-		E93D34CA218335CC0001E1B0 /* trdlocal.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33A5218335CA0001E1B0 /* trdlocal.h */; };
-		E93D34CB218335CC0001E1B0 /* blowfish.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33A6218335CA0001E1B0 /* blowfish.h */; };
-		E93D34CC218335CC0001E1B0 /* channels.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33A7218335CA0001E1B0 /* channels.h */; };
-		E93D34CD218335CC0001E1B0 /* winpipes.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33A8218335CA0001E1B0 /* winpipes.h */; };
-		E93D34CE218335CC0001E1B0 /* mars.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33A9218335CA0001E1B0 /* mars.h */; };
-		E93D34CF218335CC0001E1B0 /* gf256.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33AA218335CA0001E1B0 /* gf256.h */; };
-		E93D34D0218335CC0001E1B0 /* pch.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33AB218335CA0001E1B0 /* pch.h */; };
-		E93D34D1218335CC0001E1B0 /* elgamal.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33AC218335CA0001E1B0 /* elgamal.h */; };
-		E93D34D2218335CC0001E1B0 /* ec2n.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33AD218335CA0001E1B0 /* ec2n.h */; };
-		E93D34D3218335CC0001E1B0 /* xtr.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33AE218335CA0001E1B0 /* xtr.h */; };
-		E93D34D4218335CC0001E1B0 /* simple.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33AF218335CA0001E1B0 /* simple.h */; };
-		E93D34D5218335CC0001E1B0 /* rc6.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33B0218335CA0001E1B0 /* rc6.h */; };
-		E93D34D6218335CC0001E1B0 /* modarith.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33B1218335CA0001E1B0 /* modarith.h */; };
-		E93D34D7218335CC0001E1B0 /* ecp.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33B2218335CA0001E1B0 /* ecp.h */; };
-		E93D34D8218335CC0001E1B0 /* fltrimpl.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33B3218335CA0001E1B0 /* fltrimpl.h */; };
-		E93D34D9218335CC0001E1B0 /* base64.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33B4218335CA0001E1B0 /* base64.h */; };
-		E93D34DA218335CC0001E1B0 /* asn.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33B5218335CA0001E1B0 /* asn.h */; };
-		E93D34DB218335CC0001E1B0 /* gfpcrypt.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33B6218335CA0001E1B0 /* gfpcrypt.h */; };
-		E93D34DC218335CC0001E1B0 /* sha.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33B7218335CA0001E1B0 /* sha.h */; };
-		E93D34DD218335CC0001E1B0 /* chacha.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33B8218335CA0001E1B0 /* chacha.h */; };
-		E93D34DE218335CC0001E1B0 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33B9218335CA0001E1B0 /* config.h */; };
-		E93D34DF218335CC0001E1B0 /* mqueue.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33BA218335CA0001E1B0 /* mqueue.h */; };
-		E93D34E0218335CC0001E1B0 /* rc2.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33BB218335CA0001E1B0 /* rc2.h */; };
-		E93D34E1218335CC0001E1B0 /* strciphr.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33BC218335CA0001E1B0 /* strciphr.h */; };
-		E93D34E2218335CC0001E1B0 /* mqv.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33BD218335CA0001E1B0 /* mqv.h */; };
-		E93D34E3218335CC0001E1B0 /* dh.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33BE218335CA0001E1B0 /* dh.h */; };
-		E93D34E4218335CC0001E1B0 /* misc.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33BF218335CA0001E1B0 /* misc.h */; };
-		E93D34E5218335CC0001E1B0 /* dh2.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33C0218335CA0001E1B0 /* dh2.h */; };
-		E93D34E6218335CC0001E1B0 /* authenc.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33C1218335CA0001E1B0 /* authenc.h */; };
-		E93D34E7218335CC0001E1B0 /* oids.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33C2218335CA0001E1B0 /* oids.h */; };
-		E93D34E8218335CC0001E1B0 /* gf2_32.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33C3218335CA0001E1B0 /* gf2_32.h */; };
-		E93D34E9218335CC0001E1B0 /* ida.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33C4218335CA0001E1B0 /* ida.h */; };
-		E93D34EA218335CC0001E1B0 /* serpent.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33C5218335CA0001E1B0 /* serpent.h */; };
-		E93D34EB218335CC0001E1B0 /* wait.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33C6218335CA0001E1B0 /* wait.h */; };
-		E93D34EC218335CC0001E1B0 /* sha3.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33C7218335CA0001E1B0 /* sha3.h */; };
-		E93D34ED218335CC0001E1B0 /* hkdf.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33C8218335CA0001E1B0 /* hkdf.h */; };
-		E93D34EE218335CC0001E1B0 /* crc.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33C9218335CA0001E1B0 /* crc.h */; };
-		E93D34EF218335CC0001E1B0 /* bench.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33CA218335CA0001E1B0 /* bench.h */; };
-		E93D34F0218335CC0001E1B0 /* skipjack.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33CB218335CA0001E1B0 /* skipjack.h */; };
-		E93D34F1218335CC0001E1B0 /* ossig.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33CC218335CA0001E1B0 /* ossig.h */; };
-		E93D34F2218335CC0001E1B0 /* md5.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33CD218335CA0001E1B0 /* md5.h */; };
-		E93D34F3218335CC0001E1B0 /* seal.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33CE218335CA0001E1B0 /* seal.h */; };
-		E93D34F4218335CC0001E1B0 /* tiger.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33CF218335CA0001E1B0 /* tiger.h */; };
-		E93D34F5218335CC0001E1B0 /* arc4.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33D0218335CA0001E1B0 /* arc4.h */; };
-		E93D34F6218335CC0001E1B0 /* smartptr.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33D1218335CA0001E1B0 /* smartptr.h */; };
-		E93D34F7218335CC0001E1B0 /* luc.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33D2218335CA0001E1B0 /* luc.h */; };
-		E93D34F8218335CC0001E1B0 /* pssr.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33D3218335CA0001E1B0 /* pssr.h */; };
-		E93D34F9218335CC0001E1B0 /* socketft.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33D4218335CA0001E1B0 /* socketft.h */; };
-		E93D34FA218335CC0001E1B0 /* seckey.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33D5218335CA0001E1B0 /* seckey.h */; };
-		E93D34FB218335CC0001E1B0 /* rw.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33D6218335CA0001E1B0 /* rw.h */; };
-		E93D34FC218335CC0001E1B0 /* lubyrack.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33D7218335CA0001E1B0 /* lubyrack.h */; };
-		E93D34FD218335CC0001E1B0 /* adler32.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33D8218335CA0001E1B0 /* adler32.h */; };
-		E93D34FE218335CC0001E1B0 /* rng.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33D9218335CA0001E1B0 /* rng.h */; };
-		E93D34FF218335CC0001E1B0 /* esign.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33DA218335CA0001E1B0 /* esign.h */; };
-		E93D3500218335CC0001E1B0 /* modexppc.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33DB218335CA0001E1B0 /* modexppc.h */; };
-		E93D3501218335CC0001E1B0 /* eprecomp.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33DC218335CA0001E1B0 /* eprecomp.h */; };
-		E93D3502218335CD0001E1B0 /* rdrand.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33DD218335CA0001E1B0 /* rdrand.h */; };
-		E93D3503218335CD0001E1B0 /* rc5.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33DE218335CA0001E1B0 /* rc5.h */; };
-		E93D3504218335CD0001E1B0 /* dll.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33DF218335CA0001E1B0 /* dll.h */; };
-		E93D3505218335CD0001E1B0 /* eax.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33E0218335CA0001E1B0 /* eax.h */; };
-		E93D3506218335CD0001E1B0 /* hrtimer.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33E1218335CA0001E1B0 /* hrtimer.h */; };
-		E93D3507218335CD0001E1B0 /* hmqv.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33E2218335CA0001E1B0 /* hmqv.h */; };
-		E93D3508218335CD0001E1B0 /* serpentp.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33E3218335CA0001E1B0 /* serpentp.h */; };
-		E93D3509218335CD0001E1B0 /* ttmac.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33E4218335CA0001E1B0 /* ttmac.h */; };
-		E93D350A218335CD0001E1B0 /* rabin.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33E5218335CA0001E1B0 /* rabin.h */; };
-		E93D350B218335CD0001E1B0 /* sosemanuk.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33E6218335CA0001E1B0 /* sosemanuk.h */; };
-		E93D350C218335CD0001E1B0 /* pubkey.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33E7218335CA0001E1B0 /* pubkey.h */; };
-		E93D350D218335CD0001E1B0 /* algebra.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33E8218335CA0001E1B0 /* algebra.h */; };
-		E93D350E218335CD0001E1B0 /* base32.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33E9218335CA0001E1B0 /* base32.h */; };
-		E93D350F218335CD0001E1B0 /* basecode.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33EA218335CA0001E1B0 /* basecode.h */; };
-		E93D3510218335CD0001E1B0 /* validate.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33EB218335CA0001E1B0 /* validate.h */; };
-		E93D3511218335CD0001E1B0 /* fips140.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33EC218335CA0001E1B0 /* fips140.h */; };
-		E93D3512218335CD0001E1B0 /* dmac.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33ED218335CA0001E1B0 /* dmac.h */; };
-		E93D3513218335CD0001E1B0 /* emsa2.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33EE218335CA0001E1B0 /* emsa2.h */; };
-		E93D3514218335CD0001E1B0 /* camellia.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33EF218335CA0001E1B0 /* camellia.h */; };
-		E93D3515218335CD0001E1B0 /* md4.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33F0218335CA0001E1B0 /* md4.h */; };
-		E93D3516218335CD0001E1B0 /* hmac.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33F1218335CA0001E1B0 /* hmac.h */; };
-		E93D3517218335CD0001E1B0 /* network.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33F2218335CA0001E1B0 /* network.h */; };
-		E93D3518218335CD0001E1B0 /* keccak.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33F3218335CA0001E1B0 /* keccak.h */; };
-		E93D3519218335CD0001E1B0 /* aes.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33F4218335CA0001E1B0 /* aes.h */; };
-		E93D351A218335CD0001E1B0 /* blake2.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33F5218335CA0001E1B0 /* blake2.h */; };
-		E93D351B218335CD0001E1B0 /* hex.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33F6218335CA0001E1B0 /* hex.h */; };
-		E93D351C218335CD0001E1B0 /* square.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33F7218335CA0001E1B0 /* square.h */; };
-		E93D351D218335CD0001E1B0 /* eccrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33F8218335CA0001E1B0 /* eccrypto.h */; };
-		E93D351E218335CD0001E1B0 /* cast.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33F9218335CA0001E1B0 /* cast.h */; };
-		E93D351F218335CD0001E1B0 /* mersenne.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33FA218335CA0001E1B0 /* mersenne.h */; };
-		E93D3520218335CD0001E1B0 /* words.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33FB218335CA0001E1B0 /* words.h */; };
-		E93D3521218335CD0001E1B0 /* cryptlib.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33FC218335CA0001E1B0 /* cryptlib.h */; };
-		E93D3522218335CD0001E1B0 /* safer.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33FD218335CA0001E1B0 /* safer.h */; };
-		E93D3523218335CD0001E1B0 /* xtrcrypt.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33FE218335CA0001E1B0 /* xtrcrypt.h */; };
-		E93D3524218335CD0001E1B0 /* nr.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D33FF218335CA0001E1B0 /* nr.h */; };
-		E93D3525218335CD0001E1B0 /* secblock.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3400218335CA0001E1B0 /* secblock.h */; };
-		E93D3526218335CD0001E1B0 /* zlib.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3401218335CA0001E1B0 /* zlib.h */; };
-		E93D3527218335CD0001E1B0 /* tea.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3402218335CA0001E1B0 /* tea.h */; };
-		E93D3528218335CD0001E1B0 /* cpu.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3403218335CA0001E1B0 /* cpu.h */; };
-		E93D3529218335CD0001E1B0 /* pwdbased.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3404218335CA0001E1B0 /* pwdbased.h */; };
-		E93D352A218335CD0001E1B0 /* des.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3405218335CA0001E1B0 /* des.h */; };
-		E93D352B218335CD0001E1B0 /* shacal2.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3406218335CA0001E1B0 /* shacal2.h */; };
-		E93D352C218335CD0001E1B0 /* osrng.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3407218335CA0001E1B0 /* osrng.h */; };
-		E93D352D218335CD0001E1B0 /* resource.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3408218335CA0001E1B0 /* resource.h */; };
-		E93D352E218335CD0001E1B0 /* twofish.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3409218335CA0001E1B0 /* twofish.h */; };
-		E93D352F218335CD0001E1B0 /* algparam.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D340A218335CA0001E1B0 /* algparam.h */; };
-		E93D3530218335CD0001E1B0 /* panama.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D340B218335CA0001E1B0 /* panama.h */; };
-		E93D3531218335CD0001E1B0 /* randpool.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D340C218335CA0001E1B0 /* randpool.h */; };
-		E93D3532218335CD0001E1B0 /* shark.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D340D218335CA0001E1B0 /* shark.h */; };
-		E93D3533218335CD0001E1B0 /* fhmqv.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D340E218335CA0001E1B0 /* fhmqv.h */; };
-		E93D3534218335CD0001E1B0 /* rijndael.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D340F218335CA0001E1B0 /* rijndael.h */; };
-		E93D3535218335CD0001E1B0 /* blumshub.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3410218335CA0001E1B0 /* blumshub.h */; };
-		E93D3536218335CD0001E1B0 /* zdeflate.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3411218335CA0001E1B0 /* zdeflate.h */; };
-		E93D3537218335CD0001E1B0 /* gcm.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3412218335CA0001E1B0 /* gcm.h */; };
-		E93D3538218335CD0001E1B0 /* salsa.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3413218335CA0001E1B0 /* salsa.h */; };
-		E93D3539218335CD0001E1B0 /* 3way.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3414218335CA0001E1B0 /* 3way.h */; };
-		E93D353A218335CD0001E1B0 /* argnames.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3415218335CA0001E1B0 /* argnames.h */; };
-		E93D353B218335CD0001E1B0 /* trunhash.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3416218335CA0001E1B0 /* trunhash.h */; };
-		E93D353C218335CD0001E1B0 /* seed.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3417218335CA0001E1B0 /* seed.h */; };
-		E93D353D218335CD0001E1B0 /* modes.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3418218335CA0001E1B0 /* modes.h */; };
-		E93D353E218335CD0001E1B0 /* rsa.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3419218335CA0001E1B0 /* rsa.h */; };
-		E93D353F218335CD0001E1B0 /* gost.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D341A218335CA0001E1B0 /* gost.h */; };
-		E93D3540218335CD0001E1B0 /* ripemd.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D341B218335CA0001E1B0 /* ripemd.h */; };
-		E93D3541218335CD0001E1B0 /* whrlpool.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D341C218335CA0001E1B0 /* whrlpool.h */; };
-		E93D3542218335CD0001E1B0 /* zinflate.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D341D218335CA0001E1B0 /* zinflate.h */; };
-		E93D3543218335CD0001E1B0 /* pkcspad.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D341E218335CA0001E1B0 /* pkcspad.h */; };
-		E93D3544218335CD0001E1B0 /* files.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D341F218335CA0001E1B0 /* files.h */; };
-		E93D3545218335CD0001E1B0 /* dsa.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3420218335CA0001E1B0 /* dsa.h */; };
-		E93D3546218335CD0001E1B0 /* integer.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3421218335CA0001E1B0 /* integer.h */; };
-		E93D3547218335CD0001E1B0 /* gf2n.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3422218335CA0001E1B0 /* gf2n.h */; };
-		E93D3548218335CD0001E1B0 /* cbcmac.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3423218335CA0001E1B0 /* cbcmac.h */; };
-		E93D3549218335CD0001E1B0 /* vmac.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3424218335CA0001E1B0 /* vmac.h */; };
-		E93D354A218335CE0001E1B0 /* polynomi.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3425218335CA0001E1B0 /* polynomi.h */; };
-		E93D354B218335CE0001E1B0 /* cmac.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3426218335CA0001E1B0 /* cmac.h */; };
-		E93D354C218335CE0001E1B0 /* stdcpp.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3427218335CA0001E1B0 /* stdcpp.h */; };
-		E93D354D218335CE0001E1B0 /* nbtheory.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3428218335CA0001E1B0 /* nbtheory.h */; };
-		E93D354E218335CE0001E1B0 /* default.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3429218335CA0001E1B0 /* default.h */; };
-		E93D354F218335CE0001E1B0 /* queue.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D342A218335CA0001E1B0 /* queue.h */; };
-		E93D3550218335CE0001E1B0 /* filters.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D342B218335CA0001E1B0 /* filters.h */; };
-		E93D3551218335CE0001E1B0 /* oaep.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D342C218335CB0001E1B0 /* oaep.h */; };
-		E93D3552218335CE0001E1B0 /* idea.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D342D218335CB0001E1B0 /* idea.h */; };
-		E93D3553218335CE0001E1B0 /* iterhash.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D342E218335CB0001E1B0 /* iterhash.h */; };
-		E93D3554218335CE0001E1B0 /* factory.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D342F218335CB0001E1B0 /* factory.h */; };
-		E93D3555218335CE0001E1B0 /* mdc.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3430218335CB0001E1B0 /* mdc.h */; };
-		E93D3556218335CE0001E1B0 /* wake.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3431218335CB0001E1B0 /* wake.h */; };
-		E93D3557218335CE0001E1B0 /* ccm.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3432218335CB0001E1B0 /* ccm.h */; };
 		E93D3558218335CE0001E1B0 /* EzyClients.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93D3433218335CB0001E1B0 /* EzyClients.cpp */; };
 		E93D3559218335CE0001E1B0 /* EzyHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3434218335CB0001E1B0 /* EzyHeaders.h */; };
 		E93D355A218335CE0001E1B0 /* EzyHandlerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3436218335CB0001E1B0 /* EzyHandlerManager.h */; };
@@ -264,8 +119,6 @@
 		E93D3592218335CE0001E1B0 /* EzyRequestSerializer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93D3475218335CB0001E1B0 /* EzyRequestSerializer.cpp */; };
 		E93D3593218335CE0001E1B0 /* EzyRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3476218335CB0001E1B0 /* EzyRequest.h */; };
 		E93D3594218335CE0001E1B0 /* EzyRequestSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D3477218335CB0001E1B0 /* EzyRequestSerializer.h */; };
-		E93D3595218335CE0001E1B0 /* EzySetup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93D3479218335CB0001E1B0 /* EzySetup.cpp */; };
-		E93D3596218335CE0001E1B0 /* EzySetup.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D347A218335CB0001E1B0 /* EzySetup.h */; };
 		E93D3597218335CE0001E1B0 /* EzyEventType.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D347C218335CB0001E1B0 /* EzyEventType.h */; };
 		E93D3598218335CE0001E1B0 /* EzyEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = E93D347D218335CB0001E1B0 /* EzyEvent.h */; };
 		E93D3599218335CE0001E1B0 /* EzyEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E93D347E218335CB0001E1B0 /* EzyEvent.cpp */; };
@@ -294,6 +147,7 @@
 		E97EDB1E22F724B700202705 /* EzyMainEventsLoop.h in Headers */ = {isa = PBXBuildFile; fileRef = E97EDB1C22F724B700202705 /* EzyMainEventsLoop.h */; };
 		E97EDB2222F7250A00202705 /* EzyScheduleAtFixedRate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E97EDB2122F724C900202705 /* EzyScheduleAtFixedRate.cpp */; };
 		E9A458EC21836FD100FDFDE8 /* EzyConnectionStatus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9A458EB21836FD100FDFDE8 /* EzyConnectionStatus.cpp */; };
+		E9AFBB54231442AA00D9831A /* EzySetup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9AFBB522314424000D9831A /* EzySetup.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -303,6 +157,7 @@
 		E901F27A230DB07600C98CC5 /* EzyPluginDataHandlers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EzyPluginDataHandlers.h; path = ../../../../../../tvd12/java/examples/freechat/swift/client/socket/src/handler/EzyPluginDataHandlers.h; sourceTree = "<group>"; };
 		E901F27B230DB07600C98CC5 /* EzyPluginDataHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EzyPluginDataHandler.cpp; path = ../../../../../../tvd12/java/examples/freechat/swift/client/socket/src/handler/EzyPluginDataHandler.cpp; sourceTree = "<group>"; };
 		E901F27C230DB07600C98CC5 /* EzyPluginDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EzyPluginDataHandler.h; path = ../../../../../../tvd12/java/examples/freechat/swift/client/socket/src/handler/EzyPluginDataHandler.h; sourceTree = "<group>"; };
+		E901F28123102F3600C98CC5 /* EzyValueStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EzyValueStack.h; path = "../../../../../../workspace-cpp/ezyfox-server-cpp-client/src/util/EzyValueStack.h"; sourceTree = "<group>"; };
 		E93D322D218335490001E1B0 /* libsocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsocket.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E93D336B218335CA0001E1B0 /* EzyEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzyEventHandler.h; sourceTree = "<group>"; };
 		E93D336C218335CA0001E1B0 /* EzyEventHandlers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EzyEventHandlers.cpp; sourceTree = "<group>"; };
@@ -323,7 +178,6 @@
 		E93D337D218335CA0001E1B0 /* EzyMaps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzyMaps.h; sourceTree = "<group>"; };
 		E93D337F218335CA0001E1B0 /* EzyClientConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzyClientConfig.h; sourceTree = "<group>"; };
 		E93D3380218335CA0001E1B0 /* EzyClientConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EzyClientConfig.cpp; sourceTree = "<group>"; };
-		E93D3382218335CA0001E1B0 /* EzySocketKeyPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzySocketKeyPair.h; sourceTree = "<group>"; };
 		E93D3385218335CA0001E1B0 /* EzyApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EzyApp.cpp; sourceTree = "<group>"; };
 		E93D3386218335CA0001E1B0 /* EzyString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EzyString.cpp; sourceTree = "<group>"; };
 		E93D3387218335CA0001E1B0 /* EzyUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzyUser.h; sourceTree = "<group>"; };
@@ -351,151 +205,6 @@
 		E93D339E218335CA0001E1B0 /* EzyDataDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzyDataDecoder.h; sourceTree = "<group>"; };
 		E93D339F218335CA0001E1B0 /* EzyDataEncoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EzyDataEncoder.cpp; sourceTree = "<group>"; };
 		E93D33A0218335CA0001E1B0 /* EzyClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EzyClient.cpp; sourceTree = "<group>"; };
-		E93D33A2218335CA0001E1B0 /* md2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md2.h; sourceTree = "<group>"; };
-		E93D33A3218335CA0001E1B0 /* trap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trap.h; sourceTree = "<group>"; };
-		E93D33A4218335CA0001E1B0 /* gzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gzip.h; sourceTree = "<group>"; };
-		E93D33A5218335CA0001E1B0 /* trdlocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trdlocal.h; sourceTree = "<group>"; };
-		E93D33A6218335CA0001E1B0 /* blowfish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blowfish.h; sourceTree = "<group>"; };
-		E93D33A7218335CA0001E1B0 /* channels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = channels.h; sourceTree = "<group>"; };
-		E93D33A8218335CA0001E1B0 /* winpipes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winpipes.h; sourceTree = "<group>"; };
-		E93D33A9218335CA0001E1B0 /* mars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mars.h; sourceTree = "<group>"; };
-		E93D33AA218335CA0001E1B0 /* gf256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gf256.h; sourceTree = "<group>"; };
-		E93D33AB218335CA0001E1B0 /* pch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pch.h; sourceTree = "<group>"; };
-		E93D33AC218335CA0001E1B0 /* elgamal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = elgamal.h; sourceTree = "<group>"; };
-		E93D33AD218335CA0001E1B0 /* ec2n.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ec2n.h; sourceTree = "<group>"; };
-		E93D33AE218335CA0001E1B0 /* xtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xtr.h; sourceTree = "<group>"; };
-		E93D33AF218335CA0001E1B0 /* simple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simple.h; sourceTree = "<group>"; };
-		E93D33B0218335CA0001E1B0 /* rc6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc6.h; sourceTree = "<group>"; };
-		E93D33B1218335CA0001E1B0 /* modarith.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modarith.h; sourceTree = "<group>"; };
-		E93D33B2218335CA0001E1B0 /* ecp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecp.h; sourceTree = "<group>"; };
-		E93D33B3218335CA0001E1B0 /* fltrimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fltrimpl.h; sourceTree = "<group>"; };
-		E93D33B4218335CA0001E1B0 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
-		E93D33B5218335CA0001E1B0 /* asn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn.h; sourceTree = "<group>"; };
-		E93D33B6218335CA0001E1B0 /* gfpcrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gfpcrypt.h; sourceTree = "<group>"; };
-		E93D33B7218335CA0001E1B0 /* sha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha.h; sourceTree = "<group>"; };
-		E93D33B8218335CA0001E1B0 /* chacha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chacha.h; sourceTree = "<group>"; };
-		E93D33B9218335CA0001E1B0 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
-		E93D33BA218335CA0001E1B0 /* mqueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mqueue.h; sourceTree = "<group>"; };
-		E93D33BB218335CA0001E1B0 /* rc2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc2.h; sourceTree = "<group>"; };
-		E93D33BC218335CA0001E1B0 /* strciphr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = strciphr.h; sourceTree = "<group>"; };
-		E93D33BD218335CA0001E1B0 /* mqv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mqv.h; sourceTree = "<group>"; };
-		E93D33BE218335CA0001E1B0 /* dh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dh.h; sourceTree = "<group>"; };
-		E93D33BF218335CA0001E1B0 /* misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = misc.h; sourceTree = "<group>"; };
-		E93D33C0218335CA0001E1B0 /* dh2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dh2.h; sourceTree = "<group>"; };
-		E93D33C1218335CA0001E1B0 /* authenc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authenc.h; sourceTree = "<group>"; };
-		E93D33C2218335CA0001E1B0 /* oids.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = oids.h; sourceTree = "<group>"; };
-		E93D33C3218335CA0001E1B0 /* gf2_32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gf2_32.h; sourceTree = "<group>"; };
-		E93D33C4218335CA0001E1B0 /* ida.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ida.h; sourceTree = "<group>"; };
-		E93D33C5218335CA0001E1B0 /* serpent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = serpent.h; sourceTree = "<group>"; };
-		E93D33C6218335CA0001E1B0 /* wait.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wait.h; sourceTree = "<group>"; };
-		E93D33C7218335CA0001E1B0 /* sha3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha3.h; sourceTree = "<group>"; };
-		E93D33C8218335CA0001E1B0 /* hkdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hkdf.h; sourceTree = "<group>"; };
-		E93D33C9218335CA0001E1B0 /* crc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crc.h; sourceTree = "<group>"; };
-		E93D33CA218335CA0001E1B0 /* bench.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bench.h; sourceTree = "<group>"; };
-		E93D33CB218335CA0001E1B0 /* skipjack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = skipjack.h; sourceTree = "<group>"; };
-		E93D33CC218335CA0001E1B0 /* ossig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ossig.h; sourceTree = "<group>"; };
-		E93D33CD218335CA0001E1B0 /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
-		E93D33CE218335CA0001E1B0 /* seal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = seal.h; sourceTree = "<group>"; };
-		E93D33CF218335CA0001E1B0 /* tiger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tiger.h; sourceTree = "<group>"; };
-		E93D33D0218335CA0001E1B0 /* arc4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = arc4.h; sourceTree = "<group>"; };
-		E93D33D1218335CA0001E1B0 /* smartptr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smartptr.h; sourceTree = "<group>"; };
-		E93D33D2218335CA0001E1B0 /* luc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = luc.h; sourceTree = "<group>"; };
-		E93D33D3218335CA0001E1B0 /* pssr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pssr.h; sourceTree = "<group>"; };
-		E93D33D4218335CA0001E1B0 /* socketft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = socketft.h; sourceTree = "<group>"; };
-		E93D33D5218335CA0001E1B0 /* seckey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = seckey.h; sourceTree = "<group>"; };
-		E93D33D6218335CA0001E1B0 /* rw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rw.h; sourceTree = "<group>"; };
-		E93D33D7218335CA0001E1B0 /* lubyrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lubyrack.h; sourceTree = "<group>"; };
-		E93D33D8218335CA0001E1B0 /* adler32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adler32.h; sourceTree = "<group>"; };
-		E93D33D9218335CA0001E1B0 /* rng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rng.h; sourceTree = "<group>"; };
-		E93D33DA218335CA0001E1B0 /* esign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = esign.h; sourceTree = "<group>"; };
-		E93D33DB218335CA0001E1B0 /* modexppc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modexppc.h; sourceTree = "<group>"; };
-		E93D33DC218335CA0001E1B0 /* eprecomp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eprecomp.h; sourceTree = "<group>"; };
-		E93D33DD218335CA0001E1B0 /* rdrand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rdrand.h; sourceTree = "<group>"; };
-		E93D33DE218335CA0001E1B0 /* rc5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc5.h; sourceTree = "<group>"; };
-		E93D33DF218335CA0001E1B0 /* dll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dll.h; sourceTree = "<group>"; };
-		E93D33E0218335CA0001E1B0 /* eax.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eax.h; sourceTree = "<group>"; };
-		E93D33E1218335CA0001E1B0 /* hrtimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hrtimer.h; sourceTree = "<group>"; };
-		E93D33E2218335CA0001E1B0 /* hmqv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmqv.h; sourceTree = "<group>"; };
-		E93D33E3218335CA0001E1B0 /* serpentp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = serpentp.h; sourceTree = "<group>"; };
-		E93D33E4218335CA0001E1B0 /* ttmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ttmac.h; sourceTree = "<group>"; };
-		E93D33E5218335CA0001E1B0 /* rabin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rabin.h; sourceTree = "<group>"; };
-		E93D33E6218335CA0001E1B0 /* sosemanuk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sosemanuk.h; sourceTree = "<group>"; };
-		E93D33E7218335CA0001E1B0 /* pubkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pubkey.h; sourceTree = "<group>"; };
-		E93D33E8218335CA0001E1B0 /* algebra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = algebra.h; sourceTree = "<group>"; };
-		E93D33E9218335CA0001E1B0 /* base32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base32.h; sourceTree = "<group>"; };
-		E93D33EA218335CA0001E1B0 /* basecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = basecode.h; sourceTree = "<group>"; };
-		E93D33EB218335CA0001E1B0 /* validate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = validate.h; sourceTree = "<group>"; };
-		E93D33EC218335CA0001E1B0 /* fips140.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fips140.h; sourceTree = "<group>"; };
-		E93D33ED218335CA0001E1B0 /* dmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dmac.h; sourceTree = "<group>"; };
-		E93D33EE218335CA0001E1B0 /* emsa2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = emsa2.h; sourceTree = "<group>"; };
-		E93D33EF218335CA0001E1B0 /* camellia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = camellia.h; sourceTree = "<group>"; };
-		E93D33F0218335CA0001E1B0 /* md4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md4.h; sourceTree = "<group>"; };
-		E93D33F1218335CA0001E1B0 /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
-		E93D33F2218335CA0001E1B0 /* network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = network.h; sourceTree = "<group>"; };
-		E93D33F3218335CA0001E1B0 /* keccak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keccak.h; sourceTree = "<group>"; };
-		E93D33F4218335CA0001E1B0 /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
-		E93D33F5218335CA0001E1B0 /* blake2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blake2.h; sourceTree = "<group>"; };
-		E93D33F6218335CA0001E1B0 /* hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hex.h; sourceTree = "<group>"; };
-		E93D33F7218335CA0001E1B0 /* square.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = square.h; sourceTree = "<group>"; };
-		E93D33F8218335CA0001E1B0 /* eccrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eccrypto.h; sourceTree = "<group>"; };
-		E93D33F9218335CA0001E1B0 /* cast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cast.h; sourceTree = "<group>"; };
-		E93D33FA218335CA0001E1B0 /* mersenne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mersenne.h; sourceTree = "<group>"; };
-		E93D33FB218335CA0001E1B0 /* words.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = words.h; sourceTree = "<group>"; };
-		E93D33FC218335CA0001E1B0 /* cryptlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cryptlib.h; sourceTree = "<group>"; };
-		E93D33FD218335CA0001E1B0 /* safer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = safer.h; sourceTree = "<group>"; };
-		E93D33FE218335CA0001E1B0 /* xtrcrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xtrcrypt.h; sourceTree = "<group>"; };
-		E93D33FF218335CA0001E1B0 /* nr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nr.h; sourceTree = "<group>"; };
-		E93D3400218335CA0001E1B0 /* secblock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = secblock.h; sourceTree = "<group>"; };
-		E93D3401218335CA0001E1B0 /* zlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zlib.h; sourceTree = "<group>"; };
-		E93D3402218335CA0001E1B0 /* tea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tea.h; sourceTree = "<group>"; };
-		E93D3403218335CA0001E1B0 /* cpu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpu.h; sourceTree = "<group>"; };
-		E93D3404218335CA0001E1B0 /* pwdbased.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pwdbased.h; sourceTree = "<group>"; };
-		E93D3405218335CA0001E1B0 /* des.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = des.h; sourceTree = "<group>"; };
-		E93D3406218335CA0001E1B0 /* shacal2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shacal2.h; sourceTree = "<group>"; };
-		E93D3407218335CA0001E1B0 /* osrng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = osrng.h; sourceTree = "<group>"; };
-		E93D3408218335CA0001E1B0 /* resource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resource.h; sourceTree = "<group>"; };
-		E93D3409218335CA0001E1B0 /* twofish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = twofish.h; sourceTree = "<group>"; };
-		E93D340A218335CA0001E1B0 /* algparam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = algparam.h; sourceTree = "<group>"; };
-		E93D340B218335CA0001E1B0 /* panama.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = panama.h; sourceTree = "<group>"; };
-		E93D340C218335CA0001E1B0 /* randpool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = randpool.h; sourceTree = "<group>"; };
-		E93D340D218335CA0001E1B0 /* shark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shark.h; sourceTree = "<group>"; };
-		E93D340E218335CA0001E1B0 /* fhmqv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fhmqv.h; sourceTree = "<group>"; };
-		E93D340F218335CA0001E1B0 /* rijndael.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rijndael.h; sourceTree = "<group>"; };
-		E93D3410218335CA0001E1B0 /* blumshub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blumshub.h; sourceTree = "<group>"; };
-		E93D3411218335CA0001E1B0 /* zdeflate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zdeflate.h; sourceTree = "<group>"; };
-		E93D3412218335CA0001E1B0 /* gcm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gcm.h; sourceTree = "<group>"; };
-		E93D3413218335CA0001E1B0 /* salsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = salsa.h; sourceTree = "<group>"; };
-		E93D3414218335CA0001E1B0 /* 3way.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 3way.h; sourceTree = "<group>"; };
-		E93D3415218335CA0001E1B0 /* argnames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = argnames.h; sourceTree = "<group>"; };
-		E93D3416218335CA0001E1B0 /* trunhash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trunhash.h; sourceTree = "<group>"; };
-		E93D3417218335CA0001E1B0 /* seed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = seed.h; sourceTree = "<group>"; };
-		E93D3418218335CA0001E1B0 /* modes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modes.h; sourceTree = "<group>"; };
-		E93D3419218335CA0001E1B0 /* rsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rsa.h; sourceTree = "<group>"; };
-		E93D341A218335CA0001E1B0 /* gost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gost.h; sourceTree = "<group>"; };
-		E93D341B218335CA0001E1B0 /* ripemd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ripemd.h; sourceTree = "<group>"; };
-		E93D341C218335CA0001E1B0 /* whrlpool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = whrlpool.h; sourceTree = "<group>"; };
-		E93D341D218335CA0001E1B0 /* zinflate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zinflate.h; sourceTree = "<group>"; };
-		E93D341E218335CA0001E1B0 /* pkcspad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pkcspad.h; sourceTree = "<group>"; };
-		E93D341F218335CA0001E1B0 /* files.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = files.h; sourceTree = "<group>"; };
-		E93D3420218335CA0001E1B0 /* dsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dsa.h; sourceTree = "<group>"; };
-		E93D3421218335CA0001E1B0 /* integer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = integer.h; sourceTree = "<group>"; };
-		E93D3422218335CA0001E1B0 /* gf2n.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gf2n.h; sourceTree = "<group>"; };
-		E93D3423218335CA0001E1B0 /* cbcmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cbcmac.h; sourceTree = "<group>"; };
-		E93D3424218335CA0001E1B0 /* vmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vmac.h; sourceTree = "<group>"; };
-		E93D3425218335CA0001E1B0 /* polynomi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = polynomi.h; sourceTree = "<group>"; };
-		E93D3426218335CA0001E1B0 /* cmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cmac.h; sourceTree = "<group>"; };
-		E93D3427218335CA0001E1B0 /* stdcpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdcpp.h; sourceTree = "<group>"; };
-		E93D3428218335CA0001E1B0 /* nbtheory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nbtheory.h; sourceTree = "<group>"; };
-		E93D3429218335CA0001E1B0 /* default.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = default.h; sourceTree = "<group>"; };
-		E93D342A218335CA0001E1B0 /* queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = queue.h; sourceTree = "<group>"; };
-		E93D342B218335CA0001E1B0 /* filters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = filters.h; sourceTree = "<group>"; };
-		E93D342C218335CB0001E1B0 /* oaep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = oaep.h; sourceTree = "<group>"; };
-		E93D342D218335CB0001E1B0 /* idea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = idea.h; sourceTree = "<group>"; };
-		E93D342E218335CB0001E1B0 /* iterhash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iterhash.h; sourceTree = "<group>"; };
-		E93D342F218335CB0001E1B0 /* factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = factory.h; sourceTree = "<group>"; };
-		E93D3430218335CB0001E1B0 /* mdc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mdc.h; sourceTree = "<group>"; };
-		E93D3431218335CB0001E1B0 /* wake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wake.h; sourceTree = "<group>"; };
-		E93D3432218335CB0001E1B0 /* ccm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccm.h; sourceTree = "<group>"; };
 		E93D3433218335CB0001E1B0 /* EzyClients.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EzyClients.cpp; sourceTree = "<group>"; };
 		E93D3434218335CB0001E1B0 /* EzyHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzyHeaders.h; sourceTree = "<group>"; };
 		E93D3436218335CB0001E1B0 /* EzyHandlerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzyHandlerManager.h; sourceTree = "<group>"; };
@@ -555,8 +264,6 @@
 		E93D3475218335CB0001E1B0 /* EzyRequestSerializer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EzyRequestSerializer.cpp; sourceTree = "<group>"; };
 		E93D3476218335CB0001E1B0 /* EzyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzyRequest.h; sourceTree = "<group>"; };
 		E93D3477218335CB0001E1B0 /* EzyRequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzyRequestSerializer.h; sourceTree = "<group>"; };
-		E93D3479218335CB0001E1B0 /* EzySetup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EzySetup.cpp; sourceTree = "<group>"; };
-		E93D347A218335CB0001E1B0 /* EzySetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzySetup.h; sourceTree = "<group>"; };
 		E93D347C218335CB0001E1B0 /* EzyEventType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzyEventType.h; sourceTree = "<group>"; };
 		E93D347D218335CB0001E1B0 /* EzyEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzyEvent.h; sourceTree = "<group>"; };
 		E93D347E218335CB0001E1B0 /* EzyEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EzyEvent.cpp; sourceTree = "<group>"; };
@@ -586,6 +293,8 @@
 		E97EDB2022F724C900202705 /* EzyScheduleAtFixedRate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EzyScheduleAtFixedRate.h; sourceTree = "<group>"; };
 		E97EDB2122F724C900202705 /* EzyScheduleAtFixedRate.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = EzyScheduleAtFixedRate.cpp; sourceTree = "<group>"; };
 		E9A458EB21836FD100FDFDE8 /* EzyConnectionStatus.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EzyConnectionStatus.cpp; sourceTree = "<group>"; };
+		E9AFBB522314424000D9831A /* EzySetup.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EzySetup.cpp; sourceTree = "<group>"; };
+		E9AFBB532314424000D9831A /* EzySetup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EzySetup.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -628,19 +337,17 @@
 				E93D3379218335CA0001E1B0 /* logger */,
 				E93D337C218335CA0001E1B0 /* util */,
 				E93D337E218335CA0001E1B0 /* config */,
-				E93D3381218335CA0001E1B0 /* security */,
 				E93D3384218335CA0001E1B0 /* entity */,
 				E93D3399218335CA0001E1B0 /* codec */,
-				E93D33A1218335CA0001E1B0 /* cryptopp */,
 				E93D3435218335CB0001E1B0 /* manager */,
 				E93D343F218335CB0001E1B0 /* constant */,
 				E93D3447218335CB0001E1B0 /* rapidjson */,
 				E93D346E218335CB0001E1B0 /* gc */,
 				E93D3473218335CB0001E1B0 /* request */,
-				E93D3478218335CB0001E1B0 /* command */,
 				E97EDB1F22F724C900202705 /* concurrent */,
 				E93D347B218335CB0001E1B0 /* event */,
 				E93D3481218335CB0001E1B0 /* base */,
+				E9AFBB512314424000D9831A /* setup */,
 				E93D3484218335CB0001E1B0 /* socket */,
 			);
 			path = src;
@@ -682,6 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				E93D337D218335CA0001E1B0 /* EzyMaps.h */,
+				E901F28123102F3600C98CC5 /* EzyValueStack.h */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -693,14 +401,6 @@
 				E93D3380218335CA0001E1B0 /* EzyClientConfig.cpp */,
 			);
 			path = config;
-			sourceTree = "<group>";
-		};
-		E93D3381218335CA0001E1B0 /* security */ = {
-			isa = PBXGroup;
-			children = (
-				E93D3382218335CA0001E1B0 /* EzySocketKeyPair.h */,
-			);
-			path = security;
 			sourceTree = "<group>";
 		};
 		E93D3384218335CA0001E1B0 /* entity */ = {
@@ -741,158 +441,6 @@
 				E93D339F218335CA0001E1B0 /* EzyDataEncoder.cpp */,
 			);
 			path = codec;
-			sourceTree = "<group>";
-		};
-		E93D33A1218335CA0001E1B0 /* cryptopp */ = {
-			isa = PBXGroup;
-			children = (
-				E93D33A2218335CA0001E1B0 /* md2.h */,
-				E93D33A3218335CA0001E1B0 /* trap.h */,
-				E93D33A4218335CA0001E1B0 /* gzip.h */,
-				E93D33A5218335CA0001E1B0 /* trdlocal.h */,
-				E93D33A6218335CA0001E1B0 /* blowfish.h */,
-				E93D33A7218335CA0001E1B0 /* channels.h */,
-				E93D33A8218335CA0001E1B0 /* winpipes.h */,
-				E93D33A9218335CA0001E1B0 /* mars.h */,
-				E93D33AA218335CA0001E1B0 /* gf256.h */,
-				E93D33AB218335CA0001E1B0 /* pch.h */,
-				E93D33AC218335CA0001E1B0 /* elgamal.h */,
-				E93D33AD218335CA0001E1B0 /* ec2n.h */,
-				E93D33AE218335CA0001E1B0 /* xtr.h */,
-				E93D33AF218335CA0001E1B0 /* simple.h */,
-				E93D33B0218335CA0001E1B0 /* rc6.h */,
-				E93D33B1218335CA0001E1B0 /* modarith.h */,
-				E93D33B2218335CA0001E1B0 /* ecp.h */,
-				E93D33B3218335CA0001E1B0 /* fltrimpl.h */,
-				E93D33B4218335CA0001E1B0 /* base64.h */,
-				E93D33B5218335CA0001E1B0 /* asn.h */,
-				E93D33B6218335CA0001E1B0 /* gfpcrypt.h */,
-				E93D33B7218335CA0001E1B0 /* sha.h */,
-				E93D33B8218335CA0001E1B0 /* chacha.h */,
-				E93D33B9218335CA0001E1B0 /* config.h */,
-				E93D33BA218335CA0001E1B0 /* mqueue.h */,
-				E93D33BB218335CA0001E1B0 /* rc2.h */,
-				E93D33BC218335CA0001E1B0 /* strciphr.h */,
-				E93D33BD218335CA0001E1B0 /* mqv.h */,
-				E93D33BE218335CA0001E1B0 /* dh.h */,
-				E93D33BF218335CA0001E1B0 /* misc.h */,
-				E93D33C0218335CA0001E1B0 /* dh2.h */,
-				E93D33C1218335CA0001E1B0 /* authenc.h */,
-				E93D33C2218335CA0001E1B0 /* oids.h */,
-				E93D33C3218335CA0001E1B0 /* gf2_32.h */,
-				E93D33C4218335CA0001E1B0 /* ida.h */,
-				E93D33C5218335CA0001E1B0 /* serpent.h */,
-				E93D33C6218335CA0001E1B0 /* wait.h */,
-				E93D33C7218335CA0001E1B0 /* sha3.h */,
-				E93D33C8218335CA0001E1B0 /* hkdf.h */,
-				E93D33C9218335CA0001E1B0 /* crc.h */,
-				E93D33CA218335CA0001E1B0 /* bench.h */,
-				E93D33CB218335CA0001E1B0 /* skipjack.h */,
-				E93D33CC218335CA0001E1B0 /* ossig.h */,
-				E93D33CD218335CA0001E1B0 /* md5.h */,
-				E93D33CE218335CA0001E1B0 /* seal.h */,
-				E93D33CF218335CA0001E1B0 /* tiger.h */,
-				E93D33D0218335CA0001E1B0 /* arc4.h */,
-				E93D33D1218335CA0001E1B0 /* smartptr.h */,
-				E93D33D2218335CA0001E1B0 /* luc.h */,
-				E93D33D3218335CA0001E1B0 /* pssr.h */,
-				E93D33D4218335CA0001E1B0 /* socketft.h */,
-				E93D33D5218335CA0001E1B0 /* seckey.h */,
-				E93D33D6218335CA0001E1B0 /* rw.h */,
-				E93D33D7218335CA0001E1B0 /* lubyrack.h */,
-				E93D33D8218335CA0001E1B0 /* adler32.h */,
-				E93D33D9218335CA0001E1B0 /* rng.h */,
-				E93D33DA218335CA0001E1B0 /* esign.h */,
-				E93D33DB218335CA0001E1B0 /* modexppc.h */,
-				E93D33DC218335CA0001E1B0 /* eprecomp.h */,
-				E93D33DD218335CA0001E1B0 /* rdrand.h */,
-				E93D33DE218335CA0001E1B0 /* rc5.h */,
-				E93D33DF218335CA0001E1B0 /* dll.h */,
-				E93D33E0218335CA0001E1B0 /* eax.h */,
-				E93D33E1218335CA0001E1B0 /* hrtimer.h */,
-				E93D33E2218335CA0001E1B0 /* hmqv.h */,
-				E93D33E3218335CA0001E1B0 /* serpentp.h */,
-				E93D33E4218335CA0001E1B0 /* ttmac.h */,
-				E93D33E5218335CA0001E1B0 /* rabin.h */,
-				E93D33E6218335CA0001E1B0 /* sosemanuk.h */,
-				E93D33E7218335CA0001E1B0 /* pubkey.h */,
-				E93D33E8218335CA0001E1B0 /* algebra.h */,
-				E93D33E9218335CA0001E1B0 /* base32.h */,
-				E93D33EA218335CA0001E1B0 /* basecode.h */,
-				E93D33EB218335CA0001E1B0 /* validate.h */,
-				E93D33EC218335CA0001E1B0 /* fips140.h */,
-				E93D33ED218335CA0001E1B0 /* dmac.h */,
-				E93D33EE218335CA0001E1B0 /* emsa2.h */,
-				E93D33EF218335CA0001E1B0 /* camellia.h */,
-				E93D33F0218335CA0001E1B0 /* md4.h */,
-				E93D33F1218335CA0001E1B0 /* hmac.h */,
-				E93D33F2218335CA0001E1B0 /* network.h */,
-				E93D33F3218335CA0001E1B0 /* keccak.h */,
-				E93D33F4218335CA0001E1B0 /* aes.h */,
-				E93D33F5218335CA0001E1B0 /* blake2.h */,
-				E93D33F6218335CA0001E1B0 /* hex.h */,
-				E93D33F7218335CA0001E1B0 /* square.h */,
-				E93D33F8218335CA0001E1B0 /* eccrypto.h */,
-				E93D33F9218335CA0001E1B0 /* cast.h */,
-				E93D33FA218335CA0001E1B0 /* mersenne.h */,
-				E93D33FB218335CA0001E1B0 /* words.h */,
-				E93D33FC218335CA0001E1B0 /* cryptlib.h */,
-				E93D33FD218335CA0001E1B0 /* safer.h */,
-				E93D33FE218335CA0001E1B0 /* xtrcrypt.h */,
-				E93D33FF218335CA0001E1B0 /* nr.h */,
-				E93D3400218335CA0001E1B0 /* secblock.h */,
-				E93D3401218335CA0001E1B0 /* zlib.h */,
-				E93D3402218335CA0001E1B0 /* tea.h */,
-				E93D3403218335CA0001E1B0 /* cpu.h */,
-				E93D3404218335CA0001E1B0 /* pwdbased.h */,
-				E93D3405218335CA0001E1B0 /* des.h */,
-				E93D3406218335CA0001E1B0 /* shacal2.h */,
-				E93D3407218335CA0001E1B0 /* osrng.h */,
-				E93D3408218335CA0001E1B0 /* resource.h */,
-				E93D3409218335CA0001E1B0 /* twofish.h */,
-				E93D340A218335CA0001E1B0 /* algparam.h */,
-				E93D340B218335CA0001E1B0 /* panama.h */,
-				E93D340C218335CA0001E1B0 /* randpool.h */,
-				E93D340D218335CA0001E1B0 /* shark.h */,
-				E93D340E218335CA0001E1B0 /* fhmqv.h */,
-				E93D340F218335CA0001E1B0 /* rijndael.h */,
-				E93D3410218335CA0001E1B0 /* blumshub.h */,
-				E93D3411218335CA0001E1B0 /* zdeflate.h */,
-				E93D3412218335CA0001E1B0 /* gcm.h */,
-				E93D3413218335CA0001E1B0 /* salsa.h */,
-				E93D3414218335CA0001E1B0 /* 3way.h */,
-				E93D3415218335CA0001E1B0 /* argnames.h */,
-				E93D3416218335CA0001E1B0 /* trunhash.h */,
-				E93D3417218335CA0001E1B0 /* seed.h */,
-				E93D3418218335CA0001E1B0 /* modes.h */,
-				E93D3419218335CA0001E1B0 /* rsa.h */,
-				E93D341A218335CA0001E1B0 /* gost.h */,
-				E93D341B218335CA0001E1B0 /* ripemd.h */,
-				E93D341C218335CA0001E1B0 /* whrlpool.h */,
-				E93D341D218335CA0001E1B0 /* zinflate.h */,
-				E93D341E218335CA0001E1B0 /* pkcspad.h */,
-				E93D341F218335CA0001E1B0 /* files.h */,
-				E93D3420218335CA0001E1B0 /* dsa.h */,
-				E93D3421218335CA0001E1B0 /* integer.h */,
-				E93D3422218335CA0001E1B0 /* gf2n.h */,
-				E93D3423218335CA0001E1B0 /* cbcmac.h */,
-				E93D3424218335CA0001E1B0 /* vmac.h */,
-				E93D3425218335CA0001E1B0 /* polynomi.h */,
-				E93D3426218335CA0001E1B0 /* cmac.h */,
-				E93D3427218335CA0001E1B0 /* stdcpp.h */,
-				E93D3428218335CA0001E1B0 /* nbtheory.h */,
-				E93D3429218335CA0001E1B0 /* default.h */,
-				E93D342A218335CA0001E1B0 /* queue.h */,
-				E93D342B218335CA0001E1B0 /* filters.h */,
-				E93D342C218335CB0001E1B0 /* oaep.h */,
-				E93D342D218335CB0001E1B0 /* idea.h */,
-				E93D342E218335CB0001E1B0 /* iterhash.h */,
-				E93D342F218335CB0001E1B0 /* factory.h */,
-				E93D3430218335CB0001E1B0 /* mdc.h */,
-				E93D3431218335CB0001E1B0 /* wake.h */,
-				E93D3432218335CB0001E1B0 /* ccm.h */,
-			);
-			path = cryptopp;
 			sourceTree = "<group>";
 		};
 		E93D3435218335CB0001E1B0 /* manager */ = {
@@ -1003,15 +551,6 @@
 			path = request;
 			sourceTree = "<group>";
 		};
-		E93D3478218335CB0001E1B0 /* command */ = {
-			isa = PBXGroup;
-			children = (
-				E93D3479218335CB0001E1B0 /* EzySetup.cpp */,
-				E93D347A218335CB0001E1B0 /* EzySetup.h */,
-			);
-			path = command;
-			sourceTree = "<group>";
-		};
 		E93D347B218335CB0001E1B0 /* event */ = {
 			isa = PBXGroup;
 			children = (
@@ -1039,21 +578,21 @@
 				E97EDB1C22F724B700202705 /* EzyMainEventsLoop.h */,
 				E93D3485218335CB0001E1B0 /* EzySocketAdapter.h */,
 				E93D348A218335CB0001E1B0 /* EzySocketAdapter.cpp */,
-				E93D3487218335CB0001E1B0 /* EzySocketReader.h */,
 				E93D3486218335CB0001E1B0 /* EzySocketClient.h */,
 				E93D3489218335CB0001E1B0 /* EzySocketClient.cpp */,
 				E93D348B218335CB0001E1B0 /* EzySocketDefine.h */,
 				E93D348C218335CB0001E1B0 /* EzyTcpSocketClient.h */,
 				E93D3488218335CB0001E1B0 /* EzyTcpSocketClient.cpp */,
+				E93D3490218335CB0001E1B0 /* EzySocketCore.h */,
 				E93D348D218335CB0001E1B0 /* EzySocketCore.cpp */,
 				E93D348E218335CB0001E1B0 /* EzySocketPool.h */,
+				E93D3493218335CB0001E1B0 /* EzySocketPool.cpp */,
 				E93D348F218335CB0001E1B0 /* EzySender.h */,
-				E93D3490218335CB0001E1B0 /* EzySocketCore.h */,
 				E93D3495218335CB0001E1B0 /* EzyPingSchedule.h */,
 				E93D3491218335CB0001E1B0 /* EzyPingSchedule.cpp */,
 				E93D3492218335CB0001E1B0 /* EzySocketWriter.h */,
 				E93D3496218335CB0001E1B0 /* EzySocketWriter.cpp */,
-				E93D3493218335CB0001E1B0 /* EzySocketPool.cpp */,
+				E93D3487218335CB0001E1B0 /* EzySocketReader.h */,
 				E93D3494218335CB0001E1B0 /* EzySocketReader.cpp */,
 			);
 			path = socket;
@@ -1071,6 +610,15 @@
 			path = src/concurrent;
 			sourceTree = SOURCE_ROOT;
 		};
+		E9AFBB512314424000D9831A /* setup */ = {
+			isa = PBXGroup;
+			children = (
+				E9AFBB522314424000D9831A /* EzySetup.cpp */,
+				E9AFBB532314424000D9831A /* EzySetup.h */,
+			);
+			path = setup;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1078,239 +626,93 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E93D3539218335CD0001E1B0 /* 3way.h in Headers */,
 				E93D3582218335CE0001E1B0 /* filewritestream.h in Headers */,
 				E93D356D218335CE0001E1B0 /* prettywriter.h in Headers */,
-				E93D3524218335CD0001E1B0 /* nr.h in Headers */,
-				E93D350F218335CD0001E1B0 /* basecode.h in Headers */,
 				E93D3584218335CE0001E1B0 /* document.h in Headers */,
 				E93D359F218335CF0001E1B0 /* EzySocketClient.h in Headers */,
-				E93D350A218335CD0001E1B0 /* rabin.h in Headers */,
-				E93D3557218335CE0001E1B0 /* ccm.h in Headers */,
-				E93D34E0218335CC0001E1B0 /* rc2.h in Headers */,
 				E93D358D218335CE0001E1B0 /* EzyReleasePool.h in Headers */,
-				E93D3551218335CE0001E1B0 /* oaep.h in Headers */,
-				E93D3547218335CD0001E1B0 /* gf2n.h in Headers */,
-				E93D3517218335CD0001E1B0 /* network.h in Headers */,
-				E93D34DF218335CC0001E1B0 /* mqueue.h in Headers */,
 				E93D34AE218335CC0001E1B0 /* EzyUser.h in Headers */,
 				E93D34BB218335CC0001E1B0 /* EzyObject.h in Headers */,
 				E93D3573218335CE0001E1B0 /* ieee754.h in Headers */,
 				E93D359C218335CE0001E1B0 /* EzyRef.h in Headers */,
-				E93D3596218335CE0001E1B0 /* EzySetup.h in Headers */,
-				E93D3540218335CD0001E1B0 /* ripemd.h in Headers */,
-				E93D352D218335CD0001E1B0 /* resource.h in Headers */,
-				E93D34FA218335CC0001E1B0 /* seckey.h in Headers */,
-				E93D34D6218335CC0001E1B0 /* modarith.h in Headers */,
-				E93D34F3218335CC0001E1B0 /* seal.h in Headers */,
-				E93D34EB218335CC0001E1B0 /* wait.h in Headers */,
-				E93D3528218335CD0001E1B0 /* cpu.h in Headers */,
-				E93D353B218335CD0001E1B0 /* trunhash.h in Headers */,
-				E93D354C218335CE0001E1B0 /* stdcpp.h in Headers */,
-				E93D34D7218335CC0001E1B0 /* ecp.h in Headers */,
-				E93D3520218335CD0001E1B0 /* words.h in Headers */,
 				E93D3559218335CE0001E1B0 /* EzyHeaders.h in Headers */,
-				E93D34FE218335CC0001E1B0 /* rng.h in Headers */,
 				E93D3588218335CE0001E1B0 /* en.h in Headers */,
 				E93D34A7218335CB0001E1B0 /* EzyMaps.h in Headers */,
-				E93D3503218335CD0001E1B0 /* rc5.h in Headers */,
 				E93D3593218335CE0001E1B0 /* EzyRequest.h in Headers */,
 				E93D349B218335CB0001E1B0 /* EzyEventHandlers.h in Headers */,
-				E93D351E218335CD0001E1B0 /* cast.h in Headers */,
-				E93D34DE218335CC0001E1B0 /* config.h in Headers */,
 				E93D355A218335CE0001E1B0 /* EzyHandlerManager.h in Headers */,
 				E93D356B218335CE0001E1B0 /* memorystream.h in Headers */,
-				E93D34E5218335CC0001E1B0 /* dh2.h in Headers */,
-				E93D3527218335CD0001E1B0 /* tea.h in Headers */,
-				E93D34CB218335CC0001E1B0 /* blowfish.h in Headers */,
 				E93D3587218335CE0001E1B0 /* error.h in Headers */,
-				E93D34E4218335CC0001E1B0 /* misc.h in Headers */,
-				E93D34F5218335CC0001E1B0 /* arc4.h in Headers */,
-				E93D34F8218335CC0001E1B0 /* pssr.h in Headers */,
-				E93D34F4218335CC0001E1B0 /* tiger.h in Headers */,
-				E93D34AA218335CC0001E1B0 /* EzySocketKeyPair.h in Headers */,
-				E93D3519218335CD0001E1B0 /* aes.h in Headers */,
 				E93D358E218335CE0001E1B0 /* EzyAutoReleasePool.h in Headers */,
 				E97EDB1E22F724B700202705 /* EzyMainEventsLoop.h in Headers */,
-				E93D351D218335CD0001E1B0 /* eccrypto.h in Headers */,
 				E93D357A218335CE0001E1B0 /* itoa.h in Headers */,
-				E93D3554218335CE0001E1B0 /* factory.h in Headers */,
-				E93D3553218335CE0001E1B0 /* iterhash.h in Headers */,
 				E93D35A0218335CF0001E1B0 /* EzySocketReader.h in Headers */,
 				E93D357C218335CE0001E1B0 /* dtoa.h in Headers */,
-				E93D353E218335CD0001E1B0 /* rsa.h in Headers */,
 				E93D34A8218335CB0001E1B0 /* EzyClientConfig.h in Headers */,
-				E93D34F0218335CC0001E1B0 /* skipjack.h in Headers */,
 				E93D35A8218335CF0001E1B0 /* EzySender.h in Headers */,
-				E93D3549218335CD0001E1B0 /* vmac.h in Headers */,
-				E93D3516218335CD0001E1B0 /* hmac.h in Headers */,
-				E93D34FB218335CC0001E1B0 /* rw.h in Headers */,
-				E93D34EF218335CC0001E1B0 /* bench.h in Headers */,
-				E93D34DA218335CC0001E1B0 /* asn.h in Headers */,
-				E93D352B218335CD0001E1B0 /* shacal2.h in Headers */,
-				E93D34E7218335CC0001E1B0 /* oids.h in Headers */,
-				E93D3546218335CD0001E1B0 /* integer.h in Headers */,
 				E93D3589218335CE0001E1B0 /* memorybuffer.h in Headers */,
-				E93D354F218335CE0001E1B0 /* queue.h in Headers */,
-				E93D354A218335CE0001E1B0 /* polynomi.h in Headers */,
-				E93D34CE218335CC0001E1B0 /* mars.h in Headers */,
-				E93D3523218335CD0001E1B0 /* xtrcrypt.h in Headers */,
-				E93D34E6218335CC0001E1B0 /* authenc.h in Headers */,
-				E93D3526218335CD0001E1B0 /* zlib.h in Headers */,
-				E93D3518218335CD0001E1B0 /* keccak.h in Headers */,
-				E93D34EE218335CC0001E1B0 /* crc.h in Headers */,
 				E93D34B4218335CC0001E1B0 /* EzyPrimitive.h in Headers */,
 				E93D34B2218335CC0001E1B0 /* EzyJson.h in Headers */,
 				E93D349E218335CB0001E1B0 /* EzyDataHandler.h in Headers */,
-				E93D3505218335CD0001E1B0 /* eax.h in Headers */,
-				E93D3555218335CE0001E1B0 /* mdc.h in Headers */,
 				E93D349A218335CB0001E1B0 /* EzyDataHandlers.h in Headers */,
-				E93D34EC218335CC0001E1B0 /* sha3.h in Headers */,
 				E93D34A3218335CB0001E1B0 /* EzyClient.h in Headers */,
-				E93D3506218335CD0001E1B0 /* hrtimer.h in Headers */,
-				E93D3537218335CD0001E1B0 /* gcm.h in Headers */,
-				E93D351B218335CD0001E1B0 /* hex.h in Headers */,
 				E93D358A218335CE0001E1B0 /* pointer.h in Headers */,
-				E93D34D8218335CC0001E1B0 /* fltrimpl.h in Headers */,
 				E93D357F218335CE0001E1B0 /* encodings.h in Headers */,
-				E93D34E8218335CC0001E1B0 /* gf2_32.h in Headers */,
-				E93D34F1218335CC0001E1B0 /* ossig.h in Headers */,
 				E901F27E230DB07600C98CC5 /* EzyPluginDataHandlers.h in Headers */,
 				E93D3566218335CE0001E1B0 /* EzyDisconnectReason.h in Headers */,
-				E93D353A218335CD0001E1B0 /* argnames.h in Headers */,
 				E93D34A4218335CB0001E1B0 /* EzyClients.h in Headers */,
-				E93D352C218335CD0001E1B0 /* osrng.h in Headers */,
-				E93D352A218335CD0001E1B0 /* des.h in Headers */,
-				E93D3510218335CD0001E1B0 /* validate.h in Headers */,
-				E93D34D5218335CC0001E1B0 /* rc6.h in Headers */,
 				E93D3561218335CE0001E1B0 /* EzyPluginManager.h in Headers */,
-				E93D34F2218335CC0001E1B0 /* md5.h in Headers */,
-				E93D34F7218335CC0001E1B0 /* luc.h in Headers */,
-				E93D353D218335CD0001E1B0 /* modes.h in Headers */,
-				E93D3533218335CD0001E1B0 /* fhmqv.h in Headers */,
-				E93D34D1218335CC0001E1B0 /* elgamal.h in Headers */,
-				E93D3501218335CC0001E1B0 /* eprecomp.h in Headers */,
 				E93D3597218335CE0001E1B0 /* EzyEventType.h in Headers */,
 				E93D3563218335CE0001E1B0 /* EzyConnectionStatus.h in Headers */,
-				E93D34D3218335CC0001E1B0 /* xtr.h in Headers */,
 				E93D3562218335CE0001E1B0 /* EzyMacro.h in Headers */,
-				E93D3513218335CD0001E1B0 /* emsa2.h in Headers */,
-				E93D350E218335CD0001E1B0 /* base32.h in Headers */,
 				E93D35AB218335CF0001E1B0 /* EzySocketWriter.h in Headers */,
-				E93D351A218335CD0001E1B0 /* blake2.h in Headers */,
-				E93D3531218335CD0001E1B0 /* randpool.h in Headers */,
-				E93D3512218335CD0001E1B0 /* dmac.h in Headers */,
-				E93D34CC218335CC0001E1B0 /* channels.h in Headers */,
-				E93D34FD218335CC0001E1B0 /* adler32.h in Headers */,
 				E93D3578218335CE0001E1B0 /* biginteger.h in Headers */,
-				E93D3541218335CD0001E1B0 /* whrlpool.h in Headers */,
 				E93D356F218335CE0001E1B0 /* encodedstream.h in Headers */,
 				E93D3565218335CE0001E1B0 /* EzyConnectionFailedReason.h in Headers */,
-				E93D34DD218335CC0001E1B0 /* chacha.h in Headers */,
 				E93D3594218335CE0001E1B0 /* EzyRequestSerializer.h in Headers */,
-				E93D3538218335CD0001E1B0 /* salsa.h in Headers */,
-				E93D3508218335CD0001E1B0 /* serpentp.h in Headers */,
 				E93D3567218335CE0001E1B0 /* EzyCommand.h in Headers */,
 				E93D34BF218335CC0001E1B0 /* EzyString.h in Headers */,
-				E93D34CD218335CC0001E1B0 /* winpipes.h in Headers */,
 				E93D3580218335CE0001E1B0 /* schema.h in Headers */,
 				E93D357D218335CE0001E1B0 /* meta.h in Headers */,
-				E93D3521218335CD0001E1B0 /* cryptlib.h in Headers */,
 				E93D3577218335CE0001E1B0 /* diyfp.h in Headers */,
 				E93D35A9218335CF0001E1B0 /* EzySocketCore.h in Headers */,
-				E93D34F6218335CC0001E1B0 /* smartptr.h in Headers */,
 				E93D3598218335CE0001E1B0 /* EzyEvent.h in Headers */,
 				E93D3579218335CE0001E1B0 /* strfunc.h in Headers */,
 				E93D34B6218335CC0001E1B0 /* EzyValue.h in Headers */,
 				E93D356E218335CE0001E1B0 /* ostreamwrapper.h in Headers */,
 				E93D349C218335CB0001E1B0 /* EzyAppDataHandler.h in Headers */,
-				E93D34CF218335CC0001E1B0 /* gf256.h in Headers */,
 				E93D34A0218335CB0001E1B0 /* EzyAppDataHandlers.h in Headers */,
-				E93D34C8218335CC0001E1B0 /* trap.h in Headers */,
 				E93D35A5218335CF0001E1B0 /* EzyTcpSocketClient.h in Headers */,
-				E93D34DC218335CC0001E1B0 /* sha.h in Headers */,
-				E93D34DB218335CC0001E1B0 /* gfpcrypt.h in Headers */,
-				E93D3534218335CD0001E1B0 /* rijndael.h in Headers */,
-				E93D3522218335CD0001E1B0 /* safer.h in Headers */,
 				E93D3585218335CE0001E1B0 /* allocators.h in Headers */,
-				E93D34EA218335CC0001E1B0 /* serpent.h in Headers */,
-				E93D3544218335CD0001E1B0 /* files.h in Headers */,
-				E93D350C218335CD0001E1B0 /* pubkey.h in Headers */,
-				E93D3552218335CE0001E1B0 /* idea.h in Headers */,
 				E93D34B9218335CC0001E1B0 /* EzyZone.h in Headers */,
-				E93D3542218335CD0001E1B0 /* zinflate.h in Headers */,
-				E93D34D0218335CC0001E1B0 /* pch.h in Headers */,
 				E93D357B218335CE0001E1B0 /* stack.h in Headers */,
 				E93D3570218335CE0001E1B0 /* filereadstream.h in Headers */,
-				E93D34D2218335CC0001E1B0 /* ec2n.h in Headers */,
 				E93D34A6218335CB0001E1B0 /* EzyLogger.h in Headers */,
-				E93D34E2218335CC0001E1B0 /* mqv.h in Headers */,
 				E93D34B1218335CC0001E1B0 /* EzyPlugin.h in Headers */,
 				E93D3574218335CE0001E1B0 /* strtod.h in Headers */,
-				E93D353C218335CD0001E1B0 /* seed.h in Headers */,
-				E93D3532218335CD0001E1B0 /* shark.h in Headers */,
 				E93D34C4218335CC0001E1B0 /* EzyDataDecoder.h in Headers */,
 				E93D356C218335CE0001E1B0 /* reader.h in Headers */,
-				E93D351F218335CD0001E1B0 /* mersenne.h in Headers */,
-				E93D3500218335CC0001E1B0 /* modexppc.h in Headers */,
-				E93D352F218335CD0001E1B0 /* algparam.h in Headers */,
 				E93D3572218335CE0001E1B0 /* stringbuffer.h in Headers */,
-				E93D3507218335CD0001E1B0 /* hmqv.h in Headers */,
 				E901F278230DB06900C98CC5 /* EzyThread.h in Headers */,
-				E93D34FC218335CC0001E1B0 /* lubyrack.h in Headers */,
-				E93D3525218335CD0001E1B0 /* secblock.h in Headers */,
-				E93D3556218335CE0001E1B0 /* wake.h in Headers */,
-				E93D3530218335CD0001E1B0 /* panama.h in Headers */,
-				E93D3543218335CD0001E1B0 /* pkcspad.h in Headers */,
 				E93D3575218335CE0001E1B0 /* swap.h in Headers */,
 				E93D34B5218335CC0001E1B0 /* EzyArray.h in Headers */,
-				E93D3548218335CD0001E1B0 /* cbcmac.h in Headers */,
 				E93D3497218335CB0001E1B0 /* EzyEventHandler.h in Headers */,
+				E901F28223102F3700C98CC5 /* EzyValueStack.h in Headers */,
 				E93D356A218335CE0001E1B0 /* fwd.h in Headers */,
-				E93D350D218335CD0001E1B0 /* algebra.h in Headers */,
-				E93D3502218335CD0001E1B0 /* rdrand.h in Headers */,
-				E93D34CA218335CC0001E1B0 /* trdlocal.h in Headers */,
-				E93D351C218335CD0001E1B0 /* square.h in Headers */,
-				E93D354B218335CE0001E1B0 /* cmac.h in Headers */,
-				E93D34C7218335CC0001E1B0 /* md2.h in Headers */,
 				E901F280230DB07600C98CC5 /* EzyPluginDataHandler.h in Headers */,
-				E93D34E3218335CC0001E1B0 /* dh.h in Headers */,
 				E93D3576218335CE0001E1B0 /* regex.h in Headers */,
-				E93D34D4218335CC0001E1B0 /* simple.h in Headers */,
 				E93D3581218335CE0001E1B0 /* stream.h in Headers */,
 				E93D35A4218335CF0001E1B0 /* EzySocketDefine.h in Headers */,
 				E93D34BA218335CC0001E1B0 /* EzyApp.h in Headers */,
-				E93D3545218335CD0001E1B0 /* dsa.h in Headers */,
 				E93D357E218335CE0001E1B0 /* pow10.h in Headers */,
-				E93D354D218335CE0001E1B0 /* nbtheory.h in Headers */,
-				E93D354E218335CE0001E1B0 /* default.h in Headers */,
-				E93D3514218335CD0001E1B0 /* camellia.h in Headers */,
-				E93D34ED218335CC0001E1B0 /* hkdf.h in Headers */,
 				E93D35AE218335CF0001E1B0 /* EzyPingSchedule.h in Headers */,
-				E93D3536218335CD0001E1B0 /* zdeflate.h in Headers */,
-				E93D3529218335CD0001E1B0 /* pwdbased.h in Headers */,
-				E93D350B218335CD0001E1B0 /* sosemanuk.h in Headers */,
-				E93D3535218335CD0001E1B0 /* blumshub.h in Headers */,
 				E93D359E218335CF0001E1B0 /* EzySocketAdapter.h in Headers */,
-				E93D3509218335CD0001E1B0 /* ttmac.h in Headers */,
 				E93D34C0218335CC0001E1B0 /* EzyDataEncoder.h in Headers */,
-				E93D34C9218335CC0001E1B0 /* gzip.h in Headers */,
-				E93D34F9218335CC0001E1B0 /* socketft.h in Headers */,
-				E93D3515218335CD0001E1B0 /* md4.h in Headers */,
-				E93D34FF218335CC0001E1B0 /* esign.h in Headers */,
 				E93D355F218335CE0001E1B0 /* EzyAppManager.h in Headers */,
 				E93D35A7218335CF0001E1B0 /* EzySocketPool.h in Headers */,
-				E93D3550218335CE0001E1B0 /* filters.h in Headers */,
 				E93D3583218335CE0001E1B0 /* rapidjson.h in Headers */,
 				E93D34C1218335CC0001E1B0 /* EzyMessage.h in Headers */,
-				E93D34E9218335CC0001E1B0 /* ida.h in Headers */,
-				E93D3504218335CD0001E1B0 /* dll.h in Headers */,
-				E93D352E218335CD0001E1B0 /* twofish.h in Headers */,
-				E93D34D9218335CC0001E1B0 /* base64.h in Headers */,
-				E93D353F218335CD0001E1B0 /* gost.h in Headers */,
 				E93D3571218335CE0001E1B0 /* istreamwrapper.h in Headers */,
-				E93D3511218335CD0001E1B0 /* fips140.h in Headers */,
-				E93D34E1218335CC0001E1B0 /* strciphr.h in Headers */,
 				E93D3560218335CE0001E1B0 /* EzyPingManager.h in Headers */,
 				E93D3586218335CE0001E1B0 /* writer.h in Headers */,
 			);
@@ -1372,6 +774,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9AFBB54231442AA00D9831A /* EzySetup.cpp in Sources */,
 				E97EDB2222F7250A00202705 /* EzyScheduleAtFixedRate.cpp in Sources */,
 				E93D355E218335CE0001E1B0 /* EzyPingManager.cpp in Sources */,
 				E901F277230DB06900C98CC5 /* EzyThread.cpp in Sources */,
@@ -1393,7 +796,6 @@
 				E93D359A218335CE0001E1B0 /* EzyEventType.cpp in Sources */,
 				E93D34AC218335CC0001E1B0 /* EzyApp.cpp in Sources */,
 				E93D34A5218335CB0001E1B0 /* EzyLogger.cpp in Sources */,
-				E93D3595218335CE0001E1B0 /* EzySetup.cpp in Sources */,
 				E93D35AC218335CF0001E1B0 /* EzySocketPool.cpp in Sources */,
 				E93D3558218335CE0001E1B0 /* EzyClients.cpp in Sources */,
 				E93D3569218335CE0001E1B0 /* EzyConnectionFailedReason.cpp in Sources */,
