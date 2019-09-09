@@ -8,7 +8,7 @@ import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.tvd12.ezyfoxserver.client.EzyClient;
 import com.tvd12.ezyfoxserver.client.EzyMethodNames;
-import com.tvd12.ezyfoxserver.client.command.EzySetup;
+import com.tvd12.ezyfoxserver.client.setup.EzySetup;
 import com.tvd12.ezyfoxserver.client.config.EzyClientConfig;
 import com.tvd12.ezyfoxserver.client.config.EzyReconnectConfig;
 import com.tvd12.ezyfoxserver.client.constant.EzyCommand;
@@ -73,7 +73,7 @@ public class EzyCreateClientMethod extends EzyMethodProxy {
     }
 
     public void setupClient(EzyClient client) {
-        EzySetup setup = client.get(EzySetup.class);
+        EzySetup setup = client.setup();
         for(EzyEventType eventType : EzyEventType.values())
             setup.addEventHandler(eventType, new EzyNativeEventHandler(client, reactContext));
         for(EzyCommand command : EzyCommand.values())

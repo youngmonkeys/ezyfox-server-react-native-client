@@ -10,6 +10,7 @@ import com.facebook.react.bridge.ReadableMap;
 import com.tvd12.ezyfoxserver.client.exception.EzyMethodCallException;
 import com.tvd12.ezyfoxserver.client.proxy.EzyConnectMethod;
 import com.tvd12.ezyfoxserver.client.proxy.EzyCreateClientMethod;
+import com.tvd12.ezyfoxserver.client.proxy.EzyDisconnectMethod;
 import com.tvd12.ezyfoxserver.client.proxy.EzyMethodProxy;
 import com.tvd12.ezyfoxserver.client.proxy.EzyReconnectMethod;
 import com.tvd12.ezyfoxserver.client.proxy.EzySendMethod;
@@ -33,6 +34,7 @@ public class EzyClientModule extends ReactContextBaseJavaModule {
         addMethod(new EzyCreateClientMethod(getReactApplicationContext()));
         addMethod(new EzyConnectMethod());
         addMethod(new EzyReconnectMethod());
+        addMethod(new EzyDisconnectMethod());
         addMethod(new EzySendMethod());
         addMethod(new EzySetStatusMethod());
         addMethod(new EzyStartPingScheduleMethod());

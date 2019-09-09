@@ -2,6 +2,7 @@ package com.tvd12.ezyfoxserver.client.serializer;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.WritableMap;
+import com.tvd12.ezyfoxserver.client.constant.EzyDisconnectReasons;
 import com.tvd12.ezyfoxserver.client.event.EzyConnectionFailureEvent;
 import com.tvd12.ezyfoxserver.client.event.EzyDisconnectionEvent;
 import com.tvd12.ezyfoxserver.client.event.EzyEvent;
@@ -60,7 +61,9 @@ public class EzyEventSerializer {
             public WritableMap apply(EzyEvent event) {
                 EzyDisconnectionEvent mevent = (EzyDisconnectionEvent)event;
                 WritableMap map = Arguments.createMap();
-                map.putInt("reason", mevent.getReason());
+                int reason = mevent.getReason();
+                String reasonName = EzyDisconnectReasons.getDisconnectReasonName(reason);
+                map.putString("reason", reasonName);
                 return map;
             }
         });
