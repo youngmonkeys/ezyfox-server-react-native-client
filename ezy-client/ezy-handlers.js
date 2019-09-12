@@ -105,6 +105,9 @@ class EzyDisconnectionHandler {
     }
 
     shouldReconnect(event) {
+        var reason = event.reason;
+        if(reason == 'ANOTHER_SESSION_LOGIN')
+            return false;
         return true;
     }
 
