@@ -210,11 +210,11 @@ public:
 
 -(void) setupClient:(EzyClient*)client {
     EzySetup* setup = client->setup();
-    for(int i = 1 ; i <= NUMBER_OF_EVENTS ; i++) {
+    for(int i = 1 ; i <= NUMBER_OF_EVENTS ; ++i) {
         EzyEventType eventType = (EzyEventType)i;
         setup->addEventHandler(eventType, new EzyNativeEventHandler(client, _eventEmitter));
     }
-    for(int i = 0 ; i < NUMBER_OF_COMMANDS ; i++) {
+    for(int i = 0 ; i < NUMBER_OF_COMMANDS ; ++i) {
         EzyCommand command = (EzyCommand)sCommands[i];
         setup->addDataHandler(command, new EzyNativeDataHandler(client, _eventEmitter, command));
     }

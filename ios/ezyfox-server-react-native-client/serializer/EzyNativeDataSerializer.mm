@@ -19,7 +19,7 @@ EZY_USING_NAMESPACE::entity;
     EzyArray* value = (EzyArray*)arrayValue;
     NSMutableArray* answer = [NSMutableArray array];
     if(value) {
-        for (int i = 0; i < value->size(); i++) {
+        for (int i = 0; i < value->size(); ++i) {
             EzyValue* item = value->getItem(i);
             [self serialize:answer value:item];
         }
@@ -32,7 +32,7 @@ EZY_USING_NAMESPACE::entity;
     NSDictionary* answer = [NSMutableDictionary dictionary];
     if(value) {
         std::vector<std::string> keys = value->getKeys();
-        for(int i = 0 ; i < keys.size() ; i++) {
+        for(int i = 0 ; i < keys.size() ; ++i) {
             EzyValue* val = value->getItem(keys[i]);
             [self serialize:answer key:keys[i].c_str() value:val];
         }

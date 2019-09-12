@@ -49,7 +49,7 @@ std::vector<EzyClient*> clientVector;
         [[NSThread currentThread] setName:@"ezyfox-process-event"];
         dispatch_sync(dispatch_get_main_queue(), ^(void) {
             clients->getClients(clientVector);
-            for(int i = 0 ; i < clientVector.size() ; i++) {
+            for(int i = 0 ; i < clientVector.size() ; ++i) {
                 EzyClient* client = clientVector[i];
                 client->processEvents();
             }
