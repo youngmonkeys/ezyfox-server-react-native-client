@@ -30,7 +30,7 @@ public class EzyNativeDataSerializer {
     public WritableArray toWritableArray(EzyArray value) {
         WritableArray answer = Arguments.createArray();
         if(value != null) {
-            for (int i = 0; i < value.size(); i++) {
+            for (int i = 0; i < value.size(); ++i) {
                 Object item = value.get(i);
                 serialize(answer, item);
             }

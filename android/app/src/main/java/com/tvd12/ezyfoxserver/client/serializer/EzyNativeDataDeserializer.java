@@ -30,7 +30,7 @@ public class EzyNativeDataDeserializer {
     public EzyArray fromReadableArray(ReadableArray value) {
         EzyArrayBuilder arrayBuilder = EzyEntityFactory.newArrayBuilder();
         if(value != null) {
-            for (int i = 0; i < value.size(); i++) {
+            for (int i = 0; i < value.size(); ++i) {
                 Dynamic tmp = value.getDynamic(i);
                 Object item = deserialize(tmp);
                 arrayBuilder.append(item);
