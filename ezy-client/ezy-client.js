@@ -9,7 +9,6 @@ class EzyClient {
             this.name = this.config.clientName;
             this.zone = null;
             this.me = null;
-            this.appsById = {};
             this.handlerManager = new Manager.EzyHandlerManager(this);
             this.setup = new EzySetup(this.handlerManager);
             callback(this);
@@ -41,12 +40,26 @@ class EzyClient {
         Proxy.run("setStatus", {clientName: this.name, status: status});
     }
 
-    addApp(app) {
-        this.appsById[app.id] = app;
+    getAppById(appId) {
+        if(!this.zone) return null;
+        var appManager = this.zone.appManager;
+        return appManager.getAppById(appId);
     }
 
-    getAppById(appId) {
-        return this.appsById[appId];
+    getPluginById(pluginId) {
+        if(!this.zone) return null;
+        var pluginManager = this.zone.pluginManager;
+        return pluginManager.getPluginById(pluginId);
+    }
+
+    getAppManager() {
+        if(!this.zone) return null;
+        return this.zone.appManager;
+    }
+
+    getPluginManager() {
+        if(!this.zone) return null;
+        return this.zone.pluginManager;
     }
 
     handleEvent(eventType, data) {

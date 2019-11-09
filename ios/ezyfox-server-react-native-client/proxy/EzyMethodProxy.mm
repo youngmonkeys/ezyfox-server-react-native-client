@@ -43,6 +43,7 @@ static std::map<EzyCommand, std::string> sNativeCommandNames = {
     {AppRequest, "APP_REQUEST"},
     {AppExit, "APP_EXIT"},
     {AppAccessError, "APP_ACCESS_ERROR"},
+    {AppRequestError, "APP_REQUEST_ERROR"},
     {PluginInfo, "PLUGIN_INFO"},
     {PluginRequest, "PLUGIN_REQUEST"}
 };

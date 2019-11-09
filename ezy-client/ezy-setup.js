@@ -23,6 +23,16 @@ class EzySetup {
         }
         return appSetup;
     }
+
+    setupPlugin(pluginName) {
+        var pluginSetup = this.pluginSetups[pluginName];
+        if(!pluginSetup) {
+            var pluginDataHandlers = this.handlerManager.getPluginDataHandlers(pluginName);
+            pluginSetup = new EzyPluginSetup(pluginDataHandlers, this);
+            this.pluginSetups[pluginName] = pluginSetup;
+        }
+        return pluginSetup;
+    }
 }
 
 class EzyAppSetup {
