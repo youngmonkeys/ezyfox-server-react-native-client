@@ -10,6 +10,10 @@
 #import <React/RCTLog.h>
 #import "proxy/EzyMethodProxy.h"
 #import "exception/EzyMethodCallException.h"
+#include <vector>
+#include "EzyHeaders.h"
+
+std::vector<EzyClient*> clientVector;
 
 @implementation EzyClientProxy {
     NSDictionary<NSString*, EzyMethodProxy*>* _methods;
@@ -18,10 +22,29 @@
 -(instancetype)init {
     self = [super init];
     if(self) {
-        _methods = [NSMutableDictionary dictionary];
-        [self initMethods];
+      _methods = [NSMutableDictionary dictionary];
+      [self initMethods];
+      NSThread* thread = [[NSThread alloc] initWithTarget:self
+                                                 selector:@selector(loopProcessEvents)
+                                                   object:nil];
+      [thread start];
     }
     return self;
+}
+
+- (void) loopProcessEvents {
+    EzyClients* clients = EzyClients::getInstance();
+    while (true) {
+        [[NSThread currentThread] setName:@"ezyfox-process-event"];
+        dispatch_sync(dispatch_get_main_queue(), ^(void) {
+            clients->getClients(clientVector);
+            for(int i = 0 ; i < clientVector.size() ; ++i) {
+                EzyClient* client = clientVector[i];
+                client->processEvents();
+            }
+        });
+        [NSThread sleepForTimeInterval:0.003];
+    }
 }
 
 -(void)initMethods {
