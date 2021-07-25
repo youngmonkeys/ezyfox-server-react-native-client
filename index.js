@@ -33,11 +33,11 @@ class App extends React.Component {
       let handshakeHandler = new Ezy.HandshakeHandler();
       handshakeHandler.getLoginRequest = () => {
         let conn = models.connection;
-        return ["freechat", conn.username, conn.password, []];
+        return ["example", conn.username, conn.password, []];
       };
       let loginSuccessHandler = new Ezy.LoginSuccessHandler();
       loginSuccessHandler.handleLoginSuccess = data => {
-        client.sendRequest(Ezy.Command.APP_ACCESS, ["freechat", []]);
+        client.sendRequest(Ezy.Command.APP_ACCESS, ["hello-world", []]);
       };
       let accessAppHandler = new Ezy.AppAccessHandler();
       accessAppHandler.postHandle = (app, data) => {
