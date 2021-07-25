@@ -32,6 +32,10 @@
     [self addMethod:[[EzySendMethod alloc]init]];
     [self addMethod:[[EzySetStatusMethod alloc]init]];
     [self addMethod:[[EzyStartPingScheduleMethod alloc]init]];
+    [self addMethod:[[EzyGenerateKeyPairMethod alloc]init]];
+    [self addMethod:[[EzyRsaDecryptMethod alloc]init]];
+    [self addMethod:[[EzyLogMethod alloc]init]];
+    [self addMethod:[[EzySetSessionKeyMethod alloc]init]];
 }
 
 -(void)addMethod:(EzyMethodProxy*)method {

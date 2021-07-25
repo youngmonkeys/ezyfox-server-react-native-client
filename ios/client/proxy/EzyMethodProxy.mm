@@ -13,6 +13,7 @@
 #import "../EzyMethodNames.h"
 #import "../util/EzyNativeStrings.h"
 #import "../serializer/EzyNativeSerializers.h"
+#import "../codec/EzyEncryptionProxy.h"
 
 EZY_USING_NAMESPACE;
 EZY_USING_NAMESPACE::config;
@@ -294,9 +295,10 @@ public:
     EzyClient* client = getClient(params);
     NSString* cmd = [request objectForKey:@"command"];
     NSArray* data = [request objectForKey:@"data"];
+    NSNumber* encrypted = [request objectForKey:@"encrypted"];
     EzyArray* array = (EzyArray*)[EzyNativeSerializers fromReadableArray:data];
     EzyCommand command = sNativeCommandIds[[cmd UTF8String]];
-    client->send(command, array);
+    client->send(command, array, [encrypted boolValue]);
     return [NSNumber numberWithBool:TRUE];
 }
 
@@ -333,5 +335,69 @@ public:
 
 - (NSString *)getName {
     return METHOD_START_PING_SCHEDULE;
+}
+@end
+
+//======================================================
+@implementation EzyGenerateKeyPairMethod
+
+- (NSObject *)invoke:(NSDictionary *)params {
+    EzyKeyPairProxy* keyPair = [[EzyRSAProxy getInstance] generateKeyPair];
+    NSString* publicKey = [keyPair publicKey];
+    NSString* privateKey = [keyPair privateKey];
+    NSDictionary* answer = [NSMutableDictionary dictionary];
+    [answer setValue:publicKey forKey:@"publicKey"];
+    [answer setValue:privateKey forKey:@"privateKey"];
+    return answer;
+}
+
+- (NSString *)getName {
+    return METHOD_GENERATE_KEY_PAIR;
+}
+@end
+
+//======================================================
+@implementation EzyRsaDecryptMethod
+
+- (NSObject *)invoke:(NSDictionary *)params {
+    NSString* data = params[@"message"];
+    NSString* privateKey = params[@"privateKey"];
+    NSString* decryption = [[EzyRSAProxy getInstance] decrypt: data
+                                                   privateKey: privateKey];
+    return decryption;
+}
+
+- (NSString *)getName {
+    return METHOD_RSA_DECRYPT;
+}
+
+@end
+
+//======================================================
+@implementation EzyLogMethod
+
+- (NSObject *)invoke:(NSDictionary *)params {
+    NSString* message = params[@"message"];
+    NSLog(@"%@", message);
+    return [NSNumber numberWithBool:TRUE];
+}
+
+- (NSString *)getName {
+    return METHOD_LOG;
+}
+@end
+
+//======================================================
+@implementation EzySetSessionKeyMethod
+
+- (NSObject *)invoke:(NSDictionary *)params {
+    EzyClient* client = getClient(params);
+    NSString* sessionKey = params[@"sessionKey"];
+    client->setSessionKey(std::string([sessionKey UTF8String], [sessionKey length]));
+    return [NSNumber numberWithBool:TRUE];
+}
+
+- (NSString *)getName {
+    return METHOD_SET_SESSION_KEY;
 }
 @end

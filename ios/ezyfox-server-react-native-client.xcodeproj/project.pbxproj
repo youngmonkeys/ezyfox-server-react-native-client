@@ -81,6 +81,9 @@
 		F1C4936426AC832200211516 /* EzyUTSocketClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1C4931326AC832200211516 /* EzyUTSocketClient.cpp */; };
 		F1C4936526AC832200211516 /* EzyUdpSocketClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1C4931426AC832200211516 /* EzyUdpSocketClient.cpp */; };
 		F1C4936626AC832200211516 /* EzySocketWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1C4931526AC832200211516 /* EzySocketWriter.cpp */; };
+		F1C4936C26AD63D900211516 /* EzyNSNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C4936926AD63D900211516 /* EzyNSNumber.m */; };
+		F1C4936F26AD63E900211516 /* NSByArray.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C4936D26AD63E900211516 /* NSByArray.m */; };
+		F1C4937326AD6F3600211516 /* EzyEncryptionProxy.mm in Sources */ = {isa = PBXBuildFile; fileRef = F1C4937226AD6F3600211516 /* EzyEncryptionProxy.mm */; };
 		FF56CE99BE656270A5E0E60C /* libPods-ezyfox-server-react-native-client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7A0EEDB740E514B9E6979E /* libPods-ezyfox-server-react-native-client.a */; };
 /* End PBXBuildFile section */
 
@@ -281,6 +284,12 @@
 		F1C4931426AC832200211516 /* EzyUdpSocketClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EzyUdpSocketClient.cpp; sourceTree = "<group>"; };
 		F1C4931526AC832200211516 /* EzySocketWriter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EzySocketWriter.cpp; sourceTree = "<group>"; };
 		F1C4931626AC832200211516 /* EzyMainEventsLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzyMainEventsLoop.h; sourceTree = "<group>"; };
+		F1C4936926AD63D900211516 /* EzyNSNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EzyNSNumber.m; sourceTree = "<group>"; };
+		F1C4936A26AD63D900211516 /* EzyNSNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzyNSNumber.h; sourceTree = "<group>"; };
+		F1C4936D26AD63E900211516 /* NSByArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSByArray.m; sourceTree = "<group>"; };
+		F1C4936E26AD63E900211516 /* NSByteArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSByteArray.h; sourceTree = "<group>"; };
+		F1C4937126AD6F3600211516 /* EzyEncryptionProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzyEncryptionProxy.h; sourceTree = "<group>"; };
+		F1C4937226AD6F3600211516 /* EzyEncryptionProxy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EzyEncryptionProxy.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,14 +365,16 @@
 		F1C4925F26AC832200211516 /* client */ = {
 			isa = PBXGroup;
 			children = (
+				F1C4936826AD63D900211516 /* math */,
+				F1C4937026AD6F3600211516 /* codec */,
 				F1C4926026AC832200211516 /* serializer */,
 				F1C4926B26AC832200211516 /* proxy */,
 				F1C4926E26AC832200211516 /* util */,
 				F1C4927126AC832200211516 /* EzyMethodNames.h */,
-				F1C4927226AC832200211516 /* EzyClientProxy.mm */,
 				F1C4927326AC832200211516 /* EzyMethodNames.mm */,
 				F1C4927426AC832200211516 /* exception */,
 				F1C4927726AC832200211516 /* EzyClientProxy.h */,
+				F1C4927226AC832200211516 /* EzyClientProxy.mm */,
 				F1C4927826AC832200211516 /* socket */,
 			);
 			path = client;
@@ -400,6 +411,8 @@
 			children = (
 				F1C4926F26AC832200211516 /* EzyNativeStrings.mm */,
 				F1C4927026AC832200211516 /* EzyNativeStrings.h */,
+				F1C4936D26AD63E900211516 /* NSByArray.m */,
+				F1C4936E26AD63E900211516 /* NSByteArray.h */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -738,6 +751,24 @@
 			path = socket;
 			sourceTree = "<group>";
 		};
+		F1C4936826AD63D900211516 /* math */ = {
+			isa = PBXGroup;
+			children = (
+				F1C4936926AD63D900211516 /* EzyNSNumber.m */,
+				F1C4936A26AD63D900211516 /* EzyNSNumber.h */,
+			);
+			path = math;
+			sourceTree = "<group>";
+		};
+		F1C4937026AD6F3600211516 /* codec */ = {
+			isa = PBXGroup;
+			children = (
+				F1C4937126AD6F3600211516 /* EzyEncryptionProxy.h */,
+				F1C4937226AD6F3600211516 /* EzyEncryptionProxy.mm */,
+			);
+			path = codec;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -851,6 +882,7 @@
 			files = (
 				F1C4934826AC832200211516 /* EzyClient.cpp in Sources */,
 				F1C4933326AC832200211516 /* EzyPluginDataHandler.cpp in Sources */,
+				F1C4936F26AD63E900211516 /* NSByArray.m in Sources */,
 				F1C4935326AC832200211516 /* EzyThread.cpp in Sources */,
 				E9C3E3A921822B2D00EF0EE8 /* main.m in Sources */,
 				F1C4935B26AC832200211516 /* EzyRef.cpp in Sources */,
@@ -871,6 +903,7 @@
 				F1C4933D26AC832200211516 /* EzyObject.cpp in Sources */,
 				F1C4933826AC832200211516 /* EzyClientConfig.cpp in Sources */,
 				F1C4935226AC832200211516 /* EzyConnectionFailedReason.cpp in Sources */,
+				F1C4936C26AD63D900211516 /* EzyNSNumber.m in Sources */,
 				F1C4936226AC832200211516 /* EzySocketPool.cpp in Sources */,
 				F1C4933C26AC832200211516 /* EzyPrimitive.cpp in Sources */,
 				F1C4934926AC832200211516 /* EzySetup.cpp in Sources */,
@@ -881,6 +914,7 @@
 				F1C4934026AC832200211516 /* EzyArray.cpp in Sources */,
 				F1C4935826AC832200211516 /* EzyRequestSerializer.cpp in Sources */,
 				F1C4932326AC832200211516 /* EzyMethodCallException.mm in Sources */,
+				F1C4937326AD6F3600211516 /* EzyEncryptionProxy.mm in Sources */,
 				F1C4933226AC832200211516 /* EzyPluginDataHandlers.cpp in Sources */,
 				F1C4933026AC832200211516 /* EzyEventHandler.cpp in Sources */,
 				F1C4934B26AC832200211516 /* EzyPluginManager.cpp in Sources */,
