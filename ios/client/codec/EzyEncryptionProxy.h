@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface EzyRSAProxy : NSObject
 +(instancetype)getInstance;
 -(EzyKeyPairProxy*)generateKeyPair;
--(NSString*)decrypt: (NSString*)message privateKey:(NSString*)privateKey;
+-(NSData*)decrypt: (NSData*)message privateKey:(NSString*)privateKey;
 @end
 
 NS_ASSUME_NONNULL_END

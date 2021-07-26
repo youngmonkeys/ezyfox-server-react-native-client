@@ -76,8 +76,9 @@ EZY_USING_NAMESPACE::entity;
         case TypeString:
             return [NSString stringWithUTF8String:((EzyString*)value)->getString().c_str()];
         case TypeByteArray:
-            return [NSData dataWithBytes:((EzyByteArray*)value)->getData().c_str()
-                                  length:((EzyByteArray*)value)->getData().length()];
+            return [[NSData dataWithBytes:((EzyByteArray*)value)->getData().c_str()
+                                  length:((EzyByteArray*)value)->getData().length()]
+                    base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
         case TypeDict:
             return [self toWritableMap:value];
         case TypeArray:

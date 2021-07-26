@@ -42,11 +42,12 @@ EZY_USING_NAMESPACE::codec;
                                           encoding: [NSString defaultCStringEncoding]]];
 }
 
--(NSData*)decrypt:(NSString *)message privateKey:(NSString *)privateKey {
+-(NSData*)decrypt:(NSData *)message privateKey:(NSString *)privateKey {
     int decryptedSize = 0;
-    char* decryption = EzyRSA::getInstance()->decrypt([message UTF8String],
+    char* decryption = EzyRSA::getInstance()->decrypt((char*)[message bytes],
                                                       (int)message.length,
-                                                      std::string([privateKey UTF8String], message.length),
+                                                      std::string([privateKey UTF8String],
+                                                                  privateKey.length),
                                                       decryptedSize);
     NSData* answer = [NSData dataWithBytes:decryption length:decryptedSize];
     EZY_SAFE_FREE(decryption);

@@ -30,7 +30,6 @@ class EzyConnectionSuccessHandler {
         var clientId = this.getClientId();
         var token = this.getStoredToken();
         var request = [];
-        EzyLogger.info("is enable ssl: " + this.isEnableSSL(clientKey));
         request.push(clientId);
         request.push(clientKey);
         request.push(this.clientType);

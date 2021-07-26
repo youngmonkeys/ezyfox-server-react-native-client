@@ -1223,6 +1223,7 @@
 					"COCOAPODS=1",
 					"FB_SONARKIT_ENABLED=1",
 					"EZY_DEBUG=1",
+					"EZY_SSL_ENABLE=1",
 				);
 				INFOPLIST_FILE = hello_react_native/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

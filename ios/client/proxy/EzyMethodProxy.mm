@@ -360,11 +360,13 @@ public:
 @implementation EzyRsaDecryptMethod
 
 - (NSObject *)invoke:(NSDictionary *)params {
-    NSString* data = params[@"message"];
+    NSString* message = params[@"message"];
     NSString* privateKey = params[@"privateKey"];
-    NSString* decryption = [[EzyRSAProxy getInstance] decrypt: data
+    NSData* msg = [[NSData alloc] initWithBase64EncodedString:message
+                                                      options:NSDataBase64Encoding64CharacterLineLength];
+    NSData* decryption = [[EzyRSAProxy getInstance] decrypt: msg
                                                    privateKey: privateKey];
-    return decryption;
+    return [decryption base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
 }
 
 - (NSString *)getName {
@@ -393,7 +395,9 @@ public:
 - (NSObject *)invoke:(NSDictionary *)params {
     EzyClient* client = getClient(params);
     NSString* sessionKey = params[@"sessionKey"];
-    client->setSessionKey(std::string([sessionKey UTF8String], [sessionKey length]));
+    NSData* keyData = [[NSData alloc] initWithBase64EncodedString:sessionKey
+                                                          options:NSDataBase64Encoding64CharacterLineLength];
+    client->setSessionKey(std::string((char*)[keyData bytes], [keyData length]));
     return [NSNumber numberWithBool:TRUE];
 }
 

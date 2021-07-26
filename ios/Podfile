@@ -11,6 +11,8 @@ target 'hello_react_native' do
     # to enable hermes on iOS, change `false` to `true` and then install pods
     :hermes_enabled => false
   )
+  
+  pod 'OpenSSL-Universal'
 
   target 'hello_react_nativeTests' do
     inherit! :complete
