@@ -9,15 +9,4 @@ class EzyGuid {
     }
 }
 
-class EzyLogger {
-    static debug() {
-        return true;
-    }
-
-    static console(message) {
-        if(EzyLogger.debug())
-            console.log(message);
-    }
-}
-
-export default {EzyGuid, EzyLogger}
+export default {EzyGuid}

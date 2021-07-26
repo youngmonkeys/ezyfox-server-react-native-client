@@ -5,16 +5,20 @@ import Ezy from './ezy-client';
 import LoginView from './views/LoginView'
 import MessageView from './views/MessageView'
 
+const ZONE_NAME = "example";
+const APP_NAME = "hello-world";
+
 export default class App extends React.Component {
   constructor(args) {
     super(args);
     this.clients = Ezy.Clients.getInstance();
-    this.clients.processEvents();
     this.state = {currentView : "login"}
   }
 
   componentDidMount() {
-    this.clients.newDefaultClient({zoneName: "freechat"}, client => {
+    var config = new Ezy.Config();
+    config.clientName = ZONE_NAME
+    this.clients.newDefaultClient(config, client => {
       this.setupClient(client);
     });
   }
@@ -24,25 +28,18 @@ export default class App extends React.Component {
       let models = mvc.models;
       let setup = client.setup;
       let disconnectionHandler = new Ezy.DisconnectionHandler();
-      disconnectionHandler.shouldReconnect = event => {
-          let reason = event.reason;
-          if(reason == '401')
-            return false;
-          return true;
-      };
       let handshakeHandler = new Ezy.HandshakeHandler();
       handshakeHandler.getLoginRequest = () => {
         let conn = models.connection;
-        return ["example", conn.username, conn.password, []];
+        return [ZONE_NAME, conn.username, conn.password, []];
       };
       let loginSuccessHandler = new Ezy.LoginSuccessHandler();
       loginSuccessHandler.handleLoginSuccess = data => {
-        client.sendRequest(Ezy.Command.APP_ACCESS, ["hello-world", []]);
+        client.send(Ezy.Command.APP_ACCESS, [APP_NAME, []]);
       };
       let accessAppHandler = new Ezy.AppAccessHandler();
       accessAppHandler.postHandle = (app, data) => {
         this.setState({currentView : "message"});
-        app.sendRequest("5", {skip: 0, limit: 50});
       };
       setup.addEventHandler(Ezy.EventType.DISCONNECTION, disconnectionHandler);
       setup.addDataHandler(Ezy.Command.HANDSHAKE, handshakeHandler);

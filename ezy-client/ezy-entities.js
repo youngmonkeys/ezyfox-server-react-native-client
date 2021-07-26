@@ -30,12 +30,12 @@ class EzyApp {
         this.dataHandlers = client.handlerManager.getAppDataHandlers(name);
     }
 
-    sendRequest(cmd, data) {
+    send(cmd, data, encrypted) {
         var validData = data;
         if(!validData)
             validData = {};
         var requestData = [this.id, [cmd, validData]];
-        this.client.sendRequest(Const.EzyCommand.APP_REQUEST, requestData);
+        this.client.send(Const.EzyCommand.APP_REQUEST, requestData, encrypted);
     }
 
     getDataHandler(cmd) {

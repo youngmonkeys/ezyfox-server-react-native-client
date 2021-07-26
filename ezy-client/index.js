@@ -1,10 +1,10 @@
 import Util from './ezy-util'
 import Entity from './ezy-entities'
 import Const from './ezy-constants'
-import EventHandler from './ezy-event-handlers'
-import DataHandler from './ezy-data-handlers'
+import Handler from './ezy-handlers'
 import EzyClient from './ezy-client'
 import EzyClients from './ezy-clients'
+import Config from './ezy-config'
 
 const Ezy = {
     Guid                        : Util.EzyGuid,
@@ -19,18 +19,20 @@ const Ezy = {
     ConnectionFailedReason      : Const.EzyConnectionFailedReason,
     ConnectionStatus            : Const.EzyConnectionStatus,
     EventType                   : Const.EzyEventType,
-    ConnectionSuccessHandler    : EventHandler.EzyConnectionSuccessHandler,
-    ConnectionFailureHandler    : EventHandler.EzyConnectionFailureHandler,
-    DisconnectionHandler        : EventHandler.EzyDisconnectionHandler,
-    HandshakeHandler            : DataHandler.EzyHandshakeHandler,
-    LoginSuccessHandler         : DataHandler.EzyLoginSuccessHandler,
-    LoginErrorHandler           : DataHandler.EzyLoginErrorHandler,
-    AppAccessHandler            : DataHandler.EzyAppAccessHandler,
-    AppExitHandler              : DataHandler.EzyAppExitHandler,
-    AppResponseHandler          : DataHandler.EzyAppResponseHandler,
-    PluginInfoHandler           : DataHandler.EzyPluginInfoHandler,
-    PluginResponseHandler       : DataHandler.EzyPluginResponseHandler,
-    PongHandler                 : DataHandler.EzyPongHandler,
+    ConnectionSuccessHandler    : Handler.EzyConnectionSuccessHandler,
+    ConnectionFailureHandler    : Handler.EzyConnectionFailureHandler,
+    DisconnectionHandler        : Handler.EzyDisconnectionHandler,
+    HandshakeHandler            : Handler.EzyHandshakeHandler,
+    LoginSuccessHandler         : Handler.EzyLoginSuccessHandler,
+    LoginErrorHandler           : Handler.EzyLoginErrorHandler,
+    AppAccessHandler            : Handler.EzyAppAccessHandler,
+    AppExitHandler              : Handler.EzyAppExitHandler,
+    AppResponseHandler          : Handler.EzyAppResponseHandler,
+    PluginInfoHandler           : Handler.EzyPluginInfoHandler,
+    PluginResponseHandler       : Handler.EzyPluginResponseHandler,
+    PongHandler                 : Handler.EzyPongHandler,
+    Config                      : Config.EzyConfig,
+    ReconnectConfig             : Config.EzyReconnectConfig,
     Client                      : EzyClient,
     Clients                     : EzyClients
 };

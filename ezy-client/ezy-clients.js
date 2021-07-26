@@ -7,6 +7,7 @@ class EzyClients {
     constructor() {
         this.clients = {};
         this.defaultClientName = "";
+        this.addEventListeners();
     }
 
     static getInstance() {
@@ -46,7 +47,7 @@ class EzyClients {
         return this.clients[this.defaultClientName];
     }
 
-    processEvents() {
+    addEventListeners() {
         if(Platform.OS == 'ios') {
             const clientEmitter = new NativeEventEmitter(EzyClientProxy);
             clientEmitter.addListener('ezy.event', params => {
