@@ -71,6 +71,10 @@ class EzyClient {
     setStatus(status) {
         Proxy.run("setStatus", {clientName: this.name, status: status});
     }
+    
+    setSessionKey(sessionKey) {
+        Proxy.run("setSessionKey", {clientName: this.name, sessionKey: sessionKey});
+    }
 
     getApp() {
         if(this.zone) {

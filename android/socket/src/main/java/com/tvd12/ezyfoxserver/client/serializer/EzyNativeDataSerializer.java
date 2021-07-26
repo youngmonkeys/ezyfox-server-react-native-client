@@ -1,5 +1,7 @@
 package com.tvd12.ezyfoxserver.client.serializer;
 
+import android.util.Base64;
+
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
@@ -137,7 +139,7 @@ public class EzyNativeDataSerializer {
         answer.put(byte[].class, new EzyBiConsumer<WritableArray, Object>() {
             @Override
             public void accept(WritableArray writableArray, Object o) {
-                writableArray.pushString(new String((byte[])o));
+                writableArray.pushString(Base64.encodeToString((byte[])o, Base64.NO_WRAP));
             }
         });
         answer.put(EzyArrayList.class, new EzyBiConsumer<WritableArray, Object>() {

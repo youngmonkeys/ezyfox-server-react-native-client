@@ -58,6 +58,10 @@ public class EzyCreateClientMethod extends EzyMethodProxy {
             configBuilder.clientName(params.getString("clientName"));
         if(params.hasKey("zoneName"))
             configBuilder.zoneName(params.getString("zoneName"));
+        if(params.hasKey("enableSSL"))
+            configBuilder.enableSSL(params.getBoolean("enableSSL"));
+        if(params.hasKey("enableDebug"))
+            configBuilder.enableDebug(params.getBoolean("enableDebug"));
         if(params.hasKey("reconnect")) {
             ReadableMap reconnect = params.getMap("reconnect");
             EzyReconnectConfig.Builder reconnectConfigBuilder = configBuilder.reconnectConfigBuilder();

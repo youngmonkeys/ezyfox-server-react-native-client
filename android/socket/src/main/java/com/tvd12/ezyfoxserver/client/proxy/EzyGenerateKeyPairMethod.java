@@ -1,5 +1,7 @@
 package com.tvd12.ezyfoxserver.client.proxy;
 
+import android.util.Base64;
+
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
@@ -21,8 +23,8 @@ public class EzyGenerateKeyPairMethod extends EzyMethodProxy {
         byte[] publicKey = keyPair.getPublic().getEncoded();
         byte[] privateKey = keyPair.getPrivate().getEncoded();
         WritableMap answer = Arguments.createMap();
-        answer.putString("publicKey", new String(publicKey));
-        answer.putString("privateKey", new String(privateKey));
+        answer.putString("publicKey", Base64.encodeToString(publicKey, Base64.NO_WRAP));
+        answer.putString("privateKey", Base64.encodeToString(privateKey, Base64.NO_WRAP));
         return answer;
     }
 

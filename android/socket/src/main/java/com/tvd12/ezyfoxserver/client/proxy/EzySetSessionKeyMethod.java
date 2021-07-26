@@ -1,5 +1,7 @@
 package com.tvd12.ezyfoxserver.client.proxy;
 
+import android.util.Base64;
+
 import com.facebook.react.bridge.ReadableMap;
 import com.tvd12.ezyfoxserver.client.EzyClient;
 import com.tvd12.ezyfoxserver.client.EzyMethodNames;
@@ -13,7 +15,7 @@ public class EzySetSessionKeyMethod extends EzyMethodProxy {
     public Object invoke(ReadableMap params) {
         EzyClient client = getClient(params);
         String sessionKey = params.getString("sessionKey");
-        client.setSessionKey(sessionKey.getBytes());
+        client.setSessionKey(Base64.decode(sessionKey, Base64.NO_WRAP));
         return Boolean.TRUE;
     }
 

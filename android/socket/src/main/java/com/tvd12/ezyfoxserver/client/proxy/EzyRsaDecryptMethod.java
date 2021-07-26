@@ -1,5 +1,7 @@
 package com.tvd12.ezyfoxserver.client.proxy;
 
+import android.util.Base64;
+
 import com.facebook.react.bridge.ReadableMap;
 import com.tvd12.ezyfoxserver.client.EzyMethodNames;
 import com.tvd12.ezyfoxserver.client.sercurity.EzyAsyCrypt;
@@ -14,10 +16,10 @@ public class EzyRsaDecryptMethod extends EzyMethodProxy {
         String message = params.getString("message");
         String privateKey = params.getString("privateKey");
         byte[] decryption = EzyAsyCrypt.builder()
-                .privateKey(privateKey.getBytes())
+                .privateKey(Base64.decode(privateKey, Base64.NO_WRAP))
                 .build()
-                .decrypt(message.getBytes());
-        return new String(decryption);
+                .decrypt(Base64.decode(message, Base64.NO_WRAP));
+        return Base64.encodeToString(decryption, Base64.NO_WRAP);
     }
 
     @Override

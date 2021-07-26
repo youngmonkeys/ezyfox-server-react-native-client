@@ -30,6 +30,7 @@ class EzyConnectionSuccessHandler {
         var clientId = this.getClientId();
         var token = this.getStoredToken();
         var request = [];
+        EzyLogger.info("is enable ssl: " + this.isEnableSSL(clientKey));
         request.push(clientId);
         request.push(clientKey);
         request.push(this.clientType);
@@ -204,7 +205,6 @@ class EzyHandshakeHandler {
     }
 
     decryptSessionKey(encryptedSessionKey, callback) {
-        EzyLogger.info("encryptedSessionKey: " + encryptedSessionKey);
         if(encryptedSessionKey == null) {
             if(this.client.enableDebug) {
                 callback(null, true);
@@ -215,7 +215,7 @@ class EzyHandshakeHandler {
             callback(null, false);
             return;
         }
-        EzyRSAProxy.getInstance().decrypt(encryptedSessionKey, client.privateKey, (sessionKey) => {
+        EzyRSAProxy.getInstance().decrypt(encryptedSessionKey, this.client.privateKey, (sessionKey) => {
             callback(sessionKey, true)
         });
     }

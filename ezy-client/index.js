@@ -32,6 +32,7 @@ const Ezy = {
     PluginResponseHandler       : Handler.EzyPluginResponseHandler,
     PongHandler                 : Handler.EzyPongHandler,
     Config                      : Config.EzyConfig,
+    ClientConfig                : Config.EzyConfig,
     ReconnectConfig             : Config.EzyReconnectConfig,
     Client                      : EzyClient,
     Clients                     : EzyClients
