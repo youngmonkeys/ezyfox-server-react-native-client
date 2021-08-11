@@ -83,12 +83,18 @@ class EzyConnectionFailureHandler {
         this.client.setStatus(Const.EzyConnectionStatus.FAILURE);
         if(mustReconnect) {
             this.client.reconnect(success => {
-                if(!success)
-                    this.control(event);
+                if(success) {
+                    this.onReconnecting(event);
+                }
+                else {
+                    this.onConnectionFailed(event);
+                }
+                this.postHandle(event);
             });
         }
         else {
-            this.control(event);
+            this.onConnectionFailed(event);
+            this.postHandle(event);
         }
     }
 
@@ -96,7 +102,13 @@ class EzyConnectionFailureHandler {
         return true;
     }
 
-    control(event) {
+    onReconnecting(event) {
+    }
+
+    onConnectionFailed(event) {
+    }
+
+    postHandle(event) {
     }
 
 }
@@ -120,12 +132,18 @@ class EzyDisconnectionHandler {
         this.client.setStatus(Const.EzyConnectionStatus.DISCONNECTED);
         if(mustReconnect) {
             this.client.reconnect(success => {
-                if(!success)
-                    this.control(event);
+                if(success) {
+                    this.onReconnecting(event);
+                }
+                else {
+                    this.onDisconnected(event);
+                }
+                this.postHandle(event);
             });
         }
         else {
-            this.control(event);
+            this.onDisconnected(event);
+            this.postHandle(event);
         }
     }
 
@@ -140,7 +158,13 @@ class EzyDisconnectionHandler {
         return true;
     }
 
-    control(event) {
+    onReconnecting(event) {
+    }
+
+    onDisconnected(event) {
+    }
+
+    postHandle(event) {
     }
 }
 
