@@ -1,5 +1,4 @@
 import Const from './ezy-constants'
-import Manager from './ezy-managers'
 
 class EzyUser {
     constructor(id, name) {
@@ -15,7 +14,7 @@ class EzyZone {
         this.id = id;
         this.name = name;
         this.client = client;
-        this.appManager = new Manager.EzyAppManager(name);
+        this.appManager = client.newAppManager(name);
     }
 }
 

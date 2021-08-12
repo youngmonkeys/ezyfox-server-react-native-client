@@ -97,6 +97,10 @@ class EzyClient {
         return pluginManager.getPluginById(pluginId);
     }
 
+    newAppManager(zoneName) {
+        return new Manager.EzyAppManager(zoneName);
+    }
+
     getAppManager() {
         if(!this.zone) return null;
         return this.zone.appManager;
