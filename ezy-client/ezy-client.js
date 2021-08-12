@@ -1,7 +1,7 @@
 import Proxy from './proxy'
 import Manager from './ezy-managers'
 import EzySetup from './ezy-setup'
-import {EzyDisconnectReason} from './ezy-constants'
+import Const from './ezy-constants'
 import EzyLogger from './ezy-logger'
 
 class EzyClient {
@@ -32,7 +32,7 @@ class EzyClient {
     }
 
     disconnect(reason) {
-        var r = reason ? reason : EzyDisconnectReason.CLOSE;
+        var r = reason ? reason : Const.EzyDisconnectReason.CLOSE;
         Proxy.run("disconnect", {clientName : this.name, reason : r});
     }
 

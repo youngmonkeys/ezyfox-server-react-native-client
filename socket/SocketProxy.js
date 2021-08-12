@@ -52,6 +52,11 @@ class SocketProxy {
             routerController.updateViews('change', 'message');
         };
 
+        let exitAppHandler = new Ezy.AppExitHandler();
+        exitAppHandler.postHandle = function (app, data) {
+            this.client.close();
+        };
+
         let disconnectionHandler = new Ezy.DisconnectionHandler();
         disconnectionHandler.preHandle = function (event) {
             let routerController = mvc.getController("router");
@@ -64,6 +69,7 @@ class SocketProxy {
         setup.addDataHandler(Ezy.Command.LOGIN, loginSuccessHandler);
         setup.addDataHandler(Ezy.Command.LOGIN_ERROR, loginErrorHandler);
         setup.addDataHandler(Ezy.Command.APP_ACCESS, accessAppHandler);
+        setup.addDataHandler(Ezy.Command.APP_EXIT, exitAppHandler);
         let setupApp = setup.setupApp(APP_NAME);
 
         let messageController = mvc.getController("message");
