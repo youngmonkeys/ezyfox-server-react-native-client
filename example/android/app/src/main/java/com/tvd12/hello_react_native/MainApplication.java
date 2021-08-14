@@ -22,11 +22,8 @@ public class MainApplication extends Application implements ReactApplication {
           return BuildConfig.DEBUG;
         }
 
-        @Override
         protected List<ReactPackage> getPackages() {
-          List<ReactPackage> packages = new PackageList(this).getPackages();
-          packages.add(new EzyClientPackage());
-          return packages;
+          return new PackageList(this).getPackages();
         }
 
         @Override
