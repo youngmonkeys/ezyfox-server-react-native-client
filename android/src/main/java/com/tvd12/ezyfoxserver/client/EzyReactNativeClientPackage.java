@@ -1,4 +1,4 @@
-package com.tvd12.client;
+package com.tvd12.ezyfoxserver.client;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;

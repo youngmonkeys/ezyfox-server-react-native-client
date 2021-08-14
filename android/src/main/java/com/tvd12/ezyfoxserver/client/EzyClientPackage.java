@@ -1,4 +1,3 @@
-
 package com.tvd12.ezyfoxserver.client;
 
 import com.facebook.react.ReactPackage;
