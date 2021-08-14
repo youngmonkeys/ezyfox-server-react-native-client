@@ -1,4 +1,4 @@
-package com.tvd12.ezyfoxserver.client;
+package com.tvd12.ezyfoxserver.client.react;
 
 import android.util.Log;
 
@@ -7,19 +7,19 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
-import com.tvd12.ezyfoxserver.client.exception.EzyMethodCallException;
-import com.tvd12.ezyfoxserver.client.proxy.EzyConnectMethod;
-import com.tvd12.ezyfoxserver.client.proxy.EzyCreateClientMethod;
-import com.tvd12.ezyfoxserver.client.proxy.EzyDisconnectMethod;
-import com.tvd12.ezyfoxserver.client.proxy.EzyGenerateKeyPairMethod;
-import com.tvd12.ezyfoxserver.client.proxy.EzyLogMethod;
-import com.tvd12.ezyfoxserver.client.proxy.EzyMethodProxy;
-import com.tvd12.ezyfoxserver.client.proxy.EzyReconnectMethod;
-import com.tvd12.ezyfoxserver.client.proxy.EzyRsaDecryptMethod;
-import com.tvd12.ezyfoxserver.client.proxy.EzySendMethod;
-import com.tvd12.ezyfoxserver.client.proxy.EzySetSessionKeyMethod;
-import com.tvd12.ezyfoxserver.client.proxy.EzySetStatusMethod;
-import com.tvd12.ezyfoxserver.client.proxy.EzyStartPingScheduleMethod;
+import com.tvd12.ezyfoxserver.client.react.exception.EzyMethodCallException;
+import com.tvd12.ezyfoxserver.client.react.proxy.EzyConnectMethod;
+import com.tvd12.ezyfoxserver.client.react.proxy.EzyCreateClientMethod;
+import com.tvd12.ezyfoxserver.client.react.proxy.EzyDisconnectMethod;
+import com.tvd12.ezyfoxserver.client.react.proxy.EzyGenerateKeyPairMethod;
+import com.tvd12.ezyfoxserver.client.react.proxy.EzyLogMethod;
+import com.tvd12.ezyfoxserver.client.react.proxy.EzyMethodProxy;
+import com.tvd12.ezyfoxserver.client.react.proxy.EzyReconnectMethod;
+import com.tvd12.ezyfoxserver.client.react.proxy.EzyRsaDecryptMethod;
+import com.tvd12.ezyfoxserver.client.react.proxy.EzySendMethod;
+import com.tvd12.ezyfoxserver.client.react.proxy.EzySetSessionKeyMethod;
+import com.tvd12.ezyfoxserver.client.react.proxy.EzySetStatusMethod;
+import com.tvd12.ezyfoxserver.client.react.proxy.EzyStartPingScheduleMethod;
 import com.tvd12.ezyfoxserver.client.socket.EzyMainEventsLoop;
 
 import java.util.HashMap;

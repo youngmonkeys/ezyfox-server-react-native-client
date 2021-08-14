@@ -1,4 +1,4 @@
-package com.tvd12.ezyfoxserver.client.exception;
+package com.tvd12.ezyfoxserver.client.react.exception;
 
 /**
  * Created by tavandung12 on 10/24/18.

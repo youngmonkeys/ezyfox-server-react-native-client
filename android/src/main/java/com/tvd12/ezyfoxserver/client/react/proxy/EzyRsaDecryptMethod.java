@@ -1,9 +1,9 @@
-package com.tvd12.ezyfoxserver.client.proxy;
+package com.tvd12.ezyfoxserver.client.react.proxy;
 
 import android.util.Base64;
 
 import com.facebook.react.bridge.ReadableMap;
-import com.tvd12.ezyfoxserver.client.EzyMethodNames;
+import com.tvd12.ezyfoxserver.client.react.EzyMethodNames;
 import com.tvd12.ezyfoxserver.client.sercurity.EzyAsyCrypt;
 
 /**

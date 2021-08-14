@@ -1,4 +1,4 @@
-package com.tvd12.ezyfoxserver.client.proxy;
+package com.tvd12.ezyfoxserver.client.react.proxy;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactContext;
@@ -7,7 +7,7 @@ import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.tvd12.ezyfoxserver.client.EzyClient;
-import com.tvd12.ezyfoxserver.client.EzyMethodNames;
+import com.tvd12.ezyfoxserver.client.react.EzyMethodNames;
 import com.tvd12.ezyfoxserver.client.setup.EzySetup;
 import com.tvd12.ezyfoxserver.client.config.EzyClientConfig;
 import com.tvd12.ezyfoxserver.client.config.EzyReconnectConfig;
@@ -18,7 +18,7 @@ import com.tvd12.ezyfoxserver.client.event.EzyEvent;
 import com.tvd12.ezyfoxserver.client.event.EzyEventType;
 import com.tvd12.ezyfoxserver.client.handler.EzyDataHandler;
 import com.tvd12.ezyfoxserver.client.handler.EzyEventHandler;
-import com.tvd12.ezyfoxserver.client.serializer.EzyNativeSerializers;
+import com.tvd12.ezyfoxserver.client.react.serializer.EzyNativeSerializers;
 
 /**
  * Created by tavandung12 on 10/24/18.

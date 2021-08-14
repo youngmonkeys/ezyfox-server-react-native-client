@@ -1,4 +1,4 @@
-package com.tvd12.ezyfoxserver.client.serializer;
+package com.tvd12.ezyfoxserver.client.react.serializer;
 
 import android.util.Base64;
 

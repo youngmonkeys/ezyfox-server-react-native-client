@@ -1,4 +1,4 @@
-package com.tvd12.ezyfoxserver.client.proxy;
+package com.tvd12.ezyfoxserver.client.react.proxy;
 
 import com.facebook.react.bridge.ReadableMap;
 import com.tvd12.ezyfoxserver.client.EzyClient;

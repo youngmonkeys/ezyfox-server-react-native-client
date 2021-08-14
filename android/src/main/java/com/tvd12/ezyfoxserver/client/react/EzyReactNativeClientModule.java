@@ -1,4 +1,4 @@
-package com.tvd12.ezyfoxserver.client;
+package com.tvd12.ezyfoxserver.client.react;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.module.annotations.ReactModule;
