@@ -1,0 +1,1 @@
+{"version":3,"sources":["proxy.js"],"names":["module","exports","NativeModules","EzyClientProxy"],"mappings":";;AAAA;;AACAA,MAAM,CAACC,OAAP,GAAiBC,2BAAcC,cAA/B","sourcesContent":["import {NativeModules} from 'react-native';\nmodule.exports = NativeModules.EzyClientProxy;"]}
