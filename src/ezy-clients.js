@@ -23,7 +23,7 @@ class EzyClients {
     }
 
     newClient(config, callback) {
-        EzyClient(config, (client) => {
+        new EzyClient(config, (client) => {
             this.addClient(client);
             if (this.defaultClientName === '')
                 this.defaultClientName = client.name;
