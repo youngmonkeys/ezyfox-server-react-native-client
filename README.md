@@ -12,7 +12,7 @@ react native client for [ezyfox server](https://github.com/youngmonkeys/ezyfox-s
 2. Download and install [Android Studio](https://developer.android.com/studio)
 3. Download and install [Xcode](https://developer.apple.com/xcode/)
 4. Download and install [npm via Node.js](https://nodejs.org/en/download/)
-5. Setup environment [https://reactnative.dev/docs/environment-setup][https://reactnative.dev/docs/environment-setup]
+5. Setup environment [https://reactnative.dev/docs/environment-setup](https://reactnative.dev/docs/environment-setup)
 
 # How to test?
 
