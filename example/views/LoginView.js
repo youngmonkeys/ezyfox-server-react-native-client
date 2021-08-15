@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
-import { Button, TextInput, View, StyleSheet } from 'react-native';
-import Mvc from 'mvc-es6'
+import React, {Component} from 'react';
+import {Button, TextInput, View, StyleSheet} from 'react-native';
+import Mvc from 'mvc-es6';
 import SocketProxy from '../socket/SocketProxy';
 
 class LoginView extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       username: 'dungtv',
       password: '123456',
     };
   }
-  
+
   onLogin() {
-    const { username, password } = this.state;
+    const {username, password} = this.state;
     let mvc = Mvc.getInstance();
     let models = mvc.models;
     models.connection = {
-        username: username,
-        password: password
+      username: username,
+      password: password,
     };
     SocketProxy.getInstance().connect();
   }
@@ -29,18 +29,18 @@ class LoginView extends Component {
       <View style={styles.container}>
         <TextInput
           value={this.state.username}
-          onChangeText={(username) => this.setState({ username })}
+          onChangeText={username => this.setState({username})}
           placeholder={'Username'}
           style={styles.input}
         />
         <TextInput
           value={this.state.password}
-          onChangeText={(password) => this.setState({ password })}
+          onChangeText={password => this.setState({password})}
           placeholder={'Password'}
           secureTextEntry={true}
           style={styles.input}
         />
-        
+
         <Button
           title={'Login'}
           style={styles.input}

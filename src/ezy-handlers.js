@@ -1,14 +1,13 @@
-import Util from './ezy-util'
-import Const from './ezy-constants'
-import Entity from './ezy-entities'
-import {EzyRSAProxy} from './ezy-codec'
-import EzyLogger from './ezy-logger'
+import Util from './ezy-util';
+import Const from './ezy-constants';
+import Entity from './ezy-entities';
+import { EzyRSAProxy } from './ezy-codec';
+import EzyLogger from './ezy-logger';
 
 class EzyConnectionSuccessHandler {
-
     constructor() {
-        this.clientType = "REACT_NATIVE";
-        this.clientVersion = "1.0.0";
+        this.clientType = 'REACT_NATIVE';
+        this.clientVersion = '1.0.0';
     }
 
     handle() {
@@ -17,12 +16,14 @@ class EzyConnectionSuccessHandler {
         this.postHandle();
     }
 
-    postHandle() {
-    }
+    postHandle() {}
 
     sendHandshakeRequest() {
         this.generateClientKey((clientKey) => {
-            this.client.send(Const.EzyCommand.HANDSHAKE, this.newHandshakeRequest(clientKey))
+            this.client.send(
+                Const.EzyCommand.HANDSHAKE,
+                this.newHandshakeRequest(clientKey)
+            );
         });
     }
 
@@ -40,22 +41,23 @@ class EzyConnectionSuccessHandler {
     }
 
     isEnableSSL(clientKey) {
-        if(this.client.enableSSL &&
+        if (
+            this.client.enableSSL &&
             this.client.enableDebug &&
-            (!clientKey|| clientKey.isEmpty)) {
-                return false;
+            (!clientKey || clientKey.isEmpty)
+        ) {
+            return false;
         }
         return this.client.enableSSL;
-      }
+    }
 
-      generateClientKey(callback) {
-        if(this.client.enableSSL) {
+    generateClientKey(callback) {
+        if (this.client.enableSSL) {
             EzyRSAProxy.getInstance().generateKeyPair((keyPair) => {
                 this.client.privateKey = keyPair.privateKey;
                 callback(keyPair.publicKey);
             });
-        }
-        else {
+        } else {
             callback();
         }
     }
@@ -65,34 +67,30 @@ class EzyConnectionSuccessHandler {
     }
 
     getStoredToken() {
-        return "";
+        return '';
     }
-
 }
 
 //=======================================================
 
 class EzyConnectionFailureHandler {
-
     handle(event) {
-        EzyLogger.warn("connection failure, reason = " + event.reason);
+        EzyLogger.warn('connection failure, reason = ' + event.reason);
         var config = this.client.config;
         var reconnectConfig = config.reconnect;
         var should = this.shouldReconnect(event);
         var mustReconnect = reconnectConfig.enable && should;
         this.client.setStatus(Const.EzyConnectionStatus.FAILURE);
-        if(mustReconnect) {
-            this.client.reconnect(success => {
-                if(success) {
+        if (mustReconnect) {
+            this.client.reconnect((success) => {
+                if (success) {
                     this.onReconnecting(event);
-                }
-                else {
+                } else {
                     this.onConnectionFailed(event);
                 }
                 this.postHandle(event);
             });
-        }
-        else {
+        } else {
             this.onConnectionFailed(event);
             this.postHandle(event);
         }
@@ -102,15 +100,11 @@ class EzyConnectionFailureHandler {
         return true;
     }
 
-    onReconnecting(event) {
-    }
+    onReconnecting(event) {}
 
-    onConnectionFailed(event) {
-    }
+    onConnectionFailed(event) {}
 
-    postHandle(event) {
-    }
-
+    postHandle(event) {}
 }
 
 //=======================================================
@@ -118,54 +112,50 @@ class EzyConnectionFailureHandler {
 class EzyDisconnectionHandler {
     handle(event) {
         var reason = event.reason;
-        var reasonName = Const.EzyDisconnectReasons.getDisconnectReasonName(reason);
-        EzyLogger.info("handle disconnection, reason = " + reasonName);
+        var reasonName =
+            Const.EzyDisconnectReasons.getDisconnectReasonName(reason);
+        EzyLogger.info('handle disconnection, reason = ' + reasonName);
         this.preHandle(event);
         var config = this.client.config;
         var reconnectConfig = config.reconnect;
         var should = this.shouldReconnect(event);
         var reconnectEnable = reconnectConfig.enable;
-        var mustReconnect = reconnectEnable &&
-            reason != Const.EzyDisconnectReason.UNAUTHORIZED &&
-            reason != Const.EzyDisconnectReason.CLOSE &&
+        var mustReconnect =
+            reconnectEnable &&
+            reason !== Const.EzyDisconnectReason.UNAUTHORIZED &&
+            reason !== Const.EzyDisconnectReason.CLOSE &&
             should;
         this.client.setStatus(Const.EzyConnectionStatus.DISCONNECTED);
-        if(mustReconnect) {
-            this.client.reconnect(success => {
-                if(success) {
+        if (mustReconnect) {
+            this.client.reconnect((success) => {
+                if (success) {
                     this.onReconnecting(event);
-                }
-                else {
+                } else {
                     this.onDisconnected(event);
                 }
                 this.postHandle(event);
             });
-        }
-        else {
+        } else {
             this.onDisconnected(event);
             this.postHandle(event);
         }
     }
 
-    preHandle(event) {
-    }
+    preHandle(event) {}
 
     shouldReconnect(event) {
         var reason = event.reason;
-        if(reason == Const.EzyDisconnectReason.ANOTHER_SESSION_LOGIN) {
+        if (reason === Const.EzyDisconnectReason.ANOTHER_SESSION_LOGIN) {
             return false;
         }
         return true;
     }
 
-    onReconnecting(event) {
-    }
+    onReconnecting(event) {}
 
-    onDisconnected(event) {
-    }
+    onDisconnected(event) {}
 
-    postHandle(event) {
-    }
+    postHandle(event) {}
 }
 
 //======================================
@@ -188,80 +178,85 @@ class EzyEventHandlers {
 
     handle(eventType, data) {
         var handler = this.getHandler(eventType);
-        if(handler)
-            handler.handle(data);
-        else
-            EzyLogger.warn("has no handler with event: " + eventType);
+        if (handler) handler.handle(data);
+        else EzyLogger.warn('has no handler with event: ' + eventType);
     }
 }
 
 //======================================
 
 class EzyHandshakeHandler {
-
-	handle(data) {
-		this.startPing();
-		this.doHandle(data);
-	}
+    handle(data) {
+        this.startPing();
+        this.doHandle(data);
+    }
 
     onSessionKeyDecrypted(data, sessionKey, success) {
-        if(sessionKey) {
+        if (sessionKey) {
             this.client.setSessionKey(sessionKey);
         }
-        if(success) {
-          this.handleLogin();
+        if (success) {
+            this.handleLogin();
         }
         this.postHandle(data);
-      }
+    }
 
     doHandle(data) {
         this.client.sessionToken = data[1];
         this.client.sessionId = data[2];
-        if(this.client.enableSSL) {
+        if (this.client.enableSSL) {
             this.decryptSessionKey(data[3], (sessionKey, success) => {
-                this.onSessionKeyDecrypted(data, sessionKey, success)
+                this.onSessionKeyDecrypted(data, sessionKey, success);
             });
-        }
-        else {
+        } else {
             this.onSessionKeyDecrypted(data, null, true);
         }
     }
 
     decryptSessionKey(encryptedSessionKey, callback) {
-        if(encryptedSessionKey == null) {
-            if(this.client.enableDebug) {
+        if (encryptedSessionKey == null) {
+            if (this.client.enableDebug) {
                 callback(null, true);
                 return;
             }
-            EzyLogger.error("maybe server was not enable SSL, you must enable SSL on server or disable SSL on your client or enable debug mode");
+            EzyLogger.error(
+                'maybe server was not enable SSL, you must enable SSL on server or disable SSL on your client or enable debug mode'
+            );
             this.client.close();
             callback(null, false);
             return;
         }
-        EzyRSAProxy.getInstance().decrypt(encryptedSessionKey, this.client.privateKey, (sessionKey) => {
-            callback(sessionKey, true)
-        });
+        EzyRSAProxy.getInstance().decrypt(
+            encryptedSessionKey,
+            this.client.privateKey,
+            (sessionKey) => {
+                callback(sessionKey, true);
+            }
+        );
     }
 
-	postHandle(data) {
-    }
+    postHandle(data) {}
 
-	handleLogin() {
-		var loginRequest = this.getLoginRequest();
-        this.client.send(Const.EzyCommand.LOGIN, loginRequest, this.encryptedLoginRequest());
+    handleLogin() {
+        var loginRequest = this.getLoginRequest();
+        this.client.send(
+            Const.EzyCommand.LOGIN,
+            loginRequest,
+            this.encryptedLoginRequest()
+        );
     }
 
     encryptedLoginRequest() {
         return false;
     }
-    
+
     getLoginRequest() {
-        return ["test", "test", "test", []];
-	}
-	
-	startPing() {
-		this.client.startPingSchedule();
-	}
+        return ['test', 'test', 'test', []];
+    }
+
+    startPing() {
+        this.client.startPingSchedule();
+    }
 }
 
 //=======================================================
@@ -279,11 +274,10 @@ class EzyLoginSuccessHandler {
         this.client.me = user;
         this.client.zone = zone;
         this.handleLoginSuccess(responseData);
-        EzyLogger.info("user: " + user.name + " logged in successfully");
+        EzyLogger.info('user: ' + user.name + ' logged in successfully');
     }
 
-    handleLoginSuccess(responseData) {
-    }
+    handleLoginSuccess(responseData) {}
 }
 
 class EzyLoginErrorHandler {
@@ -292,8 +286,7 @@ class EzyLoginErrorHandler {
         this.handleLoginError(data);
     }
 
-    handleLoginError(data) {
-    }
+    handleLoginError(data) {}
 }
 
 //=======================================================
@@ -305,7 +298,7 @@ class EzyAppAccessHandler {
         var app = this.newApp(zone, data);
         appManager.addApp(app);
         this.postHandle(app, data);
-        EzyLogger.info("access app: " + app.name + " successfully");
+        EzyLogger.info('access app: ' + app.name + ' successfully');
     }
 
     newApp(zone, data) {
@@ -315,8 +308,7 @@ class EzyAppAccessHandler {
         return app;
     }
 
-    postHandle(app, data) {
-    }
+    postHandle(app, data) {}
 }
 
 //======================================
@@ -324,19 +316,19 @@ class EzyAppAccessHandler {
 class EzyAppExitHandler {
     handle(data) {
         var zone = this.client.zone;
-        var appManager = zone.appManager
+        var appManager = zone.appManager;
         var appId = data[0];
         var reasonId = data[1];
         var app = appManager.removeApp(appId);
-        if(app) {
+        if (app) {
             this.postHandle(app, data);
-            EzyLogger.info("user exit app: " + app.name + ", reason: " + reasonId);
+            EzyLogger.info(
+                'user exit app: ' + app.name + ', reason: ' + reasonId
+            );
         }
     }
 
-    postHandle(app, data) {
-    }
-
+    postHandle(app, data) {}
 }
 
 //=======================================================
@@ -350,10 +342,11 @@ class EzyAppResponseHandler {
 
         var app = this.client.getAppById(appId);
         var handler = app.getDataHandler(cmd);
-        if(handler)
-            handler(app, commandData);
+        if (handler) handler(app, commandData);
         else
-            EzyLogger.warn("app: " + app.name + " has no handler for command: " + cmd);
+            EzyLogger.warn(
+                'app: ' + app.name + ' has no handler for command: ' + cmd
+            );
     }
 }
 
@@ -366,18 +359,22 @@ class EzyPluginInfoHandler {
         var plugin = this.newPlugin(zone, data);
         pluginManager.addPlugin(plugin);
         this.postHandle(plugin, data);
-        EzyLogger.info("request plugin: " + plugin.name + " info successfully");
+        EzyLogger.info('request plugin: ' + plugin.name + ' info successfully');
     }
 
     newPlugin(zone, data) {
         var pluginId = data[0];
         var pluginName = data[1];
-        var plugin = new Entity.EzyPlugin(this.client, zone, pluginId, pluginName);
+        var plugin = new Entity.EzyPlugin(
+            this.client,
+            zone,
+            pluginId,
+            pluginName
+        );
         return plugin;
     }
 
-    postHandle(plugin, data) {
-    }
+    postHandle(plugin, data) {}
 }
 
 //======================================
@@ -391,18 +388,18 @@ class EzyPluginResponseHandler {
 
         var plugin = this.client.getPluginById(pluginId);
         var handler = plugin.getDataHandler(cmd);
-        if(handler)
-            handler(plugin, commandData);
+        if (handler) handler(plugin, commandData);
         else
-            EzyLogger.info("plugin: " + plugin.name + " has no handler for command: " + cmd);
+            EzyLogger.info(
+                'plugin: ' + plugin.name + ' has no handler for command: ' + cmd
+            );
     }
 }
 
 //=======================================================
 
 class EzyPongHandler {
-    handle(data) {
-    }
+    handle(data) {}
 }
 
 //=======================================================
@@ -425,19 +422,16 @@ class EzyDataHandlers {
 
     handle(cmd, data) {
         var handler = this.getHandler(cmd);
-        if(handler)
-            handler.handle(data);
-        else
-            EzyLogger.warn("has no handler with command: " + cmd);
+        if (handler) handler.handle(data);
+        else EzyLogger.warn('has no handler with command: ' + cmd);
     }
 }
 
 //=======================================================
 
 class EzyAppDataHandlers {
-
     constructor() {
-        this.handlers = {}
+        this.handlers = {};
     }
 
     addHandler(cmd, handler) {
@@ -448,15 +442,13 @@ class EzyAppDataHandlers {
         var handler = this.handlers[cmd];
         return handler;
     }
-
 }
 
 //======================================
 
 class EzyPluginDataHandlers {
-
     constructor() {
-        this.handlers = {}
+        this.handlers = {};
     }
 
     addHandler(cmd, handler) {
@@ -467,12 +459,11 @@ class EzyPluginDataHandlers {
         var handler = this.handlers[cmd];
         return handler;
     }
-
 }
 
 //=======================================================
 
-export default { 
+export default {
     EzyConnectionSuccessHandler,
     EzyConnectionFailureHandler,
     EzyDisconnectionHandler,
@@ -488,5 +479,5 @@ export default {
     EzyPongHandler,
     EzyAppDataHandlers,
     EzyPluginDataHandlers,
-    EzyDataHandlers
-}
+    EzyDataHandlers,
+};
