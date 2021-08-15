@@ -1,27 +1,43 @@
-# ezyfox-server-react-native-client
+# ezyfox-server-react-native-client <img src="https://github.com/youngmonkeys/ezyfox-server/blob/master/logo.png" width="64" />
 
-EzyFox Server's react native client sdk
+react native client for [ezyfox server](https://github.com/youngmonkeys/ezyfox-server)
 
-## Installation
+# Architecture
 
-```sh
-npm install ezyfox-server-react-native-client
+<img src="https://raw.githubusercontent.com/youngmonkeys/ezyfox-server-react-native-client/master/images/react-native-sdk.png" />
+
+# Prepare
+
+1. Download and install [JDK 8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
+2. Download and install [Android Studio](https://developer.android.com/studio)
+3. Download and install [Xcode](https://developer.apple.com/xcode/)
+4. Download and install [npm via Node.js](https://nodejs.org/en/download/)
+5. Setup environment [https://reactnative.dev/docs/environment-setup][https://reactnative.dev/docs/environment-setup]
+
+# How to test?
+
+### 1. Install module
+
+```
+npm i ezyfox-server-react-native-client
 ```
 
-## Usage
+### 2. Run iOS
 
-```js
-import EzyClient from "ezyfox-server-react-native-client";
+- Build and Run on Xcode for iOS, don't for get run `pod install`
 
-// ...
+### 3. Run Android
 
-const result = await EzyClient.multiply(3, 7);
-```
+- Run `npx react-native run-android` first
+- Build and run on Android Studio for Android
 
-## Contributing
+### 4. Where need I click?
 
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+- Please fill any username and password or keep default value
+- Click `Login` button and everything done
 
-## License
+# Contact us
 
-MIT
+- Touch us on [Facebook](https://www.facebook.com/youngmonkeys.org)
+- Ask us on [stackask.com](https://stackask.com)
+- Email to me [Dzung](mailto:itprono3@gmail.com)
