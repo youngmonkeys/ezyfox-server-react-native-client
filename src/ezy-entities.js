@@ -1,4 +1,4 @@
-import Const from './ezy-constants'
+import Const from './ezy-constants';
 
 class EzyUser {
     constructor(id, name) {
@@ -31,8 +31,7 @@ class EzyApp {
 
     send(cmd, data, encrypted) {
         var validData = data;
-        if(!validData)
-            validData = {};
+        if (!validData) validData = {};
         var requestData = [this.id, [cmd, validData]];
         this.client.send(Const.EzyCommand.APP_REQUEST, requestData, encrypted);
     }
@@ -56,8 +55,7 @@ export class EzyPlugin {
 
     sendRequest(cmd, data) {
         var validData = data;
-        if(!validData)
-            validData = {};
+        if (!validData) validData = {};
         var requestData = [this.id, [cmd, validData]];
         this.client.sendRequest(Const.EzyCommand.PLUGIN_REQUEST, requestData);
     }
@@ -68,4 +66,4 @@ export class EzyPlugin {
     }
 }
 
-export default {EzyZone, EzyApp, EzyUser}
+export default { EzyZone, EzyApp, EzyUser };

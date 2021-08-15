@@ -1,8 +1,6 @@
-
-import Proxy from './proxy'
+import Proxy from './proxy';
 
 export class EzyRSAProxy {
-
     static getInstance() {
         if (!EzyRSAProxy.instance) {
             EzyRSAProxy.instance = new EzyRSAProxy();
@@ -11,7 +9,7 @@ export class EzyRSAProxy {
     }
 
     generateKeyPair(callback) {
-        Proxy.run2("generateKeyPair", {}, keyPair => {
+        Proxy.run2('generateKeyPair', {}, (keyPair) => {
             callback(keyPair);
         });
     }
@@ -19,9 +17,9 @@ export class EzyRSAProxy {
     decrypt(message, privateKey, callback) {
         var params = {
             message: message,
-            privateKey: privateKey
+            privateKey: privateKey,
         };
-        Proxy.run2("rsaDecrypt", params, result => {
+        Proxy.run2('rsaDecrypt', params, (result) => {
             callback(result);
         });
     }

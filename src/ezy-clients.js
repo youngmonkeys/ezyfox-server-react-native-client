@@ -1,12 +1,17 @@
-import EzyClient from './ezy-client'
-import { DeviceEventEmitter, NativeEventEmitter, Platform, NativeModules } from 'react-native';
+import EzyClient from './ezy-client';
+import {
+    DeviceEventEmitter,
+    NativeEventEmitter,
+    Platform,
+    NativeModules,
+} from 'react-native';
 
 const { EzyClientProxy } = NativeModules;
 
 class EzyClients {
     constructor() {
         this.clients = {};
-        this.defaultClientName = "";
+        this.defaultClientName = '';
         this.addEventListeners();
     }
 
@@ -18,20 +23,18 @@ class EzyClients {
     }
 
     newClient(config, callback) {
-        new EzyClient(config, client => {
+        EzyClient(config, (client) => {
             this.addClient(client);
-            if(this.defaultClientName == "")
+            if (this.defaultClientName === '')
                 this.defaultClientName = client.name;
-            if(callback)
-                callback(client);
+            if (callback) callback(client);
         });
     }
 
     newDefaultClient(config, callback) {
-        this.newClient(config, client => {
+        this.newClient(config, (client) => {
             this.defaultClientName = client.name;
-            if(callback)
-                callback(client);
+            if (callback) callback(client);
         });
     }
 
@@ -48,36 +51,35 @@ class EzyClients {
     }
 
     addEventListeners() {
-        if(Platform.OS == 'ios') {
+        if (Platform.OS === 'ios') {
             const clientEmitter = new NativeEventEmitter(EzyClientProxy);
-            clientEmitter.addListener('ezy.event', params => {
+            clientEmitter.addListener('ezy.event', (params) => {
                 var client = this.getClient(params.clientName);
                 var eventType = params.eventType;
                 var data = params.data;
                 client.handleEvent(eventType, data);
             });
-            clientEmitter.addListener('ezy.data', params => {
+            clientEmitter.addListener('ezy.data', (params) => {
+                var client = this.getClient(params.clientName);
+                var command = params.command;
+                var data = params.data;
+                client.handleData(command, data);
+            });
+        } else {
+            DeviceEventEmitter.addListener('ezy.event', (params) => {
+                var client = this.getClient(params.clientName);
+                var eventType = params.eventType;
+                var data = params.data;
+                client.handleEvent(eventType, data);
+            });
+            DeviceEventEmitter.addListener('ezy.data', (params) => {
                 var client = this.getClient(params.clientName);
                 var command = params.command;
                 var data = params.data;
                 client.handleData(command, data);
             });
         }
-        else {
-            DeviceEventEmitter.addListener('ezy.event', params => {
-                var client = this.getClient(params.clientName);
-                var eventType = params.eventType;
-                var data = params.data;
-                client.handleEvent(eventType, data);
-            });
-            DeviceEventEmitter.addListener('ezy.data', params => {
-                var client = this.getClient(params.clientName);
-                var command = params.command;
-                var data = params.data;
-                client.handleData(command, data);
-            });
-        }
-    }    
+    }
 }
 
-export default EzyClients
+export default EzyClients;
