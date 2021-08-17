@@ -2,6 +2,10 @@
 
 react native client for [ezyfox server](https://github.com/youngmonkeys/ezyfox-server)
 
+# Documentation
+
+[https://youngmonkeys.org/ezyfox-react-native-client-sdk/](https://youngmonkeys.org/ezyfox-react-native-client-sdk/)
+
 # Architecture
 
 <img src="https://raw.githubusercontent.com/youngmonkeys/ezyfox-server-react-native-client/master/images/react-native-sdk.png" />
