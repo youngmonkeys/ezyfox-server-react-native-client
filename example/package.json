@@ -10,7 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "ezyfox-server-react-native-client": "^1.0.0-beta5",
+    "ezyfox-server-react-native-client": "^1.0.1-beta1",
     "mvc-es6": "^1.1.1",
     "react": "17.0.1",
     "react-native": "0.64.2"

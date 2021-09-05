@@ -52,7 +52,7 @@ public class EzyEventSerializer {
             public WritableMap apply(EzyEvent event) {
                 EzyConnectionFailureEvent mevent = (EzyConnectionFailureEvent)event;
                 WritableMap map = Arguments.createMap();
-                map.putString("reason", mevent.getReason().toString());
+                map.putInt("reason", mevent.getReason().getId());
                 return map;
             }
         });
@@ -61,9 +61,7 @@ public class EzyEventSerializer {
             public WritableMap apply(EzyEvent event) {
                 EzyDisconnectionEvent mevent = (EzyDisconnectionEvent)event;
                 WritableMap map = Arguments.createMap();
-                int reason = mevent.getReason();
-                String reasonName = EzyDisconnectReasons.getDisconnectReasonName(reason);
-                map.putString("reason", reasonName);
+                map.putInt("reason", mevent.getReason());
                 return map;
             }
         });
