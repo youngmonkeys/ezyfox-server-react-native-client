@@ -21,14 +21,17 @@ react native client for [ezyfox server](https://github.com/youngmonkeys/ezyfox-s
 # How to test?
 
 ### 1. Install module
-
+- using yarn: 
 ```
-npm i ezyfox-server-react-native-client
+git clone https://github.com/youngmonkeys/ezyfox-server-react-native-client.git && cd ezyfox-server-react-native-client/example && yarn
 ```
-
+- using npm:
+```
+git clone https://github.com/youngmonkeys/ezyfox-server-react-native-client.git && cd ezyfox-server-react-native-client/example && npm i
+```
 ### 2. Run iOS
 
-- Build and Run on Xcode for iOS, don't for get run `pod install`
+- Build and Run on Xcode for iOS, don't forget to run `pod install`
 
 ### 3. Run Android
 
