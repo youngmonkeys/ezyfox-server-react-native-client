@@ -55,6 +55,6 @@ repositories {
 
 dependencies {
     //noinspection GradleDynamicVersion
-    implementation "com.tvd12:ezyfox-server-android-client:1.0.1"
+    implementation "com.tvd12:ezyfox-server-android-client:1.0.2"
     implementation "com.facebook.react:react-native:+"  // From node_modules
 }

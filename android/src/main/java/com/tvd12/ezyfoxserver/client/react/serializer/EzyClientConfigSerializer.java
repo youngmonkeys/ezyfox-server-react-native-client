@@ -4,6 +4,7 @@ import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.tvd12.ezyfoxserver.client.config.EzyClientConfig;
+import com.tvd12.ezyfoxserver.client.config.EzyPingConfig;
 import com.tvd12.ezyfoxserver.client.config.EzyReconnectConfig;
 
 /**
@@ -16,12 +17,20 @@ public class EzyClientConfigSerializer {
         WritableMap map = Arguments.createMap();
         map.putString("clientName", config.getClientName());
         map.putString("zoneName", config.getZoneName());
-        WritableMap reconnectMap = Arguments.createMap();
+
+        EzyPingConfig pingConfig = config.getPing();
+        WritableMap pingMap = Arguments.createMap();
+        pingMap.putInt("maxLostPingCount", pingConfig.getMaxLostPingCount());
+        pingMap.putInt("pingPeriod", (int)pingConfig.getPingPeriod());
+        map.putMap("ping", pingMap);
+
         EzyReconnectConfig reconnectConfig = config.getReconnect();
+        WritableMap reconnectMap = Arguments.createMap();
         reconnectMap.putInt("maxReconnectCount", reconnectConfig.getMaxReconnectCount());
         reconnectMap.putInt("reconnectPeriod", reconnectConfig.getReconnectPeriod());
         reconnectMap.putBoolean("enable", reconnectConfig.isEnable());
         map.putMap("reconnect", reconnectMap);
+
         return map;
     }
 

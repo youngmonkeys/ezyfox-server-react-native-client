@@ -17,6 +17,10 @@ class SocketProxy {
     config.clientName = ZONE_NAME;
     config.enableSSL = true;
     config.enableDebug = true;
+    config.ping.pingPeriod = 1000;
+    config.ping.maxLostPingCount = 3;
+    config.reconnect.reconnectPeriod = 1000;
+    config.reconnect.maxReconnectCount = 10;
     let clients = Ezy.Clients.getInstance();
     clients.newDefaultClient(config, client => {
       this.doSetup(client);
@@ -68,12 +72,33 @@ class SocketProxy {
       routerController.updateViews('change', 'login');
     };
 
+    let lostPingHandler = {};
+    lostPingHandler.handle = function (event) {
+      console.log('lost ping: ' + JSON.stringify(event));
+    };
+
+    let connectionFailureHandler = new Ezy.ConnectionFailureHandler();
+    connectionFailureHandler.preHandle = function (event) {
+      console.log('connection failed: ' + JSON.stringify(event));
+    };
+
+    connectionFailureHandler.onConnectionFailed = function (event) {
+      console.log(
+        'disconnected due to connection failed: ' + JSON.stringify(event),
+      );
+    };
+
     let setup = client.setup;
     setup.addEventHandler(
       Ezy.EventType.CONNECTION_SUCCESS,
       connectionSuccessHandler,
     );
+    setup.addEventHandler(
+      Ezy.EventType.CONNECTION_FAILURE,
+      connectionFailureHandler,
+    );
     setup.addEventHandler(Ezy.EventType.DISCONNECTION, disconnectionHandler);
+    setup.addEventHandler(Ezy.EventType.LOST_PING, lostPingHandler);
     setup.addDataHandler(Ezy.Command.HANDSHAKE, handshakeHandler);
     setup.addDataHandler(Ezy.Command.LOGIN, loginSuccessHandler);
     setup.addDataHandler(Ezy.Command.LOGIN_ERROR, loginErrorHandler);

@@ -7,6 +7,7 @@ import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.tvd12.ezyfoxserver.client.EzyClient;
+import com.tvd12.ezyfoxserver.client.config.EzyPingConfig;
 import com.tvd12.ezyfoxserver.client.react.EzyMethodNames;
 import com.tvd12.ezyfoxserver.client.setup.EzySetup;
 import com.tvd12.ezyfoxserver.client.config.EzyClientConfig;
@@ -19,6 +20,8 @@ import com.tvd12.ezyfoxserver.client.event.EzyEventType;
 import com.tvd12.ezyfoxserver.client.handler.EzyDataHandler;
 import com.tvd12.ezyfoxserver.client.handler.EzyEventHandler;
 import com.tvd12.ezyfoxserver.client.react.serializer.EzyNativeSerializers;
+
+import java.util.Map;
 
 /**
  * Created by tavandung12 on 10/24/18.
@@ -62,6 +65,14 @@ public class EzyCreateClientMethod extends EzyMethodProxy {
             configBuilder.enableSSL(params.getBoolean("enableSSL"));
         if(params.hasKey("enableDebug"))
             configBuilder.enableDebug(params.getBoolean("enableDebug"));
+        if(params.hasKey("ping")) {
+            ReadableMap ping = params.getMap("ping");
+            EzyPingConfig.Builder pingConfigBuilder = configBuilder.pingConfigBuilder();
+            if(ping.hasKey("pingPeriod"))
+                pingConfigBuilder.pingPeriod(ping.getInt("pingPeriod"));
+            if(ping.hasKey("maxLostPingCount"))
+                pingConfigBuilder.maxLostPingCount(ping.getInt("maxLostPingCount"));
+        }
         if(params.hasKey("reconnect")) {
             ReadableMap reconnect = params.getMap("reconnect");
             EzyReconnectConfig.Builder reconnectConfigBuilder = configBuilder.reconnectConfigBuilder();
