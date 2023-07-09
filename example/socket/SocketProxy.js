@@ -127,7 +127,7 @@ class SocketProxy {
 
   connect() {
     let client = this.getClient();
-    client.connect('ws.tvd12.com', 3005);
+    client.connect('192.168.1.151', 3005);
   }
 
   isConnected() {
