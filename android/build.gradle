@@ -1,9 +1,9 @@
 buildscript {
     if (project == rootProject) {
         repositories {
-            google()
-            mavenCentral()
             mavenLocal()
+            mavenCentral()
+            google()
         }
 
         dependencies {

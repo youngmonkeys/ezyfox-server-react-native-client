@@ -9,11 +9,11 @@ import com.tvd12.ezyfoxserver.client.entity.EzyArray;
 import com.tvd12.ezyfoxserver.client.entity.EzyArrayList;
 import com.tvd12.ezyfoxserver.client.entity.EzyHashMap;
 import com.tvd12.ezyfoxserver.client.entity.EzyObject;
-import com.tvd12.ezyfoxserver.client.function.EzyBiConsumer;
-import com.tvd12.ezyfoxserver.client.function.EzyTriConsumer;
+import com.tvd12.ezyfoxserver.client.react.function.EzyTriConsumer;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.BiConsumer;
 
 /**
  * Created by tavandung12 on 10/25/18.
@@ -21,7 +21,7 @@ import java.util.Map;
 
 public class EzyNativeDataSerializer {
 
-    private final Map<Class, EzyBiConsumer<WritableArray, Object>> arrayAppliers;
+    private final Map<Class, BiConsumer<WritableArray, Object>> arrayAppliers;
     private final Map<Class, EzyTriConsumer<WritableMap, Object, Object>> mapAppliers;
 
     public EzyNativeDataSerializer() {
@@ -56,7 +56,7 @@ public class EzyNativeDataSerializer {
             output.pushNull();
         }
         else {
-            EzyBiConsumer<WritableArray, Object> applier = getArrayApplier(value.getClass());
+            BiConsumer<WritableArray, Object> applier = getArrayApplier(value.getClass());
             applier.accept(output, value);
         }
     }
@@ -68,7 +68,7 @@ public class EzyNativeDataSerializer {
         valueApplier.accept(output, key, value);
     }
 
-    private EzyBiConsumer<WritableArray, Object> getArrayApplier(Class type) {
+    private BiConsumer<WritableArray, Object> getArrayApplier(Class type) {
         if(arrayAppliers.containsKey(type))
             return arrayAppliers.get(type);
         throw new IllegalArgumentException("has no serializer for: " + type);
@@ -80,76 +80,76 @@ public class EzyNativeDataSerializer {
         throw new IllegalArgumentException("has no serializer for: " + type);
     }
 
-    private Map<Class, EzyBiConsumer<WritableArray, Object>> newArrayAppliers() {
-        Map<Class, EzyBiConsumer<WritableArray, Object>> answer = new HashMap<>();
-        answer.put(Boolean.class, new EzyBiConsumer<WritableArray, Object>() {
+    private Map<Class, BiConsumer<WritableArray, Object>> newArrayAppliers() {
+        Map<Class, BiConsumer<WritableArray, Object>> answer = new HashMap<>();
+        answer.put(Boolean.class, new BiConsumer<WritableArray, Object>() {
             @Override
             public void accept(WritableArray writableArray, Object o) {
                 writableArray.pushBoolean((Boolean)o);
             }
         });
-        answer.put(Byte.class, new EzyBiConsumer<WritableArray, Object>() {
+        answer.put(Byte.class, new BiConsumer<WritableArray, Object>() {
             @Override
             public void accept(WritableArray writableArray, Object o) {
                 writableArray.pushInt((Byte)o);
             }
         });
-        answer.put(Character.class, new EzyBiConsumer<WritableArray, Object>() {
+        answer.put(Character.class, new BiConsumer<WritableArray, Object>() {
             @Override
             public void accept(WritableArray writableArray, Object o) {
                 writableArray.pushInt((Character)o);
             }
         });
-        answer.put(Double.class, new EzyBiConsumer<WritableArray, Object>() {
+        answer.put(Double.class, new BiConsumer<WritableArray, Object>() {
             @Override
             public void accept(WritableArray writableArray, Object o) {
                 writableArray.pushDouble((Double)o);
             }
         });
-        answer.put(Float.class, new EzyBiConsumer<WritableArray, Object>() {
+        answer.put(Float.class, new BiConsumer<WritableArray, Object>() {
             @Override
             public void accept(WritableArray writableArray, Object o) {
                 writableArray.pushDouble((Float)o);
             }
         });
-        answer.put(Integer.class, new EzyBiConsumer<WritableArray, Object>() {
+        answer.put(Integer.class, new BiConsumer<WritableArray, Object>() {
             @Override
             public void accept(WritableArray writableArray, Object o) {
                 writableArray.pushInt((Integer)o);
             }
         });
-        answer.put(Long.class, new EzyBiConsumer<WritableArray, Object>() {
+        answer.put(Long.class, new BiConsumer<WritableArray, Object>() {
             @Override
             public void accept(WritableArray writableArray, Object o) {
                 writableArray.pushInt(((Long)o).intValue());
             }
         });
-        answer.put(Short.class, new EzyBiConsumer<WritableArray, Object>() {
+        answer.put(Short.class, new BiConsumer<WritableArray, Object>() {
             @Override
             public void accept(WritableArray writableArray, Object o) {
                 writableArray.pushInt((Short)o);
             }
         });
-        answer.put(String.class, new EzyBiConsumer<WritableArray, Object>() {
+        answer.put(String.class, new BiConsumer<WritableArray, Object>() {
             @Override
             public void accept(WritableArray writableArray, Object o) {
                 writableArray.pushString((String)o);
             }
         });
-        answer.put(byte[].class, new EzyBiConsumer<WritableArray, Object>() {
+        answer.put(byte[].class, new BiConsumer<WritableArray, Object>() {
             @Override
             public void accept(WritableArray writableArray, Object o) {
                 writableArray.pushString(Base64.encodeToString((byte[])o, Base64.NO_WRAP));
             }
         });
-        answer.put(EzyArrayList.class, new EzyBiConsumer<WritableArray, Object>() {
+        answer.put(EzyArrayList.class, new BiConsumer<WritableArray, Object>() {
             @Override
             public void accept(WritableArray writableArray, Object o) {
                 WritableArray array = toWritableArray((EzyArray) o);
                 writableArray.pushArray(array);
             }
         });
-        answer.put(EzyHashMap.class, new EzyBiConsumer<WritableArray, Object>() {
+        answer.put(EzyHashMap.class, new BiConsumer<WritableArray, Object>() {
             @Override
             public void accept(WritableArray writableArray, Object o) {
                 WritableMap map = toWritableMap((EzyObject) o);
