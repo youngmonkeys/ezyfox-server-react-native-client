@@ -6,7 +6,7 @@ import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.tvd12.ezyfoxserver.client.react.EzyMethodNames;
-import com.tvd12.ezyfoxserver.client.sercurity.EzyKeysGenerator;
+import com.tvd12.ezyfoxserver.client.security.EzyKeysGenerator;
 
 import java.security.KeyPair;
 

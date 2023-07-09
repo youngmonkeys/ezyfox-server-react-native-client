@@ -4,7 +4,7 @@ import android.util.Base64;
 
 import com.facebook.react.bridge.ReadableMap;
 import com.tvd12.ezyfoxserver.client.react.EzyMethodNames;
-import com.tvd12.ezyfoxserver.client.sercurity.EzyAsyCrypt;
+import com.tvd12.ezyfoxserver.client.security.EzyAsyCrypt;
 
 /**
  * Created by tavandung12 on 10/25/18.
