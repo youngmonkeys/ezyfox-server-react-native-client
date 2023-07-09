@@ -41,13 +41,6 @@ class EzyConnectionSuccessHandler {
     }
 
     isEnableSSL(clientKey) {
-        if (
-            this.client.enableSSL &&
-            this.client.enableDebug &&
-            (!clientKey || clientKey.isEmpty)
-        ) {
-            return false;
-        }
         return this.client.enableSSL;
     }
 
