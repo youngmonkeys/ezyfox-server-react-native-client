@@ -1,6 +1,6 @@
 {
   "name": "ezyfox-server-react-native-client",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "EzyFox Server's React Native Client SDK",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
